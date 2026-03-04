@@ -47,22 +47,22 @@ export default function LandingPage() {
           description="Asesoría especializada y entrega directa en Crespo, Bocagrande, Manga y alrededores. Trabajamos con marcas de alto estándar nutricional para dueños que priorizan la calidad de vida de sus perros."
           tag="Especialistas en Nutrición Premium"
           tagIcon={Sparkles}
-          tagAnimation="entrance-slide"
+          tagAnimation="blur-reveal"
           background={{ variant: "plain" }}
           buttons={[
             { text: "Llamar Ahora", href: "tel:+573001234567" },
             { text: "Escribir por WhatsApp", href: "https://wa.me/573001234567?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20su%20servicio%20de%20alimento%20premium" }
           ]}
-          buttonAnimation="entrance-slide"
+          buttonAnimation="blur-reveal"
           mediaItems={[
             {
-              imageSrc: "http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1",              imageAlt: "Perro comiendo alimento premium"
+              imageSrc: "http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg",              imageAlt: "Perro comiendo alimento premium"
             },
             {
-              imageSrc: "http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=2",              imageAlt: "Dueño de perro satisfecho con nuestro servicio"
+              imageSrc: "http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg",              imageAlt: "Dueño de perro satisfecho con nuestro servicio"
             }
           ]}
-          mediaAnimation="entrance-slide"
+          mediaAnimation="blur-reveal"
           rating={5}
           ratingText="Recomendado por dueños premium en Cartagena"
           ariaLabel="Hero section - Cartagena Pet Delivery premium dog food"
@@ -78,7 +78,7 @@ export default function LandingPage() {
             { icon: Clock, label: "Horario Ampliado", value: "7am-9pm" },
             { icon: CheckCircle, label: "Seguimiento Personalizado", value: "100%" }
           ]}
-          metricsAnimation="entrance-slide"
+          metricsAnimation="blur-reveal"
           useInvertedBackground={false}
           ariaLabel="About metrics section - Cartagena Pet Delivery specialization"
         />
@@ -116,7 +116,7 @@ export default function LandingPage() {
               id: "otras-zonas",              label: "Más Zonas",              title: "También llegamos a Marbella, Laguito, Castillo y Centro",              items: ["Cobertura amplia", "Entregas coordinadas", "Servicio premium"]
             }
           ]}
-          animationType="entrance-slide"
+          animationType="blur-reveal"
           textboxLayout="default"
           useInvertedBackground={false}
           ariaLabel="Coverage zones - Cartagena north zone delivery"
