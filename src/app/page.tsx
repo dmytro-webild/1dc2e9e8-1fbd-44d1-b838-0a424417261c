@@ -56,10 +56,10 @@ export default function LandingPage() {
           buttonAnimation="blur-reveal"
           mediaItems={[
             {
-              imageSrc: "http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg",              imageAlt: "Perro comiendo alimento premium"
+              imageSrc: "http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1",              imageAlt: "Perro comiendo alimento premium"
             },
             {
-              imageSrc: "http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg",              imageAlt: "Dueño de perro satisfecho con nuestro servicio"
+              imageSrc: "http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=2",              imageAlt: "Dueño de perro satisfecho con nuestro servicio"
             }
           ]}
           mediaAnimation="blur-reveal"
