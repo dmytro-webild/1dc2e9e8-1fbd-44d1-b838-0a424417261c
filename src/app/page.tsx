@@ -10,8 +10,41 @@ import TestimonialCardTen from '@/components/sections/testimonial/TestimonialCar
 import ContactCTA from '@/components/sections/contact/ContactCTA';
 import FooterLogoReveal from '@/components/sections/footer/FooterLogoReveal';
 import { Award, Users, Clock, CheckCircle, Sparkles, MessageSquare } from 'lucide-react';
+import { useState } from 'react';
 
 export default function LandingPage() {
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+
+  const handleFormSubmit = async (formData: Record<string, string>) => {
+    try {
+      const emailBody = Object.entries(formData)
+        .map(([key, value]) => `${key}: ${value}`)
+        .join('\n');
+
+      const response = await fetch('https://formspree.io/f/xyzabc', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...formData,
+          _subject: 'Nueva solicitud de asesoría - Cartagena Pet Delivery',
+          _replyto: formData.email || 'noreply@example.com',
+        }),
+      });
+
+      if (response.ok) {
+        setShowSuccessMessage(true);
+        setTimeout(() => {
+          setShowSuccessMessage(false);
+          window.location.href = '/';
+        }, 2000);
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+    }
+  };
+
   return (
     <ThemeProvider
       defaultButtonVariant="text-shift"
@@ -25,6 +58,16 @@ export default function LandingPage() {
       secondaryButtonStyle="radial-glow"
       headingFontWeight="extrabold"
     >
+      {showSuccessMessage && (
+        <div className="fixed inset-0 flex items-center justify-center z-50 bg-black/50">
+          <div className="bg-white rounded-lg p-8 text-center shadow-2xl">
+            <div className="text-6xl mb-4">🐾</div>
+            <h2 className="text-2xl font-bold text-[#001a4d] mb-2">¡Solicitud Recibida!</h2>
+            <p className="text-gray-600">Nuestro equipo se pondrá en contacto pronto.</p>
+          </div>
+        </div>
+      )}
+
       <div id="nav" data-section="nav">
         <NavbarLayoutFloatingOverlay
           brandName="Cartagena Pet Delivery"
@@ -33,7 +76,7 @@ export default function LandingPage() {
             { name: "Por Qué Nosotros", id: "authority" },
             { name: "Cobertura", id: "coverage" },
             { name: "Testimonios", id: "testimonials" },
-            { name: "Contacto", id: "contact" }
+            { name: "Contacto", id: "form" }
           ]}
           button={{
             text: "Llamar Ahora",            href: "tel:+573011471991"
@@ -154,7 +197,7 @@ export default function LandingPage() {
           title="Solicita Asesoría Personalizada"
           description="Completa este formulario y nuestro equipo de especialistas se pondrá en contacto para brindarte una asesoría ajustada a las necesidades nutricionales de tu perro."
           buttons={[
-            { text: "Recibir Asesoría Gratis", href: "tel:+573011471991" },
+            { text: "Recibir Asesoría Gratis", onClick: () => handleFormSubmit({ mensaje: 'Solicitud de asesoría' }) },
             { text: "Escribir por WhatsApp", href: "https://wa.me/573011471991?text=Hola,%20me%20interesa%20recibir%20asesoría%20personalizada" }
           ]}
           background={{ variant: "plain" }}
