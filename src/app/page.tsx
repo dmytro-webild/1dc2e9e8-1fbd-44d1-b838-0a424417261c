@@ -154,7 +154,7 @@ export default function LandingPage() {
           title="Solicita Asesoría Personalizada"
           description="Completa este formulario y nuestro equipo de especialistas se pondrá en contacto para brindarte una asesoría ajustada a las necesidades nutricionales de tu perro."
           buttons={[
-            { text: "Llenar Formulario", href: "#form-section" },
+            { text: "Recibir Asesoría Gratis", href: "#form-section" },
             { text: "Llamar Directamente", href: "tel:+573001234567" }
           ]}
           background={{ variant: "plain" }}
