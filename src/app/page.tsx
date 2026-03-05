@@ -88,7 +88,7 @@ export default function LandingPage() {
         <SocialProofOne
           title="Marcas de Alto Estándar Nutricional"
           description="Trabajamos únicamente con marcas premium que priorizan la salud y nutrición de tu perro. No comercializamos productos genéricos."
-          tag="Curadores de Marcas Premium"
+          tag="Selección de Marcas Premium"
           textboxLayout="default"
           useInvertedBackground={false}
           names={["Royal Canin", "Hill's Science Diet", "Pro Plan", "Acana", "Orijen", "Canidae", "Taste of the Wild"]}
