@@ -1,49 +1,22 @@
 import type { Metadata } from "next";
-import { Halant } from "next/font/google";
 import { Inter } from "next/font/google";
-import { Public_Sans } from "next/font/google";
 import "./globals.css";
-import { ServiceWrapper } from "@/components/ServiceWrapper";
-import Tag from "@/tag/Tag";
+import "./styles/variables.css";
+import "./styles/base.css";
 
-const halant = Halant({
-  variable: "--font-halant",  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-});
-
-const inter = Inter({
-  variable: "--font-inter",  subsets: ["latin"],
-});
-
-const publicSans = Public_Sans({
-  variable: "--font-public-sans",  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Alimento Premium para Perros Cartagena Zona Norte | Delivery",  description: "Especialistas en alimento premium para perros en Cartagena. Entrega directa en Crespo, Bocagrande, Manga y alrededores. Marcas certificadas, asesoría personalizada.",  keywords: "alimento premium perros Cartagena, comida perros Bocagrande, pet food Crespo, alimento perros zona norte, delivery premium perros",  openGraph: {
-    title: "Cartagena Pet Delivery | Alimento Premium para Perros",    description: "Especialistas en nutrición premium. Entrega en zona norte de Cartagena.",    siteName: "Cartagena Pet Delivery",    type: "website"},
-  twitter: {
-    card: "summary_large_image",    title: "Alimento Premium para Perros | Cartagena Pet Delivery",    description: "Asesoría especializada y entrega directa de alimento premium"},
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+  title: "Cartagena Pet Delivery - Alimento Premium para Perros",  description: "Especialistas en nutrición premium para perros en la zona norte de Cartagena. Asesoría especializada y entrega directa."};
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <ServiceWrapper>
-        <body
-          className={`${halant.variable} ${inter.variable} ${publicSans.variable} antialiased`}
-        >
-          <Tag />
-          {children}
-        
+    <html lang="es">
+      <body className={inter.className}>{children}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -1411,7 +1384,6 @@ export default function RootLayout({
           }}
         />
       </body>
-      </ServiceWrapper>
     </html>
   );
 }
