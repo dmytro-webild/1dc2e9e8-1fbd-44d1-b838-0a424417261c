@@ -7,7 +7,8 @@ import "./styles/base.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Cartagena Pet Delivery - Alimento Premium para Perros",  description: "Especialistas en nutrición premium para perros en la zona norte de Cartagena. Asesoría especializada y entrega directa."};
+  title: "Cartagena Pet Delivery - Alimento Premium para Perros",  description: "Especialistas en nutrición premium para perros en la zona norte de Cartagena. Asesoría especializada y entrega directa."
+};
 
 export default function RootLayout({
   children,
