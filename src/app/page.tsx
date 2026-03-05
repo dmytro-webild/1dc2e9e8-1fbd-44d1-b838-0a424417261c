@@ -36,7 +36,7 @@ export default function LandingPage() {
             { name: "Contacto", id: "contact" }
           ]}
           button={{
-            text: "Llamar Ahora",            href: "tel:+573001234567"
+            text: "Llamar Ahora",            href: "tel:+573011471991"
           }}
         />
       </div>
@@ -50,8 +50,8 @@ export default function LandingPage() {
           tagAnimation="blur-reveal"
           background={{ variant: "plain" }}
           buttons={[
-            { text: "Llamar Ahora", href: "tel:+573001234567" },
-            { text: "Escribir por WhatsApp", href: "https://wa.me/573001234567?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20su%20servicio%20de%20alimento%20premium" }
+            { text: "Llamar Ahora", href: "tel:+573011471991" },
+            { text: "Escribir por WhatsApp", href: "https://wa.me/573011471991?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20su%20servicio%20de%20alimento%20premium" }
           ]}
           buttonAnimation="blur-reveal"
           mediaItems={[
@@ -113,7 +113,7 @@ export default function LandingPage() {
               id: "manga",              label: "Manga",              title: "Servicio premium en Manga",              items: ["Entregas garantizadas", "Consultoría nutricional", "Programas de lealtad"]
             },
             {
-              id: "otras-zonas",              label: "Más Zonas",              title: "También llegamos a Marbella, Laguito, Castillo y Centro",              items: ["Cobertura amplia", "Entregas coordinadas", "Servicio premium"]
+              id: "otras-zonas",              label: "Más Zonas",              title: "También llegamos a Marbella, Laguito, Castillo y Centro",              items: ["Cobertura ampla", "Entregas coordinadas", "Servicio premium"]
             }
           ]}
           animationType="blur-reveal"
@@ -154,8 +154,8 @@ export default function LandingPage() {
           title="Solicita Asesoría Personalizada"
           description="Completa este formulario y nuestro equipo de especialistas se pondrá en contacto para brindarte una asesoría ajustada a las necesidades nutricionales de tu perro."
           buttons={[
-            { text: "Recibir Asesoría Gratis", href: "#form-section" },
-            { text: "Llamar Directamente", href: "tel:+573001234567" }
+            { text: "Recibir Asesoría Gratis", href: "tel:+573011471991" },
+            { text: "Escribir por WhatsApp", href: "https://wa.me/573011471991?text=Hola,%20me%20interesa%20recibir%20asesoría%20personalizada" }
           ]}
           background={{ variant: "plain" }}
           useInvertedBackground={false}
