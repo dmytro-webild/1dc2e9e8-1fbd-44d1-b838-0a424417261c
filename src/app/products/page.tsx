@@ -68,16 +68,16 @@ export default function ProductsPage() {
               id: "2",              name: "Hill's Science Diet Adult",              price: "$75.000",              variant: "Nutrición Científica  Todas las Razas",              imageSrc: "http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=2",              imageAlt: "Hill's Science Diet Adult",              isFavorited: false
             },
             {
-              id: "3",              name: "Pro Plan Optistart",              price: "$70.000",              variant: "Desarrollo Óptimo  Cachorros",              imageSrc: "http://img.b2bpic.net/free-photo/portrait-young-handsome-dogowner-spending-time-with-his-pet-cafe-sitting-indoors-looking_1258-245386.jpg",              imageAlt: "Pro Plan Optistart",              isFavorited: false
+              id: "3",              name: "Pro Plan Optistart",              price: "$70.000",              variant: "Desarrollo Óptimo  Cachorros",              imageSrc: "http://img.b2bpic.net/free-photo/portrait-young-handsome-dogowner-spending-time-with-his-pet-cafe-sitting-indoors-looking_1258-245386.jpg?_wi=2",              imageAlt: "Pro Plan Optistart",              isFavorited: false
             },
             {
-              id: "4",              name: "Acana Grasslands",              price: "$95.000",              variant: "Ingredientes Naturales  Proteína Alta",              imageSrc: "http://img.b2bpic.net/free-photo/two-sisters-with-their-dog-park_1303-11215.jpg",              imageAlt: "Acana Grasslands",              isFavorited: false
+              id: "4",              name: "Acana Grasslands",              price: "$95.000",              variant: "Ingredientes Naturales  Proteína Alta",              imageSrc: "http://img.b2bpic.net/free-photo/two-sisters-with-their-dog-park_1303-11215.jpg?_wi=2",              imageAlt: "Acana Grasslands",              isFavorited: false
             },
             {
-              id: "5",              name: "Orijen Original",              price: "$110.000",              variant: "Biológicamente Apropiado  Perros Activos",              imageSrc: "http://img.b2bpic.net/free-photo/handsome-man-holding-french-bulldog-walking-park_176420-55093.jpg",              imageAlt: "Orijen Original",              isFavorited: false
+              id: "5",              name: "Orijen Original",              price: "$110.000",              variant: "Biológicamente Apropiado  Perros Activos",              imageSrc: "http://img.b2bpic.net/free-photo/handsome-man-holding-french-bulldog-walking-park_176420-55093.jpg?_wi=2",              imageAlt: "Orijen Original",              isFavorited: false
             },
             {
-              id: "6",              name: "Canidae Pure",              price: "$80.000",              variant: "Sin Granos  Ingredientes Simples",              imageSrc: "http://img.b2bpic.net/free-photo/happy-couple-guys-playing-with-their-dog-backyard-grass-cheerful-old-dog_158595-6541.jpg",              imageAlt: "Canidae Pure",              isFavorited: false
+              id: "6",              name: "Canidae Pure",              price: "$80.000",              variant: "Sin Granos  Ingredientes Simples",              imageSrc: "http://img.b2bpic.net/free-photo/happy-couple-guys-playing-with-their-dog-backyard-grass-cheerful-old-dog_158595-6541.jpg?_wi=2",              imageAlt: "Canidae Pure",              isFavorited: false
             }
           ]}
           title="Nuestros Productos"
