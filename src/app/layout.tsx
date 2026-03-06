@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import "./globals.css";
 import "./styles/variables.css";
 import "./styles/base.css";
 
-const inter = Inter({
-  variable: "--font-inter",  subsets: ["latin"],
-});
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Cartagena Pet Delivery | Alimento Premium para Perros",  description: "Asesoría especializada y entrega directa de alimento premium para perros en la zona norte de Cartagena. Marcas certificadas de alto estándar nutricional."};
+  title: "Cartagena Pet Delivery - Alimento Premium para Perros",  description: "Especialistas en nutrición premium para perros en la zona norte de Cartagena. Asesoría especializada y entrega directa."
+};
 
 export default function RootLayout({
   children,
@@ -17,20 +17,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <head>
-        <script async src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
-        <script>
-          {`
-            const lenis = new Lenis();
-            function raf(time) {
-              lenis.raf(time);
-              requestAnimationFrame(raf);
-            }
-            requestAnimationFrame(raf);
-          `}
-        </script>
-      </head>
-      <body className={inter.variable}>{children}
+      <body className={inter.className}>{children}
         <script
           dangerouslySetInnerHTML={{
             __html: `
