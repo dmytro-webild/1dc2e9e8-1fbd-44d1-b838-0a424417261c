@@ -156,7 +156,7 @@ export default function LandingPage() {
               id: "manga",              label: "Manga",              title: "Servicio premium en Manga",              items: ["Entregas garantizadas", "Consultoría nutricional", "Programas de lealtad"]
             },
             {
-              id: "otras-zonas",              label: "Más Zonas",              title: "También llegamos a Marbella, Laguito, Castillo y Centro",              items: ["Cobertura ampla", "Entregas coordinadas", "Servicio premium"]
+              id: "otras-zonas",              label: "Más Zonas",              title: "También cubrimos el Anillo Vial, Serena del Mar y más. Consúltanos",              items: ["Cobertura ampla", "Entregas coordinadas", "Servicio premium"]
             }
           ]}
           animationType="blur-reveal"
