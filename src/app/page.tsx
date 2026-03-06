@@ -9,17 +9,31 @@ import FeatureCardTwelve from '@/components/sections/feature/FeatureCardTwelve';
 import TestimonialCardTen from '@/components/sections/testimonial/TestimonialCardTen';
 import ContactCTA from '@/components/sections/contact/ContactCTA';
 import FooterLogoReveal from '@/components/sections/footer/FooterLogoReveal';
-import { Award, Users, Clock, CheckCircle, Sparkles, MessageSquare } from 'lucide-react';
+import { Award, Users, Clock, CheckCircle, Sparkles, MessageSquare, Dog } from 'lucide-react';
 import { useState } from 'react';
+
+interface ModalFormData {
+  nombre: string;
+  telefono: string;
+  edadPerro: string;
+  marcaActual: string;
+  comentario: string;
+}
 
 export default function LandingPage() {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const [formData, setFormData] = useState<ModalFormData>({
+    nombre: '',
+    telefono: '',
+    edadPerro: '',
+    marcaActual: '',
+    comentario: ''
+  });
 
-  const handleFormSubmit = async (formData: Record<string, string>) => {
+  const handleFormSubmit = async (data: ModalFormData) => {
     try {
-      const emailBody = Object.entries(formData)
-        .map(([key, value]) => `${key}: ${value}`)
-        .join('\n');
+      const emailBody = `Nombre: ${data.nombre}\nTeléfono: ${data.telefono}\nEdad del Perro: ${data.edadPerro}\nMarca que usa actualmente: ${data.marcaActual}\nComentario: ${data.comentario}`;
 
       const response = await fetch('https://formspree.io/f/xyzabc', {
         method: 'POST',
@@ -27,22 +41,36 @@ export default function LandingPage() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          ...formData,
+          ...data,
           _subject: 'Nueva solicitud de asesoría - Cartagena Pet Delivery',
-          _replyto: formData.email || 'noreply@example.com',
+          _replyto: data.telefono || 'noreply@example.com',
         }),
       });
 
       if (response.ok) {
         setShowSuccessMessage(true);
+        setShowModal(false);
+        setFormData({ nombre: '', telefono: '', edadPerro: '', marcaActual: '', comentario: '' });
         setTimeout(() => {
           setShowSuccessMessage(false);
-          window.location.href = '/';
-        }, 2000);
+        }, 3000);
       }
     } catch (error) {
       console.error('Error submitting form:', error);
     }
+  };
+
+  const handleModalSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    handleFormSubmit(formData);
+  };
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   return (
@@ -63,14 +91,90 @@ export default function LandingPage() {
           <div className="bg-white rounded-lg p-8 text-center shadow-2xl">
             <div className="text-6xl mb-4">🐾</div>
             <h2 className="text-2xl font-bold text-[#001a4d] mb-2">¡Solicitud Recibida!</h2>
-            <p className="text-gray-600">Nuestro equipo se pondrá en contacto pronto.</p>
+            <p className="text-gray-600">Gracias. Nuestro equipo se pondrá en contacto contigo pronto.</p>
+          </div>
+        </div>
+      )}
+
+      {showModal && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => setShowModal(false)}>
+          <div className="bg-white rounded-lg max-w-md w-full p-6 shadow-2xl" onClick={e => e.stopPropagation()}>
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-bold text-[#001a4d]">Solicitar Asesoría</h2>
+              <button onClick={() => setShowModal(false)} className="text-2xl text-gray-500 hover:text-gray-700">×</button>
+            </div>
+            <form onSubmit={handleModalSubmit} className="space-y-4">
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">Nombre</label>
+                <input
+                  type="text"
+                  name="nombre"
+                  value={formData.nombre}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001a4d]"
+                  placeholder="Tu nombre"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">Teléfono</label>
+                <input
+                  type="tel"
+                  name="telefono"
+                  value={formData.telefono}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001a4d]"
+                  placeholder="Tu teléfono"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">Edad del Perro</label>
+                <input
+                  type="text"
+                  name="edadPerro"
+                  value={formData.edadPerro}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001a4d]"
+                  placeholder="Ej: 2 años"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">Marca que usa actualmente</label>
+                <input
+                  type="text"
+                  name="marcaActual"
+                  value={formData.marcaActual}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001a4d]"
+                  placeholder="Marca actual"
+                />
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-1">Comentario</label>
+                <textarea
+                  name="comentario"
+                  value={formData.comentario}
+                  onChange={handleInputChange}
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001a4d]"
+                  placeholder="Cuéntanos sobre tu perro"
+                  rows={3}
+                />
+              </div>
+              <button
+                type="submit"
+                className="w-full py-2 bg-[#001a4d] text-white rounded-lg font-semibold hover:opacity-90 transition-opacity"
+              >
+                Enviar Solicitud
+              </button>
+            </form>
           </div>
         </div>
       )}
 
       <div id="nav" data-section="nav">
         <NavbarLayoutFloatingOverlay
-          brandName="Cartagena Pet Delivery"
+          brandName="🐕 Cartagena Pet Delivery"
           navItems={[
             { name: "Inicio", id: "hero" },
             { name: "Por Qué Nosotros", id: "authority" },
@@ -117,7 +221,7 @@ export default function LandingPage() {
         <AboutMetric
           title="Especialistas en Nutrición Premium para Perros - Confía en Nuestra Experiencia"
           metrics={[
-            { icon: Award, label: "Marcas Premium Certificadas", value: "15+" },
+            { icon: Award, label: "Marcas Premium Certificadas", value: "8+" },
             { icon: Users, label: "Clientes Satisfechos", value: "500+" },
             { icon: Clock, label: "Horario Ampliado", value: "7am-9pm" },
             { icon: CheckCircle, label: "Seguimiento Personalizado", value: "100%" }
@@ -135,7 +239,7 @@ export default function LandingPage() {
           tag="Selección de Marcas Premium"
           textboxLayout="default"
           useInvertedBackground={false}
-          names={["Royal Canin", "Hill's Science Diet", "Pro Plan", "Acana", "Orijen", "Canidae", "Taste of the Wild"]}
+          names={["Royal Canin", "Hill's Science Diet", "Acana", "Taste of the Wild", "Orijen", "Pro Plan", "Monello", "Equilibrio"]}
           speed={40}
           showCard={true}
           ariaLabel="Social proof - Premium brands section"
@@ -198,7 +302,7 @@ export default function LandingPage() {
           title="Solicita Asesoría Personalizada"
           description="Completa este formulario y nuestro equipo de especialistas se pondrá en contacto para brindarte una asesoría ajustada a las necesidades nutricionales de tu perro."
           buttons={[
-            { text: "Recibir Asesoría Gratis", onClick: () => handleFormSubmit({ mensaje: 'Solicitud de asesoría' }) },
+            { text: "Recibir Asesoría Gratis", onClick: () => setShowModal(true) },
             { text: "Escribir por WhatsApp", href: "https://wa.me/573011471991?text=Hola,%20me%20interesa%20recibir%20asesoría%20personalizada" }
           ]}
           background={{ variant: "plain" }}
@@ -210,8 +314,8 @@ export default function LandingPage() {
       <div id="footer" data-section="footer">
         <FooterLogoReveal
           logoText="Cartagena Pet Delivery"
-          leftLink={{ text: "Política de Privacidad", href: "#" }}
-          rightLink={{ text: "Términos de Servicio", href: "#" }}
+          leftLink={{ text: "Política de Privacidad", href: "/privacy" }}
+          rightLink={{ text: "Términos y Condiciones", href: "/terms" }}
           ariaLabel="Site footer"
         />
       </div>
