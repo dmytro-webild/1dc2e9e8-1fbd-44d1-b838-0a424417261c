@@ -213,7 +213,7 @@ export default function LandingPage() {
           ]}
           mediaAnimation="blur-reveal"
           rating={5}
-          ratingText="Recomendado por dueños premium en Cartagena"
+          ratingText="Recomendado por dueños       premium en Cartagena"
           ariaLabel="Hero section - Cartagena Pet Delivery premium dog food"
         />
       </div>
@@ -280,7 +280,7 @@ export default function LandingPage() {
           useInvertedBackground={false}
           testimonials={[
             {
-              id: "1",              title: "Confianza y Especialización",              quote: "Finalmente encontré alguien que entiende realmente de nutrición premium para perros. No me presionan con descuentos, solo con calidad. Mi perro nunca se ha visto mejor.",              name: "María Fernández",              role: "Crespo",              imageSrc: "http://img.b2bpic.net/free-photo/portrait-young-handsome-dogowner-spending-time-with-his-pet-cafe-sitting-indoors-looking_1258-245386.jpg?_wi=1",              imageAlt: "María Fernández"
+              id: "1",              title: "Confianza y Especialización",              quote: "Finalmente encontré alguien que entiende realmente de nutrición premium para perros. No me presionan con descuentos, solo con calidad. Mi perro nunca se ha visto mejor.",              name: "María Fernández",              role: "Crespo",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1772830207795-vfzymp39.jpg",              imageAlt: "María Fernández"
             },
             {
               id: "2",              title: "Servicio y Comodidad",              quote: "La entrega a domicilio y la asesoría personalizada hacen toda la diferencia. No tengo que salir de Bocagrande y recibo exactamente lo que mi perro necesita.",              name: "Carlos Rodríguez",              role: "Bocagrande",              imageSrc: "http://img.b2bpic.net/free-photo/two-sisters-with-their-dog-park_1303-11215.jpg?_wi=1",              imageAlt: "Carlos Rodríguez"
