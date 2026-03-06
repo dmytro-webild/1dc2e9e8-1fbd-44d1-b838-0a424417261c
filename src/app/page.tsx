@@ -177,7 +177,7 @@ export default function LandingPage() {
         <NavbarLayoutFloatingOverlay
           brandName="Cartagena Pet Delivery"
           navItems={[
-            { name: "Inicio", id: "hero" },
+            { name: "Inicio", id: "/" },
             { name: "Por Qué Nosotros", id: "authority" },
             { name: "Cobertura", id: "coverage" },
             { name: "Testimonios", id: "testimonials" },
@@ -220,7 +220,7 @@ export default function LandingPage() {
 
       <div id="authority" data-section="authority">
         <AboutMetric
-          title="Especialistas en Nutrición Premium para Perros - Confía en Nuestra Experiencia"
+          title="Especialistas en Nutrición Premium para Perros"
           metrics={[
             { icon: Award, label: "Marcas Premium Certificadas", value: "8+" },
             { icon: Users, label: "Clientes Satisfechos", value: "500+" },
@@ -262,7 +262,7 @@ export default function LandingPage() {
               id: "manga",              label: "Manga",              title: "Servicio premium en Manga",              items: ["Entregas garantizadas", "Consultoría nutricional", "Programas de lealtad"]
             },
             {
-              id: "otras-zonas",              label: "Más Zonas",              title: "También cubrimos el Anillo Vial, Serena del Mar y más. Consúltanos",              items: ["Cobertura ampla", "Entregas coordinadas", "Servicio premium"]
+              id: "otras-zonas",              label: "Más Zonas",              title: "También cubrimos el Anillo Vial, Serena del Mar y más. Consulta disponibilidad",              items: ["Cobertura ampla", "Entregas coordinadas", "Servicio premium"]
             }
           ]}
           animationType="blur-reveal"
