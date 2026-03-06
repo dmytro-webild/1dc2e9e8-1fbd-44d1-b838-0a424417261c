@@ -215,6 +215,8 @@ export default function LandingPage() {
           rating={5}
           ratingText="Recomendado por dueños premium en Cartagena"
           ariaLabel="Hero section - Cartagena Pet Delivery premium dog food"
+          titleClassName="break-words overflow-hidden whitespace-normal"
+          descriptionClassName="break-words overflow-hidden whitespace-normal"
         />
       </div>
 

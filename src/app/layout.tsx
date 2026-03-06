@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import "./globals.css";
+import { DM_Sans } from "next/font/google";
 import "./styles/variables.css";
 import "./styles/base.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",  subsets: ["latin"],
+});
 
 export const metadata: Metadata = {
-  title: "Cartagena Pet Delivery - Alimento Premium para Perros",  description: "Especialistas en nutrición premium para perros en la zona norte de Cartagena. Asesoría especializada y entrega directa."
-};
+  title: "Cartagena Pet Delivery | Alimento Premium para Perros",  description: "Asesoría especializada en nutrición premium para perros y entrega a domicilio en la zona norte de Cartagena."};
 
 export default function RootLayout({
   children,
@@ -17,7 +17,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body className={inter.className}>{children}
+      <body className={`${dmSans.variable} antialiased`}>
+        {children}
+      
         <script
           dangerouslySetInnerHTML={{
             __html: `
