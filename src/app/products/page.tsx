@@ -13,15 +13,20 @@ interface ProductVariant {
   label: string;
 }
 
+interface PackageOption {
+  size: string;
+  price: number;
+  label: string;
+}
+
 interface Product {
   id: string;
   brand: string;
   name: string;
-  price: string;
   imageSrc: string;
   imageAlt: string;
   variants: ProductVariant[];
-  packageSizes: { size: string; label: string }[];
+  packageSizes: PackageOption[];
 }
 
 const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
@@ -30,7 +35,6 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       id: '1',
       brand: 'Royal Canin',
       name: 'Royal Canin Maxi',
-      price: '$85.000',
       imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
       imageAlt: 'Royal Canin Maxi',
       variants: [
@@ -38,20 +42,19 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
         { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' },
         { lifeStage: 'senior', size: 'grande', label: 'Senior Grande' }
       ],
-      packageSizes: [{ size: '4kg', label: '4kg' }, { size: '10kg', label: '10kg' }, { size: '15kg', label: '15kg' }]
+      packageSizes: [{ size: '4kg', price: 85000, label: '4kg - $85.000' }, { size: '10kg', price: 180000, label: '10kg - $180.000' }, { size: '15kg', price: 250000, label: '15kg - $250.000' }]
     }
   ],
   "Hill's Science Diet": [
     {
       id: '2',
-      brand: "Hill's Science Diet",      name: "Hill's Adult Sensitive Stomach",      price: '$75.000',
-      imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=2',
+      brand: "Hill's Science Diet",      name: "Hill's Adult Sensitive Stomach",      imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=2',
       imageAlt: "Hill's Adult Sensitive Stomach",      variants: [
         { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
         { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
         { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' }
       ],
-      packageSizes: [{ size: '3.5kg', label: '3.5kg' }, { size: '7.5kg', label: '7.5kg' }, { size: '12kg', label: '12kg' }]
+      packageSizes: [{ size: '3.5kg', price: 75000, label: '3.5kg - $75.000' }, { size: '7.5kg', price: 145000, label: '7.5kg - $145.000' }, { size: '12kg', price: 220000, label: '12kg - $220.000' }]
     }
   ],
   'Pro Plan': [
@@ -59,7 +62,6 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       id: '3',
       brand: 'Pro Plan',
       name: 'Pro Plan OptiStart',
-      price: '$70.000',
       imageSrc: 'http://img.b2bpic.net/free-photo/portrait-young-handsome-dogowner-spending-time-with-his-pet-cafe-sitting-indoors-looking_1258-245386.jpg?_wi=2',
       imageAlt: 'Pro Plan OptiStart',
       variants: [
@@ -67,7 +69,7 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
         { lifeStage: 'cachorro', size: 'mediano', label: 'Cachorro Mediano' },
         { lifeStage: 'cachorro', size: 'grande', label: 'Cachorro Grande' }
       ],
-      packageSizes: [{ size: '3kg', label: '3kg' }, { size: '6kg', label: '6kg' }, { size: '12kg', label: '12kg' }]
+      packageSizes: [{ size: '3kg', price: 70000, label: '3kg - $70.000' }, { size: '6kg', price: 135000, label: '6kg - $135.000' }, { size: '12kg', price: 250000, label: '12kg - $250.000' }]
     }
   ],
   'Acana': [
@@ -75,7 +77,6 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       id: '4',
       brand: 'Acana',
       name: 'Acana Grasslands',
-      price: '$95.000',
       imageSrc: 'http://img.b2bpic.net/free-photo/two-sisters-with-their-dog-park_1303-11215.jpg?_wi=2',
       imageAlt: 'Acana Grasslands',
       variants: [
@@ -83,7 +84,7 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
         { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
         { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' }
       ],
-      packageSizes: [{ size: '2kg', label: '2kg' }, { size: '6kg', label: '6kg' }, { size: '11.4kg', label: '11.4kg' }]
+      packageSizes: [{ size: '2kg', price: 95000, label: '2kg - $95.000' }, { size: '6kg', price: 265000, label: '6kg - $265.000' }, { size: '11.4kg', price: 475000, label: '11.4kg - $475.000' }]
     }
   ],
   'Taste of the Wild': [
@@ -91,15 +92,21 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       id: '5',
       brand: 'Taste of the Wild',
       name: 'Taste of the Wild High Prairie',
-      price: '$88.000',
       imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
       imageAlt: 'Taste of the Wild High Prairie',
       variants: [
         { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
         { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' }
+        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' },
+        { lifeStage: 'cachorro', size: 'pequeño', label: 'Cachorro Pequeño' },
+        { lifeStage: 'cachorro', size: 'mediano', label: 'Cachorro Mediano' },
+        { lifeStage: 'cachorro', size: 'grande', label: 'Cachorro Grande' }
       ],
-      packageSizes: [{ size: '2kg', label: '2kg' }, { size: '5kg', label: '5kg' }, { size: '13kg', label: '13kg' }]
+      packageSizes: [
+        { size: '1kg', price: 48300, label: '1kg' },
+        { size: '6.35kg', price: 270000, label: '6.35kg' },
+        { size: '12.7kg', price: 453000, label: '12.7kg' }
+      ]
     }
   ],
   'Orijen': [
@@ -107,7 +114,6 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       id: '6',
       brand: 'Orijen',
       name: 'Orijen Original',
-      price: '$110.000',
       imageSrc: 'http://img.b2bpic.net/free-photo/portrait-young-handsome-dogowner-spending-time-with-his-pet-cafe-sitting-indoors-looking_1258-245386.jpg?_wi=1',
       imageAlt: 'Orijen Original',
       variants: [
@@ -115,7 +121,7 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
         { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
         { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' }
       ],
-      packageSizes: [{ size: '1.8kg', label: '1.8kg' }, { size: '5.4kg', label: '5.4kg' }, { size: '11.3kg', label: '11.3kg' }]
+      packageSizes: [{ size: '1.8kg', price: 110000, label: '1.8kg - $110.000' }, { size: '5.4kg', price: 305000, label: '5.4kg - $305.000' }, { size: '11.3kg', price: 595000, label: '11.3kg - $595.000' }]
     }
   ],
   'Monello': [
@@ -123,7 +129,6 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       id: '7',
       brand: 'Monello',
       name: 'Monello Premium',
-      price: '$65.000',
       imageSrc: 'http://img.b2bpic.net/free-photo/two-sisters-with-their-dog-park_1303-11215.jpg?_wi=1',
       imageAlt: 'Monello Premium',
       variants: [
@@ -131,7 +136,7 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
         { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
         { lifeStage: 'senior', size: 'mediano', label: 'Senior Mediano' }
       ],
-      packageSizes: [{ size: '3kg', label: '3kg' }, { size: '8kg', label: '8kg' }, { size: '15kg', label: '15kg' }]
+      packageSizes: [{ size: '3kg', price: 65000, label: '3kg - $65.000' }, { size: '8kg', price: 165000, label: '8kg - $165.000' }, { size: '15kg', price: 295000, label: '15kg - $295.000' }]
     }
   ],
   'Equilibrio': [
@@ -139,7 +144,6 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       id: '8',
       brand: 'Equilibrio',
       name: 'Equilibrio Adulto',
-      price: '$72.000',
       imageSrc: 'http://img.b2bpic.net/free-photo/handsome-man-holding-french-bulldog-walking-park_176420-55093.jpg?_wi=2',
       imageAlt: 'Equilibrio Adulto',
       variants: [
@@ -147,7 +151,7 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
         { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
         { lifeStage: 'senior', size: 'pequeño', label: 'Senior Pequeño' }
       ],
-      packageSizes: [{ size: '2kg', label: '2kg' }, { size: '7.5kg', label: '7.5kg' }, { size: '15kg', label: '15kg' }]
+      packageSizes: [{ size: '2kg', price: 72000, label: '2kg - $72.000' }, { size: '7.5kg', price: 195000, label: '7.5kg - $195.000' }, { size: '15kg', price: 355000, label: '15kg - $355.000' }]
     }
   ]
 };
@@ -175,6 +179,21 @@ const FEATURED_PRODUCTS = [
   }
 ];
 
+interface PriceEntry {
+  lifeStage: 'adulto' | 'cachorro';
+  size: string;
+  price: number;
+}
+
+const TASTE_OF_THE_WILD_PRICES: PriceEntry[] = [
+  { lifeStage: 'adulto', size: '1kg', price: 48300 },
+  { lifeStage: 'adulto', size: '6.35kg', price: 270000 },
+  { lifeStage: 'adulto', size: '12.7kg', price: 453000 },
+  { lifeStage: 'cachorro', size: '1kg', price: 48300 },
+  { lifeStage: 'cachorro', size: '6.35kg', price: 259000 },
+  { lifeStage: 'cachorro', size: '12.7kg', price: 465000 }
+];
+
 export default function ProductsPage() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [selectedLifeStage, setSelectedLifeStage] = useState<string>('');
@@ -198,9 +217,25 @@ export default function ProductsPage() {
     setQuantity(1);
   };
 
+  const getPriceForSelection = () => {
+    if (!selectedProduct || !selectedPackageSize) return null;
+    
+    if (selectedProduct.name === 'Taste of the Wild High Prairie') {
+      const priceEntry = TASTE_OF_THE_WILD_PRICES.find(
+        p => p.lifeStage === selectedLifeStage && p.size === selectedPackageSize
+      );
+      return priceEntry?.price || null;
+    }
+    
+    const pkg = selectedProduct.packageSizes.find(p => p.size === selectedPackageSize);
+    return pkg?.price || null;
+  };
+
   const handleAddToCart = () => {
-    if (selectedProduct && selectedLifeStage && selectedSize && selectedPackageSize) {
-      const message = `Hola, quiero pedir: Producto: ${selectedProduct.name}, Etapa: ${selectedLifeStage}, Tamaño del perro: ${selectedSize}, Tamaño del paquete: ${selectedPackageSize}, Cantidad: ${quantity}, Por favor confirmar disponibilidad y entrega en Cartagena.`;
+    if (selectedProduct && selectedLifeStage && selectedPackageSize) {
+      const price = getPriceForSelection();
+      const formattedPrice = price ? `$${price.toLocaleString('es-CO')}` : 'Consultar';
+      const message = `Hola, quiero pedir: Producto: ${selectedProduct.name}, Etapa de vida: ${selectedLifeStage}, Tamaño del paquete: ${selectedPackageSize}, Precio: ${formattedPrice}, Cantidad: ${quantity}. Por favor confirmar disponibilidad y entrega en Cartagena.`;
       const encodedMessage = encodeURIComponent(message);
       window.open(`https://wa.me/573011471991?text=${encodedMessage}`, '_blank');
       handleCloseDetail();
@@ -263,28 +298,31 @@ export default function ProductsPage() {
             <div key={brand} className="mb-16">
               <h2 className="text-3xl font-bold mb-8 text-foreground">{brand}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {products.map(product => (
-                  <div
-                    key={product.id}
-                    onClick={() => handleProductClick(product)}
-                    className="cursor-pointer group bg-card rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col"
-                  >
-                    <div className="aspect-square overflow-hidden bg-gray-200 flex-shrink-0">
-                      <img
-                        src={product.imageSrc}
-                        alt={product.imageAlt}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      />
+                {products.map(product => {
+                  const basePrice = product.packageSizes[0]?.price || 0;
+                  return (
+                    <div
+                      key={product.id}
+                      onClick={() => handleProductClick(product)}
+                      className="cursor-pointer group bg-card rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col"
+                    >
+                      <div className="aspect-square overflow-hidden bg-gray-200 flex-shrink-0">
+                        <img
+                          src={product.imageSrc}
+                          alt={product.imageAlt}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        />
+                      </div>
+                      <div className="p-4 flex flex-col flex-grow">
+                        <h3 className="font-bold text-lg mb-2 text-foreground line-clamp-2">{product.name}</h3>
+                        <p className="text-primary-cta font-bold text-xl mb-4">desde ${basePrice.toLocaleString('es-CO')}</p>
+                        <button className="px-4 py-2 bg-primary-cta text-primary-cta-text rounded font-semibold text-sm hover:opacity-90 transition-opacity mt-auto">
+                          Ver Detalles
+                        </button>
+                      </div>
                     </div>
-                    <div className="p-4 flex flex-col flex-grow">
-                      <h3 className="font-bold text-lg mb-2 text-foreground line-clamp-2">{product.name}</h3>
-                      <p className="text-primary-cta font-bold text-xl mb-4">{product.price}</p>
-                      <button className="px-4 py-2 bg-primary-cta text-primary-cta-text rounded font-semibold text-sm hover:opacity-90 transition-opacity mt-auto">
-                        Ver Detalles
-                      </button>
-                    </div>
-                  </div>
-                ))}
+                  );
+                })}
               </div>
             </div>
           ))}
@@ -310,11 +348,18 @@ export default function ProductsPage() {
 
               <div className="space-y-4 flex flex-col">
                 <p className="text-sm text-foreground/70">Marca: <span className="font-semibold text-foreground">{selectedProduct.brand}</span></p>
-                <p className="text-3xl font-bold text-primary-cta">{selectedProduct.price}</p>
+                
+                {selectedProduct.name === 'Taste of the Wild High Prairie' && (
+                  <div className="text-xs text-foreground/60 bg-background/50 p-2 rounded">
+                    <p>Nota: El selector de tamaño del perro es solo para referencia. El precio varía según la etapa de vida (Adulto/Cachorro) y el tamaño del paquete.</p>
+                  </div>
+                )}
+
+                <p className="text-3xl font-bold text-primary-cta">{getPriceForSelection() ? `$${getPriceForSelection()?.toLocaleString('es-CO')}` : 'Consultar'}</p>
 
                 <div className="space-y-3 flex-grow">
                   <div>
-                    <label className="block text-sm font-semibold text-foreground mb-2">Etapa del Perro</label>
+                    <label className="block text-sm font-semibold text-foreground mb-2">Etapa de Vida</label>
                     <select
                       value={selectedLifeStage}
                       onChange={(e) => setSelectedLifeStage(e.target.value)}
@@ -327,7 +372,7 @@ export default function ProductsPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Perro</label>
+                    <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Perro <span className="text-xs text-foreground/60">(referencia)</span></label>
                     <select
                       value={selectedSize}
                       onChange={(e) => setSelectedSize(e.target.value)}
