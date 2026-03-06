@@ -11,6 +11,7 @@ import ContactCTA from '@/components/sections/contact/ContactCTA';
 import FooterLogoReveal from '@/components/sections/footer/FooterLogoReveal';
 import { Award, Users, Clock, CheckCircle, Sparkles, MessageSquare, Dog } from 'lucide-react';
 import { useState } from 'react';
+import Image from 'next/image';
 
 interface ModalFormData {
   nombre: string;
@@ -175,6 +176,9 @@ export default function LandingPage() {
       <div id="nav" data-section="nav">
         <NavbarLayoutFloatingOverlay
           brandName="Cartagena Pet Delivery"
+          logoSrc="https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1772771098404-vmtuch2c.png"
+          logoHeight={36}
+          logoSpacing={10}
           navItems={[
             { name: "Inicio", id: "hero" },
             { name: "Por Qué Nosotros", id: "authority" },
