@@ -76,6 +76,7 @@ export default function LandingPage() {
             { name: "Por Qué Nosotros", id: "authority" },
             { name: "Cobertura", id: "coverage" },
             { name: "Testimonios", id: "testimonials" },
+            { name: "Productos", id: "/products" },
             { name: "Contacto", id: "form" }
           ]}
           button={{
