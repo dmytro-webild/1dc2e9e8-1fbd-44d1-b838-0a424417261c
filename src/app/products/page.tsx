@@ -261,7 +261,7 @@ export default function ProductsPage() {
         <div className="w-full max-w-7xl mx-auto">
           {Object.entries(PRODUCTS_BY_BRAND).map(([brand, products]) => (
             <div key={brand} className="mb-16">
-              <h2 className="text-3xl font-bold mb-8 text-foreground break-words overflow-hidden whitespace-normal">{brand}</h2>
+              <h2 className="text-3xl font-bold mb-8 text-foreground">{brand}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {products.map(product => (
                   <div
@@ -277,7 +277,7 @@ export default function ProductsPage() {
                       />
                     </div>
                     <div className="p-4 flex flex-col flex-grow">
-                      <h3 className="font-bold text-lg mb-2 text-foreground line-clamp-2 break-words overflow-hidden whitespace-normal">{product.name}</h3>
+                      <h3 className="font-bold text-lg mb-2 text-foreground line-clamp-2">{product.name}</h3>
                       <p className="text-primary-cta font-bold text-xl mb-4">{product.price}</p>
                       <button className="px-4 py-2 bg-primary-cta text-primary-cta-text rounded font-semibold text-sm hover:opacity-90 transition-opacity mt-auto">
                         Ver Detalles
@@ -295,8 +295,8 @@ export default function ProductsPage() {
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={handleCloseDetail}>
           <div className="bg-card rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6" onClick={e => e.stopPropagation()}>
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-foreground break-words overflow-hidden whitespace-normal">{selectedProduct.name}</h2>
-              <button onClick={handleCloseDetail} className="text-2xl text-foreground/50 hover:text-foreground flex-shrink-0">×</button>
+              <h2 className="text-2xl font-bold text-foreground">{selectedProduct.name}</h2>
+              <button onClick={handleCloseDetail} className="text-2xl text-foreground/50 hover:text-foreground">×</button>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
@@ -309,7 +309,7 @@ export default function ProductsPage() {
               </div>
 
               <div className="space-y-4 flex flex-col">
-                <p className="text-sm text-foreground/70 break-words overflow-hidden whitespace-normal">Marca: <span className="font-semibold text-foreground">{selectedProduct.brand}</span></p>
+                <p className="text-sm text-foreground/70">Marca: <span className="font-semibold text-foreground">{selectedProduct.brand}</span></p>
                 <p className="text-3xl font-bold text-primary-cta">{selectedProduct.price}</p>
 
                 <div className="space-y-3 flex-grow">
