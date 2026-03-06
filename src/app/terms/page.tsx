@@ -22,6 +22,9 @@ export default function TermsPage() {
       <div id="nav" data-section="nav">
         <NavbarLayoutFloatingOverlay
           brandName="Cartagena Pet Delivery"
+          logoSrc="https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1772771098404-vmtuch2c.png"
+          logoHeight={36}
+          logoSpacing={10}
           navItems={[
             { name: "Inicio", id: "/" },
             { name: "Por Qué Nosotros", id: "#authority" },
