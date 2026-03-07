@@ -30,6 +30,48 @@ interface Product {
 }
 
 const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
+  'Taste of the Wild': [
+    {
+      id: '5',
+      brand: 'Taste of the Wild',
+      name: 'Taste of the Wild High Prairie',
+      imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
+      imageAlt: 'Taste of the Wild High Prairie',
+      variants: [
+        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
+        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
+        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' },
+        { lifeStage: 'cachorro', size: 'pequeño', label: 'Cachorro Pequeño' },
+        { lifeStage: 'cachorro', size: 'mediano', label: 'Cachorro Mediano' },
+        { lifeStage: 'cachorro', size: 'grande', label: 'Cachorro Grande' }
+      ],
+      packageSizes: [
+        { size: '1kg', price: 48300, label: '1kg' },
+        { size: '6.35kg', price: 270000, label: '6.35kg' },
+        { size: '12.7kg', price: 453000, label: '12.7kg' }
+      ]
+    },
+    {
+      id: '5b',
+      brand: 'Taste of the Wild',
+      name: 'Taste of the Wild Pacific Stream',
+      imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
+      imageAlt: 'Taste of the Wild Pacific Stream',
+      variants: [
+        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
+        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
+        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' },
+        { lifeStage: 'cachorro', size: 'pequeño', label: 'Cachorro Pequeño' },
+        { lifeStage: 'cachorro', size: 'mediano', label: 'Cachorro Mediano' },
+        { lifeStage: 'cachorro', size: 'grande', label: 'Cachorro Grande' }
+      ],
+      packageSizes: [
+        { size: '1kg', price: 48300, label: '1kg' },
+        { size: '6.35kg', price: 270000, label: '6.35kg' },
+        { size: '12.7kg', price: 453000, label: '12.7kg' }
+      ]
+    }
+  ],
   'Royal Canin': [
     {
       id: '1',
@@ -87,28 +129,6 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       packageSizes: [{ size: '2kg', price: 95000, label: '2kg - $95.000' }, { size: '6kg', price: 265000, label: '6kg - $265.000' }, { size: '11.4kg', price: 475000, label: '11.4kg - $475.000' }]
     }
   ],
-  'Taste of the Wild': [
-    {
-      id: '5',
-      brand: 'Taste of the Wild',
-      name: 'Taste of the Wild High Prairie',
-      imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
-      imageAlt: 'Taste of the Wild High Prairie',
-      variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' },
-        { lifeStage: 'cachorro', size: 'pequeño', label: 'Cachorro Pequeño' },
-        { lifeStage: 'cachorro', size: 'mediano', label: 'Cachorro Mediano' },
-        { lifeStage: 'cachorro', size: 'grande', label: 'Cachorro Grande' }
-      ],
-      packageSizes: [
-        { size: '1kg', price: 48300, label: '1kg' },
-        { size: '6.35kg', price: 270000, label: '6.35kg' },
-        { size: '12.7kg', price: 453000, label: '12.7kg' }
-      ]
-    }
-  ],
   'Orijen': [
     {
       id: '6',
@@ -160,12 +180,12 @@ const FEATURED_PRODUCTS = [
   {
     id: '1',
     imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
-    imageAlt: 'Royal Canin Maxi'
+    imageAlt: 'Taste of the Wild High Prairie'
   },
   {
     id: '2',
     imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=2',
-    imageAlt: "Hill's Science Diet"
+    imageAlt: 'Taste of the Wild Pacific Stream'
   },
   {
     id: '3',
@@ -220,7 +240,7 @@ export default function ProductsPage() {
   const getPriceForSelection = () => {
     if (!selectedProduct || !selectedPackageSize) return null;
     
-    if (selectedProduct.name === 'Taste of the Wild High Prairie') {
+    if (selectedProduct.name === 'Taste of the Wild High Prairie' || selectedProduct.name === 'Taste of the Wild Pacific Stream') {
       const priceEntry = TASTE_OF_THE_WILD_PRICES.find(
         p => p.lifeStage === selectedLifeStage && p.size === selectedPackageSize
       );
@@ -349,7 +369,7 @@ export default function ProductsPage() {
               <div className="space-y-4 flex flex-col">
                 <p className="text-sm text-foreground/70">Marca: <span className="font-semibold text-foreground">{selectedProduct.brand}</span></p>
                 
-                {selectedProduct.name === 'Taste of the Wild High Prairie' && (
+                {(selectedProduct.name === 'Taste of the Wild High Prairie' || selectedProduct.name === 'Taste of the Wild Pacific Stream') && (
                   <div className="text-xs text-foreground/60 bg-background/50 p-2 rounded">
                     <p>Nota: El selector de tamaño del perro es solo para referencia. El precio varía según la etapa de vida (Adulto/Cachorro) y el tamaño del paquete.</p>
                   </div>
