@@ -176,6 +176,7 @@ export default function LandingPage() {
       <div id="nav" data-section="nav">
         <NavbarLayoutFloatingOverlay
           brandName="Cartagena Pet Delivery"
+          brandIcon={Dog}
           navItems={[
             { name: "Inicio", id: "hero" },
             { name: "Por Qué Nosotros", id: "authority" },
@@ -193,23 +194,22 @@ export default function LandingPage() {
       <div id="hero" data-section="hero">
         <HeroSplitDualMedia
           title="Alimento premium para perros, entregado en tu puerta."
-          description="Las mejores marcas de alimento para perros con entrega en Cartagena.
-Sin cargar sacos pesados."
+          description="Las mejores marcas de alimento para perros con entrega en Cartagena. Sin cargar sacos pesados."
           tag="Especialistas en Nutrición Premium"
           tagIcon={Sparkles}
           tagAnimation="blur-reveal"
           background={{ variant: "plain" }}
           buttons={[
-            { text: "Llamar Ahora", href: "tel:+573011471991" },
-            { text: "Escribir por WhatsApp", href: "https://wa.me/573011471991?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20su%20servicio%20de%20alimento%20premium" }
+            { text: "Escribir por WhatsApp", href: "https://wa.me/573011471991?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20su%20servicio%20de%20alimento%20premium" },
+            { text: "Llamar Ahora", href: "tel:+573011471991" }
           ]}
           buttonAnimation="blur-reveal"
           mediaItems={[
             {
-              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773467352733-ynvh8agt.jpg",              imageAlt: "Perro comiendo alimento premium"
+              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773553390124-f5xli217.jpg",              imageAlt: "Cartagena Pet Delivery logo on neutral background"
             },
             {
-              imageSrc: "http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=2",              imageAlt: "Dueño de perro satisfecho con nuestro servicio"
+              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773553390124-fa74hieu.jpg",              imageAlt: "Happy dog eating from bowl"
             }
           ]}
           mediaAnimation="blur-reveal"
