@@ -4,7 +4,6 @@ import { ThemeProvider } from "@/providers/themeProvider/ThemeProvider";
 import NavbarLayoutFloatingOverlay from '@/components/navbar/NavbarLayoutFloatingOverlay/NavbarLayoutFloatingOverlay';
 import LegalSection from '@/components/legal/LegalSection';
 import FooterLogoReveal from '@/components/sections/footer/FooterLogoReveal';
-import { Dog } from 'lucide-react';
 
 export default function PrivacyPage() {
   return (
@@ -22,6 +21,7 @@ export default function PrivacyPage() {
     >
       <div id="nav" data-section="nav">
         <NavbarLayoutFloatingOverlay
+          brandName="Cartagena Pet Delivery"
           navItems={[
             { name: "Inicio", id: "/" },
             { name: "Por Qué Nosotros", id: "#authority" },
