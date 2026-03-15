@@ -277,6 +277,7 @@ export default function ProductsPage() {
     >
       <div id="nav" data-section="nav">
         <NavbarLayoutFloatingOverlay
+          brandName="Cartagena Pet Delivery"
           navItems={[
             { name: "Inicio", id: "/" },
             { name: "Por Qué Nosotros", id: "#authority" },
