@@ -157,7 +157,7 @@ export default function LandingPage() {
                   name="comentario"
                   value={formData.comentario}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001a4d]"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001a4d] break-words whitespace-normal"
                   placeholder="Cuéntanos sobre tu perro"
                   rows={3}
                 />
@@ -192,9 +192,8 @@ export default function LandingPage() {
 
       <div id="hero" data-section="hero">
         <HeroSplitDualMedia
-          title="Alimento premium para perros, entregado en tu puerta."
-          description="Las mejores marcas de alimento para perros con entrega en Cartagena.
-Sin cargar sacos pesados."
+          title="Alimento Premium para Perros en la Zona Norte de Cartagena"
+          description="Asesoría especializada y entrega directa en Crespo, Bocagrande, Manga y alrededores. Trabajamos con marcas de alto estándar nutricional para dueños que priorizan la calidad de vida de sus perros."
           tag="Especialistas en Nutrición Premium"
           tagIcon={Sparkles}
           tagAnimation="blur-reveal"
@@ -214,8 +213,7 @@ Sin cargar sacos pesados."
           ]}
           mediaAnimation="blur-reveal"
           rating={5}
-          ratingText="Clientes en Cartagena ya reciben su alimento con nosotros "
-          titleClassName="max-w-[600px]"
+          ratingText="Recomendado por dueños premium en Cartagena"
           ariaLabel="Hero section - Cartagena Pet Delivery premium dog food"
         />
       </div>
@@ -226,7 +224,7 @@ Sin cargar sacos pesados."
           metrics={[
             { icon: Award, label: "Marcas Premium Certificadas", value: "8+" },
             { icon: Users, label: "Clientes Satisfechos", value: "500+" },
-            { icon: Clock, label: "Horario Ampliado", value: "7am-9pm" },
+            { icon: Clock, label: "Horario Ampliado", value: "7am–9pm" },
             { icon: CheckCircle, label: "Seguimiento Personalizado", value: "100%" }
           ]}
           metricsAnimation="blur-reveal"
