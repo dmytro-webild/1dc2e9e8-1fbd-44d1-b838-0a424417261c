@@ -22,8 +22,6 @@ export default function PrivacyPage() {
     >
       <div id="nav" data-section="nav">
         <NavbarLayoutFloatingOverlay
-          brandName="Cartagena Pet Delivery"
-          brandIcon={Dog}
           navItems={[
             { name: "Inicio", id: "/" },
             { name: "Por Qué Nosotros", id: "#authority" },
