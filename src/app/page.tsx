@@ -225,7 +225,7 @@ Entregas directas en la zona norte de Cartagena."
           metrics={[
             { icon: Award, label: "Marcas Premium Disponibles", value: "8+" },
             { icon: Users, label: "Familias que confían en nosotros", value: "500+" },
-            { icon: Clock, label: "Horario Ampliado", value: "7am–9pm" },
+            { icon: Clock, label: "Atención diaria ", value: "7am–9pm" },
             { icon: CheckCircle, label: "Seguimiento Personalizado", value: "100%" }
           ]}
           metricsAnimation="blur-reveal"
