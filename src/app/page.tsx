@@ -214,7 +214,7 @@ Entregas directas en la zona norte de Cartagena."
           ]}
           mediaAnimation="blur-reveal"
           rating={5}
-          ratingText="Recomendado por dueños premium en Cartagena"
+          ratingText="Recomendado por clientes en Cartagena"
           ariaLabel="Hero section - Cartagena Pet Delivery premium dog food"
         />
       </div>
