@@ -206,7 +206,7 @@ Entregas directas en la zona norte de Cartagena."
           buttonAnimation="blur-reveal"
           mediaItems={[
             {
-              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773611395505-etujf1mm.png",              imageAlt: "Perro comiendo alimento premium"
+              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614261076-aap1278z.png",              imageAlt: "Perro comiendo alimento premium"
             },
             {
               imageSrc: "http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=2",              imageAlt: "Dueño de perro satisfecho con nuestro servicio"
