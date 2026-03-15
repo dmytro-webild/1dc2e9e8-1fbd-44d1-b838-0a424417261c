@@ -157,7 +157,7 @@ export default function LandingPage() {
                   name="comentario"
                   value={formData.comentario}
                   onChange={handleInputChange}
-                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001a4d] break-words whitespace-normal"
+                  className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001a4d]"
                   placeholder="Cuéntanos sobre tu perro"
                   rows={3}
                 />
@@ -175,7 +175,6 @@ export default function LandingPage() {
 
       <div id="nav" data-section="nav">
         <NavbarLayoutFloatingOverlay
-          brandName="Cartagena Pet Delivery"
           navItems={[
             { name: "Inicio", id: "hero" },
             { name: "Por Qué Nosotros", id: "authority" },
@@ -192,29 +191,29 @@ export default function LandingPage() {
 
       <div id="hero" data-section="hero">
         <HeroSplitDualMedia
-          title="Alimento Premium para perros con entrega en Cartagena"
-          description="Marcas reconocidas por su calidad nutricional.
-Entregas directas en la zona norte de Cartagena."
+          title="Alimento premium para perros, entregado en tu puerta."
+          description="Las mejores marcas de alimento para perros con entrega en Cartagena. Sin cargar sacos pesados."
           tag="Especialistas en Nutrición Premium"
           tagIcon={Sparkles}
           tagAnimation="blur-reveal"
           background={{ variant: "plain" }}
           buttons={[
-            { text: "Llamar Ahora", href: "tel:+573011471991" },
-            { text: "Escribir por WhatsApp", href: "https://wa.me/573011471991?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20su%20servicio%20de%20alimento%20premium" }
+            { text: "Escribir por WhatsApp", href: "https://wa.me/573011471991?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20su%20servicio%20de%20alimento%20premium" },
+            { text: "Llamar Ahora", href: "tel:+573011471991" }
           ]}
           buttonAnimation="blur-reveal"
           mediaItems={[
             {
-              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",              imageAlt: "Perro comiendo alimento premium"
+              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773553390124-f5xli217.jpg",              imageAlt: "Cartagena Pet Delivery logo on neutral background"
             },
             {
-              imageSrc: "http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=2",              imageAlt: "Dueño de perro satisfecho con nuestro servicio"
+              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773553390124-fa74hieu.jpg",              imageAlt: "Happy dog eating from bowl"
             }
           ]}
           mediaAnimation="blur-reveal"
           rating={5}
-          ratingText="Recomendado por clientes en Cartagena"
+          ratingText="Clientes en Cartagena ya reciben su alimento con nosotros "
+          titleClassName="max-w-[600px]"
           ariaLabel="Hero section - Cartagena Pet Delivery premium dog food"
         />
       </div>
@@ -223,10 +222,10 @@ Entregas directas en la zona norte de Cartagena."
         <AboutMetric
           title="Especialistas en Nutrición Premium para Perros - Confía en Nuestra Experiencia"
           metrics={[
-            { icon: Award, label: "Marcas Premium Disponibles", value: "8+" },
-            { icon: Users, label: "Familias que confían en nosotros", value: "120+" },
-            { icon: Clock, label: "Atención diaria ", value: "7am–9pm" },
-            { icon: CheckCircle, label: "Seguimiento Personalizado", value: "Siempre " }
+            { icon: Award, label: "Marcas Premium Certificadas", value: "8+" },
+            { icon: Users, label: "Clientes Satisfechos", value: "500+" },
+            { icon: Clock, label: "Horario Ampliado", value: "7am-9pm" },
+            { icon: CheckCircle, label: "Seguimiento Personalizado", value: "100%" }
           ]}
           metricsAnimation="blur-reveal"
           useInvertedBackground={false}
@@ -241,7 +240,7 @@ Entregas directas en la zona norte de Cartagena."
           tag="Selección de Marcas Premium"
           textboxLayout="default"
           useInvertedBackground={false}
-          names={["Bonnat", "Hill's Science Diet", "Acana", "Taste of the Wild", "Orijen", "Orijen ", "Acana ", "Equilibrio"]}
+          names={["Bonnat", "Hill's Science Diet", "Acana", "Taste of the Wild", "Orijen", "Pro Plan", "Monello", "Equilibrio"]}
           speed={40}
           showCard={true}
           ariaLabel="Social proof - Premium brands section"
