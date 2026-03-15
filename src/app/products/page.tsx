@@ -4,7 +4,7 @@ import { ThemeProvider } from "@/providers/themeProvider/ThemeProvider";
 import NavbarLayoutFloatingOverlay from '@/components/navbar/NavbarLayoutFloatingOverlay/NavbarLayoutFloatingOverlay';
 import HeroBillboardRotatedCarousel from '@/components/sections/hero/HeroBillboardRotatedCarousel';
 import FooterLogoReveal from '@/components/sections/footer/FooterLogoReveal';
-import { Package, Dog } from 'lucide-react';
+import { Package } from 'lucide-react';
 import { useState } from 'react';
 
 interface ProductVariant {
@@ -277,8 +277,6 @@ export default function ProductsPage() {
     >
       <div id="nav" data-section="nav">
         <NavbarLayoutFloatingOverlay
-          brandName="Cartagena Pet Delivery"
-          brandIcon={Dog}
           navItems={[
             { name: "Inicio", id: "/" },
             { name: "Por Qué Nosotros", id: "#authority" },
