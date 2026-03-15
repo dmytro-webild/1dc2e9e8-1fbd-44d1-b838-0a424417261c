@@ -192,7 +192,7 @@ export default function LandingPage() {
 
       <div id="hero" data-section="hero">
         <HeroSplitDualMedia
-          title="Alimento Premium para Perros, entregado en tu puerta."
+          title="Alimento premium para perros, entregado en tu puerta."
           description="Trabajamos con marcas de alto estándar nutricional para dueños que priorizan la calidad de vida de sus perros. Sin cargar sacos pesados."
           tag="Especialistas en Nutrición Premium"
           tagIcon={Sparkles}
