@@ -241,7 +241,7 @@ Entregas directas en la zona norte de Cartagena."
           tag="Selección de Marcas Premium"
           textboxLayout="default"
           useInvertedBackground={false}
-          names={["Bonnat", "Hill's Science Diet", "Acana", "Taste of the Wild", "Orijen", "Pro Plan", "Monello", "Equilibrio"]}
+          names={["Bonnat", "Hill's Science Diet", "Acana", "Taste of the Wild", "Orijen", "Pro Pl", "Monello", "Equilibrio"]}
           speed={40}
           showCard={true}
           ariaLabel="Social proof - Premium brands section"
