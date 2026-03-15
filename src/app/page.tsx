@@ -192,8 +192,8 @@ export default function LandingPage() {
 
       <div id="hero" data-section="hero">
         <HeroSplitDualMedia
-          title="Alimento Premium para Perros en la Zona Norte de Cartagena"
-          description="Asesoría especializada y entrega directa en Crespo, Bocagrande, Manga y alrededores. Trabajamos con marcas de alto estándar nutricional para dueños que priorizan la calidad de vida de sus perros."
+          title="Alimento Premium para Perros entregado en tu puerta."
+          description="Trabajamos con marcas de alto estándar nutricional para dueños que priorizan la calidad de vida de sus perros. Sin cargar sacos pesados."
           tag="Especialistas en Nutrición Premium"
           tagIcon={Sparkles}
           tagAnimation="blur-reveal"
