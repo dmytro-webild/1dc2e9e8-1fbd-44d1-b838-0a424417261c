@@ -214,7 +214,7 @@ Sin cargar sacos pesados."
           ]}
           mediaAnimation="blur-reveal"
           rating={5}
-          ratingText="Recomendado por dueños       premium en Cartagena"
+          ratingText="Recomendado por dueños de perros en Cartagena"
           titleClassName="max-w-[600px]"
           ariaLabel="Hero section - Cartagena Pet Delivery premium dog food"
         />
