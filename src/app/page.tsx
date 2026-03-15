@@ -240,7 +240,7 @@ export default function LandingPage() {
           tag="Selección de Marcas Premium"
           textboxLayout="default"
           useInvertedBackground={false}
-          names={["Bonnat", "Hill's Science Diet", "Acana", "Taste of the Wild", "Orijen", "Pro Plan", "Monello", "Equilibrio"]}
+          names={["Orijen", "Acana", "Taste of the Wild", "Hill's Science Diet", "Pro Plan", "Equilibrio", "Monello", "Bonnat"]}
           speed={40}
           showCard={true}
           ariaLabel="Social proof - Premium brands section"
