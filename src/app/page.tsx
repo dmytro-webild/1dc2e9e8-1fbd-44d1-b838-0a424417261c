@@ -193,7 +193,8 @@ export default function LandingPage() {
       <div id="hero" data-section="hero">
         <HeroSplitDualMedia
           title="Alimento premium para perros, entregado en tu puerta."
-          description="Trabajamos con marcas de alto estándar nutricional para dueños que priorizan la calidad de vida de sus perros. Sin cargar sacos pesados."
+          description="Las mejores marcas de alimento para perros con entrega en Cartagena.
+Sin cargar sacos pesados."
           tag="Especialistas en Nutrición Premium"
           tagIcon={Sparkles}
           tagAnimation="blur-reveal"
