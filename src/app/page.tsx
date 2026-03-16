@@ -200,8 +200,8 @@ Entregas directas en la zona norte de Cartagena."
           tagAnimation="blur-reveal"
           background={{ variant: "plain" }}
           buttons={[
-            { text: "Llamar Ahora", href: "tel:+573011471991" },
-            { text: "Escribir por WhatsApp", href: "https://wa.me/573011471991?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20su%20servicio%20de%20alimento%20premium" }
+            { text: "Ver Catálogo", href: "/products" },
+            { text: "Ver Catálogo", href: "/products" }
           ]}
           buttonAnimation="blur-reveal"
           mediaItems={[
