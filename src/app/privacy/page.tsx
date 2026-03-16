@@ -31,7 +31,7 @@ export default function PrivacyPage() {
             { name: "Contacto", id: "#form" }
           ]}
           button={{
-            text: "Llamar Ahora",            href: "tel:+573011471991"
+            text: "Ver Catálogo",            href: "/products"
           }}
         />
       </div>
