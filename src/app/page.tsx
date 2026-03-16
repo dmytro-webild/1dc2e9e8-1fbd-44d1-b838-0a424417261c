@@ -251,14 +251,14 @@ y formulaciones confiables para el bienestar de tu perro."
 
       <div id="coverage" data-section="coverage">
         <FeatureCardTwelve
-          title="Cobertura en Zona Norte de Cartagena"
-          description="Atendemos los barrios premium de Cartagena con entregas rápidas y personalizadas."
+          title="Cobertura en la Zona Norte de Cartagena"
+          description="Atendemos la zona norte de Cartagena con entregas rápidas y atención personalizada."
           features={[
             {
               id: "crespo",              label: "Crespo",              title: "Entregas expresas en Crespo",              items: ["Entrega mismo día", "Asesoría a domicilio", "Seguimiento de alimentación"]
             },
             {
-              id: "bocagrande",              label: "Bocagrande",              title: "Cobertura completa Bocagrande",              items: ["Entregas 7 días a la semana", "Horario flexible", "Atención personalizada"]
+              id: "bocagrande",              label: "Bocagrande",              title: "Cobertura completa en Bocagrande",              items: ["Entregas 7 días a la semana", "Horario flexible", "Atención personalizada"]
             },
             {
               id: "manga",              label: "Manga",              title: "Servicio premium en Manga",              items: ["Entregas garantizadas", "Consultoría nutricional", "Programas de lealtad"]
