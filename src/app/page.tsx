@@ -239,7 +239,7 @@ Entregas directas en la zona norte de Cartagena."
           title="Selección de Marcas Premium "
           description="Seleccionamos marcas reconocidas por su calidad nutricional
 y formulaciones confiables para el bienestar de tu perro."
-          tag="Marcas Seleccionadas"
+          tag="Nutrición de Alta Calidad"
           textboxLayout="default"
           useInvertedBackground={false}
           names={["Bonnat", "Hill's Science Diet", "Acana", "Taste of the Wild", "Orijen", "Orijen ", "Acana ", "Equilibrio"]}
