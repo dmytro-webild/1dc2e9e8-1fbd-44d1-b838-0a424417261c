@@ -255,7 +255,7 @@ y formulaciones confiables para el bienestar de tu perro."
           description="Atendemos los barrios premium de Cartagena con entregas rápidas y personalizadas."
           features={[
             {
-              id: "crespo",              label: "Crespo",              title: "Entregas expresas en Crespo",              items: ["Entrega mismo día", "Asesoría a domicilio", "Seguimiento de consumo"]
+              id: "crespo",              label: "Crespo",              title: "Entregas expresas en Crespo",              items: ["Entrega mismo día", "Asesoría a domicilio", "Seguimiento de alimentación"]
             },
             {
               id: "bocagrande",              label: "Bocagrande",              title: "Cobertura completa Bocagrande",              items: ["Entregas 7 días a la semana", "Horario flexible", "Atención personalizada"]
