@@ -261,7 +261,7 @@ y formulaciones confiables para el bienestar de tu perro."
               id: "bocagrande",              label: "Bocagrande",              title: "Cobertura completa en Bocagrande",              items: ["Entregas 7 días a la semana", "Horario flexible", "Atención personalizada"]
             },
             {
-              id: "manga",              label: "Manga",              title: "Servicio premium en Manga",              items: ["Entregas garantizadas", "Consultoría nutricional", "Programas de lealtad"]
+              id: "manga",              label: "Manga",              title: "Servicio personalizado en Manga",              items: ["Entregas garantizadas", "Consultoría nutricional", "Programas de lealtad"]
             },
             {
               id: "otras-zonas",              label: "Más Zonas",              title: "También cubrimos el Anillo Vial, Serena del Mar y más. Consúltanos",              items: ["Cobertura ampla", "Entregas coordinadas", "Servicio premium"]
