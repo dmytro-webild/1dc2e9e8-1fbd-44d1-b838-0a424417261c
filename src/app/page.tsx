@@ -264,7 +264,7 @@ y formulaciones confiables para el bienestar de tu perro."
               id: "manga",              label: "Manga",              title: "Servicio personalizado en Manga",              items: ["Entregas garantizadas", "Consultoría nutricional", "Programas de lealtad"]
             },
             {
-              id: "otras-zonas",              label: "Más Zonas",              title: "También cubrimos el Anillo Vial, Serena del Mar y más. Consúltanos",              items: ["Cobertura ampla", "Entregas coordinadas", "Servicio premium"]
+              id: "otras-zonas",              label: "Más Zonas",              title: "También cubrimos el Anillo Vial, Serena del Mar y zonas cercanas",              items: ["Cobertura ampla", "Entregas coordinadas", "Servicio premium"]
             }
           ]}
           animationType="blur-reveal"
