@@ -236,13 +236,13 @@ Entregas directas en la zona norte de Cartagena."
 
       <div id="brands" data-section="brands">
         <SocialProofOne
-          title="Selección de Marcas Premium "
+          title="Marcas que Respaldan una Buena Alimentación  "
           description="Seleccionamos marcas reconocidas por su calidad nutricional
 y formulaciones confiables para el bienestar de tu perro."
-          tag="Nutrición de Alta Calidad"
+          tag="Nutrición Premium"
           textboxLayout="default"
           useInvertedBackground={false}
-          names={["Bonnat", "Hill's Science Diet", "Acana", "Taste of the Wild", "Orijen", "Orijen ", "Acana ", "Equilibrio"]}
+          names={["Bonnat", "Hill's Science Diet", "Acana", "Taste of the Wild", "Orijen", "Pro Plan ", "Acana ", "Equilibrio"]}
           speed={40}
           showCard={true}
           ariaLabel="Social proof - Premium brands section"
