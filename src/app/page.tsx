@@ -237,7 +237,8 @@ Entregas directas en la zona norte de Cartagena."
       <div id="brands" data-section="brands">
         <SocialProofOne
           title="Marcas de Alto Estándar Nutricional"
-          description="Trabajamos únicamente con marcas premium que priorizan la salud y nutrición de tu perro. No comercializamos productos genéricos."
+          description="Seleccionamos marcas reconocidas por su calidad nutricional
+y formulaciones confiables para el bienestar de tu perro."
           tag="Selección de Marcas Premium"
           textboxLayout="default"
           useInvertedBackground={false}
