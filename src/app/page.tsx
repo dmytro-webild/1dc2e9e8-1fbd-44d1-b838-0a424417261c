@@ -220,21 +220,6 @@ Entregas directas en la zona norte de Cartagena."
         />
       </div>
 
-      <div id="authority" data-section="authority">
-        <AboutMetric
-          title="Especialistas en Nutrición Premium para Perros - Confía en Nuestra Experiencia"
-          metrics={[
-            { icon: Award, label: "Marcas Premium Disponibles", value: "8+" },
-            { icon: Users, label: "Familias que confían en nosotros", value: "120+" },
-            { icon: Clock, label: "Atención diaria ", value: "7am–9pm" },
-            { icon: CheckCircle, label: "Seguimiento Personalizado", value: "Siempre " }
-          ]}
-          metricsAnimation="blur-reveal"
-          useInvertedBackground={false}
-          ariaLabel="About metrics section - Cartagena Pet Delivery specialization"
-        />
-      </div>
-
       <div id="brands" data-section="brands">
         <SocialProofOne
           title="Marcas que Respaldan una Buena Alimentación  "
@@ -247,6 +232,21 @@ y formulaciones confiables para el bienestar de tu perro."
           speed={40}
           showCard={true}
           ariaLabel="Social proof - Premium brands section"
+        />
+      </div>
+
+      <div id="authority" data-section="authority">
+        <AboutMetric
+          title="Especialistas en Nutrición Premium para Perros - Confía en Nuestra Experiencia"
+          metrics={[
+            { icon: Award, label: "Marcas Premium Disponibles", value: "8+" },
+            { icon: Users, label: "Familias que confían en nosotros", value: "120+" },
+            { icon: Clock, label: "Atención diaria ", value: "7am–9pm" },
+            { icon: CheckCircle, label: "Seguimiento Personalizado", value: "Siempre " }
+          ]}
+          metricsAnimation="blur-reveal"
+          useInvertedBackground={false}
+          ariaLabel="About metrics section - Cartagena Pet Delivery specialization"
         />
       </div>
 
