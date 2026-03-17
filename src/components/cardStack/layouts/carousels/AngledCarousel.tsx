@@ -103,7 +103,8 @@ const AngledCarousel = ({ items, className = "", autoPlay = true, autoPlayInterv
 
         return (
           <motion.div
-            key={item.id}
+            //key={item.id}
+	    key={`${positionFactor}-${item.id}`}
             className="!absolute w-[70%] md:w-[40%] aspect-square md:aspect-[16/10] card p-1 rounded-theme-capped overflow-hidden"
             style={{
               zIndex: positionFactor === 0 ? 10 : 5 - Math.abs(positionFactor),
