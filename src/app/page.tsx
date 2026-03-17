@@ -179,6 +179,7 @@ export default function LandingPage() {
           navItems={[
             { name: "Inicio", id: "hero" },
             { name: "Por Qué Nosotros", id: "authority" },
+            { name: "Marcas", id: "brands" },
             { name: "Cobertura", id: "coverage" },
             { name: "Testimonios", id: "testimonials" },
             { name: "Productos", id: "/products" },
