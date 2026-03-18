@@ -75,7 +75,7 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       id: '5f',
       brand: 'Taste of the Wild',
       name: 'Taste of the Wild Appalachian Valley',
-      imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
+      imageSrc: 'https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773816639808-ssk86efs.jpg',
       imageAlt: 'Taste of the Wild Appalachian Valley',
       variants: [
         { lifeStage: 'adulto', size: 'pequeño', label: 'Pequeño (Recomendado)' },
@@ -245,8 +245,8 @@ const FEATURED_PRODUCTS = [
   },
   {
     id: '2',
-    imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=2',
-    imageAlt: 'Taste of the Wild Pacific Stream'
+    imageSrc: 'https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773816639808-ssk86efs.jpg',
+    imageAlt: 'Taste of the Wild Appalachian Valley'
   },
   {
     id: '3',
