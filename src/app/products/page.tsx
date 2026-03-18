@@ -78,7 +78,9 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
       imageAlt: 'Taste of the Wild Appalachian Valley',
       variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' }
+        { lifeStage: 'adulto', size: 'pequeño', label: 'Pequeño (Recomendado)' },
+        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
+        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' }
       ],
       packageSizes: [
         { size: '6.35kg', price: 275000, label: '6.35kg' },
@@ -92,7 +94,9 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
       imageAlt: 'Taste of the Wild Wetlands',
       variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' }
+        { lifeStage: 'adulto', size: 'pequeño', label: 'Pequeño' },
+        { lifeStage: 'adulto', size: 'mediano', label: 'Mediano' },
+        { lifeStage: 'adulto', size: 'grande', label: 'Grande' }
       ],
       packageSizes: [
         { size: '12.7kg', price: 463000, label: '12.7kg' }
@@ -105,7 +109,9 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
       imageAlt: 'Taste of the Wild Sierra Mountain',
       variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' }
+        { lifeStage: 'adulto', size: 'pequeño', label: 'Pequeño' },
+        { lifeStage: 'adulto', size: 'mediano', label: 'Mediano' },
+        { lifeStage: 'adulto', size: 'grande', label: 'Grande' }
       ],
       packageSizes: [
         { size: '12.7kg', price: 463000, label: '12.7kg' }
@@ -118,7 +124,9 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
       imageAlt: 'Taste of the Wild Southwest Canyon',
       variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' }
+        { lifeStage: 'adulto', size: 'pequeño', label: 'Pequeño' },
+        { lifeStage: 'adulto', size: 'mediano', label: 'Mediano' },
+        { lifeStage: 'adulto', size: 'grande', label: 'Grande' }
       ],
       packageSizes: [
         { size: '12.7kg', price: 463000, label: '12.7kg' }
@@ -486,24 +494,30 @@ export default function ProductsPage() {
 
                   {selectedProduct.name === 'Taste of the Wild Appalachian Valley' ? (
                     <div>
-                      <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Perro (recomendado para razas pequeñas)</label>
+                      <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Perro (referencia)</label>
                       <select
-                        disabled
-                        className="w-full p-3 border border-accent rounded bg-background text-foreground opacity-50"
+                        value={selectedSize}
+                        onChange={(e) => setSelectedSize(e.target.value)}
+                        className="w-full p-3 border border-accent rounded bg-background text-foreground"
                       >
-                        <option>Razas pequeñas</option>
+                        {Array.from(new Set(selectedProduct.variants.map(v => v.size))).map(size => (
+                          <option key={size} value={size}>{selectedProduct.variants.find(v => v.size === size)?.label}</option>
+                        ))}
                       </select>
                     </div>
                   ) : (selectedProduct.name === 'Taste of the Wild Wetlands' ||
                       selectedProduct.name === 'Taste of the Wild Sierra Mountain' ||
                       selectedProduct.name === 'Taste of the Wild Southwest Canyon') ? (
                     <div>
-                      <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Perro <span className="text-xs text-foreground/60">(referencia)</span></label>
+                      <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Perro (referencia)</label>
                       <select
-                        disabled
-                        className="w-full p-3 border border-accent rounded bg-background text-foreground opacity-50"
+                        value={selectedSize}
+                        onChange={(e) => setSelectedSize(e.target.value)}
+                        className="w-full p-3 border border-accent rounded bg-background text-foreground"
                       >
-                        <option>Adultos</option>
+                        {Array.from(new Set(selectedProduct.variants.map(v => v.size))).map(size => (
+                          <option key={size} value={size}>{selectedProduct.variants.find(v => v.size === size)?.label}</option>
+                        ))}
                       </select>
                     </div>
                   ) : (
