@@ -20,32 +20,32 @@ export default function ProductsPage() {
   const tasteOfTheWildProducts = [
     {
       id: "1",      brand: "Taste of the Wild",      name: "Pacific Stream",      price: "$89.99",      rating: 5,
-      reviewCount: "248",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",      imageAlt: "Taste of the Wild Pacific Stream",      isFavorited: favorites.includes("1"),
+      reviewCount: "248",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png?_wi=7",      imageAlt: "Taste of the Wild Pacific Stream",      isFavorited: favorites.includes("1"),
       onFavorite: () => handleFavorite("1")
     },
     {
       id: "2",      brand: "Taste of the Wild",      name: "High Prairie",      price: "$89.99",      rating: 5,
-      reviewCount: "312",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",      imageAlt: "Taste of the Wild High Prairie",      isFavorited: favorites.includes("2"),
+      reviewCount: "312",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png?_wi=8",      imageAlt: "Taste of the Wild High Prairie",      isFavorited: favorites.includes("2"),
       onFavorite: () => handleFavorite("2")
     },
     {
       id: "3",      brand: "Taste of the Wild",      name: "Wetlands",      price: "$89.99",      rating: 5,
-      reviewCount: "189",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",      imageAlt: "Taste of the Wild Wetlands",      isFavorited: favorites.includes("3"),
+      reviewCount: "189",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png?_wi=9",      imageAlt: "Taste of the Wild Wetlands",      isFavorited: favorites.includes("3"),
       onFavorite: () => handleFavorite("3")
     },
     {
       id: "4",      brand: "Taste of the Wild",      name: "Appalachian Valley",      price: "$89.99",      rating: 5,
-      reviewCount: "156",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",      imageAlt: "Taste of the Wild Appalachian Valley",      isFavorited: favorites.includes("4"),
+      reviewCount: "156",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png?_wi=10",      imageAlt: "Taste of the Wild Appalachian Valley",      isFavorited: favorites.includes("4"),
       onFavorite: () => handleFavorite("4")
     },
     {
       id: "5",      brand: "Taste of the Wild",      name: "Sierra Mountain",      price: "$89.99",      rating: 5,
-      reviewCount: "267",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",      imageAlt: "Taste of the Wild Sierra Mountain",      isFavorited: favorites.includes("5"),
+      reviewCount: "267",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png?_wi=11",      imageAlt: "Taste of the Wild Sierra Mountain",      isFavorited: favorites.includes("5"),
       onFavorite: () => handleFavorite("5")
     },
     {
       id: "6",      brand: "Taste of the Wild",      name: "Southwest Canyon",      price: "$89.99",      rating: 5,
-      reviewCount: "201",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",      imageAlt: "Taste of the Wild Southwest Canyon",      isFavorited: favorites.includes("6"),
+      reviewCount: "201",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png?_wi=12",      imageAlt: "Taste of the Wild Southwest Canyon",      isFavorited: favorites.includes("6"),
       onFavorite: () => handleFavorite("6")
     }
   ];
