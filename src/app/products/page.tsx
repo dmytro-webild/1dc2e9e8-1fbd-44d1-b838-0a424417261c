@@ -32,6 +32,26 @@ interface Product {
 const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
   'Taste of the Wild': [
     {
+      id: '5b',
+      brand: 'Taste of the Wild',
+      name: 'Taste of the Wild Pacific Stream',
+      imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
+      imageAlt: 'Taste of the Wild Pacific Stream',
+      variants: [
+        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
+        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
+        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' },
+        { lifeStage: 'cachorro', size: 'pequeño', label: 'Cachorro Pequeño' },
+        { lifeStage: 'cachorro', size: 'mediano', label: 'Cachorro Mediano' },
+        { lifeStage: 'cachorro', size: 'grande', label: 'Cachorro Grande' }
+      ],
+      packageSizes: [
+        { size: '1kg', price: 48300, label: '1kg' },
+        { size: '6.35kg', price: 270000, label: '6.35kg' },
+        { size: '12.7kg', price: 453000, label: '12.7kg' }
+      ]
+    },
+    {
       id: '5',
       brand: 'Taste of the Wild',
       name: 'Taste of the Wild High Prairie',
@@ -52,11 +72,11 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       ]
     },
     {
-      id: '5b',
+      id: '5f',
       brand: 'Taste of the Wild',
-      name: 'Taste of the Wild Pacific Stream',
+      name: 'Taste of the Wild Appalachian Valley',
       imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
-      imageAlt: 'Taste of the Wild Pacific Stream',
+      imageAlt: 'Taste of the Wild Appalachian Valley',
       variants: [
         { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
         { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
@@ -67,8 +87,8 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       ],
       packageSizes: [
         { size: '1kg', price: 48300, label: '1kg' },
-        { size: '6.35kg', price: 270000, label: '6.35kg' },
-        { size: '12.7kg', price: 453000, label: '12.7kg' }
+        { size: '6.35kg', price: 275000, label: '6.35kg' },
+        { size: '12.7kg', price: 463000, label: '12.7kg' }
       ]
     },
     {
@@ -114,26 +134,6 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       ],
       packageSizes: [
         { size: '12.7kg', price: 463000, label: '12.7kg' }
-      ]
-    },
-    {
-      id: '5f',
-      brand: 'Taste of the Wild',
-      name: 'Taste of the Wild Appalachian Valley',
-      imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
-      imageAlt: 'Taste of the Wild Appalachian Valley',
-      variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' },
-        { lifeStage: 'cachorro', size: 'pequeño', label: 'Cachorro Pequeño' },
-        { lifeStage: 'cachorro', size: 'mediano', label: 'Cachorro Mediano' },
-        { lifeStage: 'cachorro', size: 'grande', label: 'Cachorro Grande' }
-      ],
-      packageSizes: [
-        { size: '1kg', price: 48300, label: '1kg' },
-        { size: '6.35kg', price: 270000, label: '6.35kg' },
-        { size: '12.7kg', price: 453000, label: '12.7kg' }
       ]
     }
   ],
@@ -279,6 +279,15 @@ const TASTE_OF_THE_WILD_PRICES: PriceEntry[] = [
   { lifeStage: 'cachorro', size: '12.7kg', price: 465000 }
 ];
 
+const APPALACHIAN_VALLEY_PRICES: PriceEntry[] = [
+  { lifeStage: 'adulto', size: '1kg', price: 48300 },
+  { lifeStage: 'adulto', size: '6.35kg', price: 275000 },
+  { lifeStage: 'adulto', size: '12.7kg', price: 463000 },
+  { lifeStage: 'cachorro', size: '1kg', price: 48300 },
+  { lifeStage: 'cachorro', size: '6.35kg', price: 275000 },
+  { lifeStage: 'cachorro', size: '12.7kg', price: 463000 }
+];
+
 export default function ProductsPage() {
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
   const [selectedLifeStage, setSelectedLifeStage] = useState<string>('');
@@ -317,7 +326,7 @@ export default function ProductsPage() {
     }
     
     if (selectedProduct.name === 'Taste of the Wild Appalachian Valley') {
-      const priceEntry = TASTE_OF_THE_WILD_PRICES.find(
+      const priceEntry = APPALACHIAN_VALLEY_PRICES.find(
         p => p.lifeStage === selectedLifeStage && p.size === selectedPackageSize
       );
       return priceEntry?.price || null;
@@ -331,7 +340,12 @@ export default function ProductsPage() {
     if (selectedProduct && selectedLifeStage && selectedPackageSize) {
       const price = getPriceForSelection();
       const formattedPrice = price ? `$${price.toLocaleString('es-CO')}` : 'Consultar';
-      const message = `Hola, quiero pedir: Producto: ${selectedProduct.name}, Etapa de vida: ${selectedLifeStage}, Tamaño del paquete: ${selectedPackageSize}, Precio: ${formattedPrice}, Cantidad: ${quantity}. Por favor confirmar disponibilidad y entrega en Cartagena.`;
+      const lifeStageLabel = selectedProduct.name === 'Taste of the Wild Wetlands' ||
+                            selectedProduct.name === 'Taste of the Wild Sierra Mountain' ||
+                            selectedProduct.name === 'Taste of the Wild Southwest Canyon'
+        ? 'Fórmula exclusiva para perros adultos'
+        : selectedLifeStage.charAt(0).toUpperCase() + selectedLifeStage.slice(1);
+      const message = `Hola, quiero pedir: Producto: ${selectedProduct.name}, Etapa de vida: ${lifeStageLabel}, Tamaño del paquete: ${selectedPackageSize}, Precio: ${formattedPrice}, Cantidad: ${quantity}. Por favor confirmar disponibilidad y entrega en Cartagena.`;
       const encodedMessage = encodeURIComponent(message);
       window.open(`https://wa.me/573011471991?text=${encodedMessage}`, '_blank');
       handleCloseDetail();
