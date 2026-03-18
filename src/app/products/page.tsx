@@ -55,7 +55,7 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       id: '5',
       brand: 'Taste of the Wild',
       name: 'Taste of the Wild High Prairie',
-      imageSrc: 'https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773816029064-r9hgdfjm.jpg',
+      imageSrc: 'https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773816029064-r9hgdfjm.jpg?_wi=1',
       imageAlt: 'Taste of the Wild High Prairie',
       variants: [
         { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
@@ -240,7 +240,7 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
 const FEATURED_PRODUCTS = [
   {
     id: '1',
-    imageSrc: 'https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773816029064-r9hgdfjm.jpg',
+    imageSrc: 'https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773816029064-r9hgdfjm.jpg?_wi=2',
     imageAlt: 'Taste of the Wild High Prairie'
   },
   {
