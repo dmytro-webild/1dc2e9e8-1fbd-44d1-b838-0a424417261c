@@ -9,6 +9,7 @@ import FeatureCardTwelve from '@/components/sections/feature/FeatureCardTwelve';
 import TestimonialCardTen from '@/components/sections/testimonial/TestimonialCardTen';
 import ContactCTA from '@/components/sections/contact/ContactCTA';
 import FooterLogoReveal from '@/components/sections/footer/FooterLogoReveal';
+import ProductCardTwo from '@/components/sections/product/ProductCardTwo';
 import { Award, Users, Clock, CheckCircle, Sparkles, MessageSquare, Dog } from 'lucide-react';
 import { useState } from 'react';
 import Image from 'next/image';
@@ -21,9 +22,17 @@ interface ModalFormData {
   comentario: string;
 }
 
+interface ProductSelection {
+  productId: string;
+  weight: string;
+  age: string;
+}
+
 export default function LandingPage() {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showModal, setShowModal] = useState(false);
+  const [showProductModal, setShowProductModal] = useState(false);
+  const [selectedProduct, setSelectedProduct] = useState<ProductSelection | null>(null);
   const [formData, setFormData] = useState<ModalFormData>({
     nombre: '',
     telefono: '',
@@ -31,6 +40,44 @@ export default function LandingPage() {
     marcaActual: '',
     comentario: ''
   });
+
+  const products = [
+    {
+      id: "high-prairie",      brand: "Taste of the Wild",      name: "High Prairie",      price: "$463.000",      rating: 5,
+      reviewCount: "12+",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",      imageAlt: "Taste of the Wild High Prairie",      weights: ["12.7kg"],
+      ageOptions: ["Adulto"],
+      lockedWeight: true,
+      lockedAge: true
+    },
+    {
+      id: "wetlands",      brand: "Taste of the Wild",      name: "Wetlands",      price: "$463.000",      rating: 5,
+      reviewCount: "12+",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",      imageAlt: "Taste of the Wild Wetlands",      weights: ["12.7kg"],
+      ageOptions: ["Adulto"],
+      lockedWeight: true,
+      lockedAge: true
+    },
+    {
+      id: "sierra-mountain",      brand: "Taste of the Wild",      name: "Sierra Mountain",      price: "$463.000",      rating: 5,
+      reviewCount: "12+",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",      imageAlt: "Taste of the Wild Sierra Mountain",      weights: ["12.7kg"],
+      ageOptions: ["Adulto"],
+      lockedWeight: true,
+      lockedAge: true
+    },
+    {
+      id: "southwest-canyon",      brand: "Taste of the Wild",      name: "Southwest Canyon Jabalí",      price: "$463.000",      rating: 5,
+      reviewCount: "12+",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",      imageAlt: "Taste of the Wild Southwest Canyon Jabalí",      weights: ["12.7kg"],
+      ageOptions: ["Adulto"],
+      lockedWeight: true,
+      lockedAge: true
+    },
+    {
+      id: "appalachian-valley",      brand: "Taste of the Wild",      name: "Appalachian Valley",      price: "$463.000",      rating: 5,
+      reviewCount: "12+",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",      imageAlt: "Taste of the Wild Appalachian Valley",      weights: ["12.7kg"],
+      ageOptions: ["Adulto"],
+      lockedWeight: false,
+      lockedAge: false
+    }
+  ];
 
   const handleFormSubmit = async (data: ModalFormData) => {
     try {
@@ -74,6 +121,44 @@ export default function LandingPage() {
     }));
   };
 
+  const handleProductClick = (productId: string) => {
+    const product = products.find(p => p.id === productId);
+    if (product) {
+      setSelectedProduct({
+        productId,
+        weight: product.weights[0],
+        age: product.ageOptions[0]
+      });
+      setShowProductModal(true);
+    }
+  };
+
+  const handleProductConfirm = () => {
+    if (selectedProduct) {
+      const product = products.find(p => p.id === selectedProduct.productId);
+      const productName = product?.name || '';
+      const weight = selectedProduct.weight;
+      const age = selectedProduct.age;
+      const whatsappMessage = `Hola, me interesa el producto: ${productName} - ${weight} - ${age}`;
+      const whatsappUrl = `https://wa.me/573011471991?text=${encodeURIComponent(whatsappMessage)}`;
+      window.open(whatsappUrl, '_blank');
+      setShowProductModal(false);
+      setSelectedProduct(null);
+    }
+  };
+
+  const productCardItems = products.map(product => ({
+    id: product.id,
+    brand: product.brand,
+    name: product.name,
+    price: product.price,
+    rating: product.rating,
+    reviewCount: product.reviewCount,
+    imageSrc: product.imageSrc,
+    imageAlt: product.imageAlt,
+    onProductClick: () => handleProductClick(product.id)
+  }));
+
   return (
     <ThemeProvider
       defaultButtonVariant="text-shift"
@@ -93,6 +178,63 @@ export default function LandingPage() {
             <div className="text-6xl mb-4">🐾</div>
             <h2 className="text-2xl font-bold text-[#001a4d] mb-2">¡Solicitud Recibida!</h2>
             <p className="text-gray-600">Gracias. Nuestro equipo se pondrá en contacto contigo pronto.</p>
+          </div>
+        </div>
+      )}
+
+      {showProductModal && selectedProduct && (
+        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={() => setShowProductModal(false)}>
+          <div className="bg-white rounded-lg max-w-md w-full p-6 shadow-2xl" onClick={e => e.stopPropagation()}>
+            <div className="flex justify-between items-center mb-6">
+              <h2 className="text-2xl font-bold text-[#001a4d]">Seleccionar Producto</h2>
+              <button onClick={() => setShowProductModal(false)} className="text-2xl text-gray-500 hover:text-gray-700">×</button>
+            </div>
+            <form onSubmit={(e) => { e.preventDefault(); handleProductConfirm(); }} className="space-y-4">
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">Presentación</label>
+                {products.find(p => p.id === selectedProduct.productId)?.weights.length === 1 ? (
+                  <div className="px-3 py-2 bg-gray-100 rounded-lg text-gray-700 font-medium">
+                    {selectedProduct.weight}
+                  </div>
+                ) : (
+                  <select
+                    value={selectedProduct.weight}
+                    onChange={(e) => setSelectedProduct({ ...selectedProduct, weight: e.target.value })}
+                    disabled={products.find(p => p.id === selectedProduct.productId)?.lockedWeight}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001a4d]"
+                  >
+                    {products.find(p => p.id === selectedProduct.productId)?.weights.map(w => (
+                      <option key={w} value={w}>{w}</option>
+                    ))}
+                  </select>
+                )}
+              </div>
+              <div>
+                <label className="block text-sm font-semibold text-gray-700 mb-2">Edad del Perro</label>
+                {products.find(p => p.id === selectedProduct.productId)?.ageOptions.length === 1 ? (
+                  <div className="px-3 py-2 bg-gray-100 rounded-lg text-gray-700 font-medium">
+                    {selectedProduct.age}
+                  </div>
+                ) : (
+                  <select
+                    value={selectedProduct.age}
+                    onChange={(e) => setSelectedProduct({ ...selectedProduct, age: e.target.value })}
+                    disabled={products.find(p => p.id === selectedProduct.productId)?.lockedAge}
+                    className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#001a4d]"
+                  >
+                    {products.find(p => p.id === selectedProduct.productId)?.ageOptions.map(a => (
+                      <option key={a} value={a}>{a}</option>
+                    ))}
+                  </select>
+                )}
+              </div>
+              <button
+                type="submit"
+                className="w-full py-2 bg-[#001a4d] text-white rounded-lg font-semibold hover:opacity-90 transition-opacity"
+              >
+                Enviar por WhatsApp
+              </button>
+            </form>
           </div>
         </div>
       )}
@@ -182,11 +324,11 @@ export default function LandingPage() {
             { name: "Marcas", id: "brands" },
             { name: "Cobertura", id: "coverage" },
             { name: "Testimonios", id: "testimonials" },
-            { name: "Productos", id: "/products" },
+            { name: "Productos", id: "products" },
             { name: "Contacto", id: "form" }
           ]}
           button={{
-            text: "Ver Catálogo",            href: "/products"
+            text: "Ver Catálogo",            href: "#products"
           }}
         />
       </div>
@@ -194,14 +336,13 @@ export default function LandingPage() {
       <div id="hero" data-section="hero">
         <HeroSplitDualMedia
           title="Alimento Premium para perros con entrega en Cartagena"
-          description="Marcas reconocidas por su calidad nutricional.
-Entregas directas en la zona norte de Cartagena."
+          description="Marcas reconocidas por su calidad nutricional.\nEntregas directas en la zona norte de Cartagena."
           tag="Especialistas en Nutrición Premium"
           tagIcon={Sparkles}
           tagAnimation="blur-reveal"
           background={{ variant: "plain" }}
           buttons={[
-            { text: "Ver Catálogo", href: "/products" },
+            { text: "Ver Catálogo", href: "#products" },
             { text: "Escribir por WhatsApp", href: "https://wa.me/573011471991?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20su%20servicio%20de%20alimento%20premium" }
           ]}
           buttonAnimation="blur-reveal"
@@ -272,6 +413,21 @@ y formulaciones confiables para el bienestar de tu perro."
           textboxLayout="default"
           useInvertedBackground={false}
           ariaLabel="Coverage zones - Cartagena north zone delivery"
+        />
+      </div>
+
+      <div id="products" data-section="products">
+        <ProductCardTwo
+          products={productCardItems}
+          title="Catálogo de Productos Premium"
+          description="Explora nuestra selección de alimentos premium para perros. Cada producto está cuidadosamente seleccionado para garantizar la mejor nutrición."
+          tag="Productos Disponibles"
+          tagAnimation="blur-reveal"
+          textboxLayout="default"
+          useInvertedBackground={false}
+          animationType="blur-reveal"
+          gridVariant="uniform-all-items-equal"
+          ariaLabel="Product catalog section"
         />
       </div>
 
