@@ -2,341 +2,69 @@
 
 import { ThemeProvider } from "@/providers/themeProvider/ThemeProvider";
 import NavbarLayoutFloatingOverlay from '@/components/navbar/NavbarLayoutFloatingOverlay/NavbarLayoutFloatingOverlay';
-import HeroBillboardRotatedCarousel from '@/components/sections/hero/HeroBillboardRotatedCarousel';
-import FooterLogoReveal from '@/components/sections/footer/FooterLogoReveal';
-import { Package } from 'lucide-react';
 import { useState } from 'react';
-
-interface ProductVariant {
-  lifeStage: 'cachorro' | 'adulto' | 'senior';
-  size: 'pequeño' | 'mediano' | 'grande';
-  label: string;
-}
-
-interface PackageOption {
-  size: string;
-  price: number;
-  label: string;
-}
+import Image from 'next/image';
 
 interface Product {
   id: string;
-  brand: string;
   name: string;
+  sizes: { size: string; price: number }[];
   imageSrc: string;
   imageAlt: string;
-  variants: ProductVariant[];
-  packageSizes: PackageOption[];
+  lifeStage: string;
+  lifeStageLabel: string;
 }
 
-const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
-  'Taste of the Wild': [
-    {
-      id: '5',
-      brand: 'Taste of the Wild',
-      name: 'Taste of the Wild High Prairie',
-      imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
-      imageAlt: 'Taste of the Wild High Prairie',
-      variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' },
-        { lifeStage: 'cachorro', size: 'pequeño', label: 'Cachorro Pequeño' },
-        { lifeStage: 'cachorro', size: 'mediano', label: 'Cachorro Mediano' },
-        { lifeStage: 'cachorro', size: 'grande', label: 'Cachorro Grande' }
-      ],
-      packageSizes: [
-        { size: '1kg', price: 48300, label: '1kg' },
-        { size: '6.35kg', price: 270000, label: '6.35kg' },
-        { size: '12.7kg', price: 453000, label: '12.7kg' }
-      ]
-    },
-    {
-      id: '5b',
-      brand: 'Taste of the Wild',
-      name: 'Taste of the Wild Pacific Stream',
-      imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
-      imageAlt: 'Taste of the Wild Pacific Stream',
-      variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' },
-        { lifeStage: 'cachorro', size: 'pequeño', label: 'Cachorro Pequeño' },
-        { lifeStage: 'cachorro', size: 'mediano', label: 'Cachorro Mediano' },
-        { lifeStage: 'cachorro', size: 'grande', label: 'Cachorro Grande' }
-      ],
-      packageSizes: [
-        { size: '1kg', price: 48300, label: '1kg' },
-        { size: '6.35kg', price: 270000, label: '6.35kg' },
-        { size: '12.7kg', price: 453000, label: '12.7kg' }
-      ]
-    },
-    {
-      id: '5c',
-      brand: 'Taste of the Wild',
-      name: 'Taste of the Wild Wetlands',
-      imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
-      imageAlt: 'Taste of the Wild Wetlands',
-      variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' }
-      ],
-      packageSizes: [
-        { size: '12.7kg', price: 463000, label: '12.7kg' }
-      ]
-    },
-    {
-      id: '5d',
-      brand: 'Taste of the Wild',
-      name: 'Taste of the Wild Sierra Mountain',
-      imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
-      imageAlt: 'Taste of the Wild Sierra Mountain',
-      variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' }
-      ],
-      packageSizes: [
-        { size: '12.7kg', price: 463000, label: '12.7kg' }
-      ]
-    },
-    {
-      id: '5e',
-      brand: 'Taste of the Wild',
-      name: 'Taste of the Wild Southwest Canyon',
-      imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
-      imageAlt: 'Taste of the Wild Southwest Canyon',
-      variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' }
-      ],
-      packageSizes: [
-        { size: '12.7kg', price: 463000, label: '12.7kg' }
-      ]
-    },
-    {
-      id: '5f',
-      brand: 'Taste of the Wild',
-      name: 'Taste of the Wild Appalachian Valley',
-      imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
-      imageAlt: 'Taste of the Wild Appalachian Valley',
-      variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' },
-        { lifeStage: 'cachorro', size: 'pequeño', label: 'Cachorro Pequeño' },
-        { lifeStage: 'cachorro', size: 'mediano', label: 'Cachorro Mediano' },
-        { lifeStage: 'cachorro', size: 'grande', label: 'Cachorro Grande' }
-      ],
-      packageSizes: [
-        { size: '1kg', price: 48300, label: '1kg' },
-        { size: '6.35kg', price: 270000, label: '6.35kg' },
-        { size: '12.7kg', price: 453000, label: '12.7kg' }
-      ]
-    }
-  ],
-  'Royal Canin': [
-    {
-      id: '1',
-      brand: 'Royal Canin',
-      name: 'Royal Canin Maxi',
-      imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
-      imageAlt: 'Royal Canin Maxi',
-      variants: [
-        { lifeStage: 'cachorro', size: 'grande', label: 'Cachorro Grande' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' },
-        { lifeStage: 'senior', size: 'grande', label: 'Senior Grande' }
-      ],
-      packageSizes: [{ size: '4kg', price: 85000, label: '4kg - $85.000' }, { size: '10kg', price: 180000, label: '10kg - $180.000' }, { size: '15kg', price: 250000, label: '15kg - $250.000' }]
-    }
-  ],
-  "Hill's Science Diet": [
-    {
-      id: '2',
-      brand: "Hill's Science Diet",      name: "Hill's Adult Sensitive Stomach",      imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=2',
-      imageAlt: "Hill's Adult Sensitive Stomach",      variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' }
-      ],
-      packageSizes: [{ size: '3.5kg', price: 75000, label: '3.5kg - $75.000' }, { size: '7.5kg', price: 145000, label: '7.5kg - $145.000' }, { size: '12kg', price: 220000, label: '12kg - $220.000' }]
-    }
-  ],
-  'Pro Plan': [
-    {
-      id: '3',
-      brand: 'Pro Plan',
-      name: 'Pro Plan OptiStart',
-      imageSrc: 'http://img.b2bpic.net/free-photo/portrait-young-handsome-dogowner-spending-time-with-his-pet-cafe-sitting-indoors-looking_1258-245386.jpg?_wi=2',
-      imageAlt: 'Pro Plan OptiStart',
-      variants: [
-        { lifeStage: 'cachorro', size: 'pequeño', label: 'Cachorro Pequeño' },
-        { lifeStage: 'cachorro', size: 'mediano', label: 'Cachorro Mediano' },
-        { lifeStage: 'cachorro', size: 'grande', label: 'Cachorro Grande' }
-      ],
-      packageSizes: [{ size: '3kg', price: 70000, label: '3kg - $70.000' }, { size: '6kg', price: 135000, label: '6kg - $135.000' }, { size: '12kg', price: 250000, label: '12kg - $250.000' }]
-    }
-  ],
-  'Acana': [
-    {
-      id: '4',
-      brand: 'Acana',
-      name: 'Acana Grasslands',
-      imageSrc: 'http://img.b2bpic.net/free-photo/two-sisters-with-their-dog-park_1303-11215.jpg?_wi=2',
-      imageAlt: 'Acana Grasslands',
-      variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' }
-      ],
-      packageSizes: [{ size: '2kg', price: 95000, label: '2kg - $95.000' }, { size: '6kg', price: 265000, label: '6kg - $265.000' }, { size: '11.4kg', price: 475000, label: '11.4kg - $475.000' }]
-    }
-  ],
-  'Orijen': [
-    {
-      id: '6',
-      brand: 'Orijen',
-      name: 'Orijen Original',
-      imageSrc: 'http://img.b2bpic.net/free-photo/portrait-young-handsome-dogowner-spending-time-with-his-pet-cafe-sitting-indoors-looking_1258-245386.jpg?_wi=1',
-      imageAlt: 'Orijen Original',
-      variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' }
-      ],
-      packageSizes: [{ size: '1.8kg', price: 110000, label: '1.8kg - $110.000' }, { size: '5.4kg', price: 305000, label: '5.4kg - $305.000' }, { size: '11.3kg', price: 595000, label: '11.3kg - $595.000' }]
-    }
-  ],
-  'Monello': [
-    {
-      id: '7',
-      brand: 'Monello',
-      name: 'Monello Premium',
-      imageSrc: 'http://img.b2bpic.net/free-photo/two-sisters-with-their-dog-park_1303-11215.jpg?_wi=1',
-      imageAlt: 'Monello Premium',
-      variants: [
-        { lifeStage: 'cachorro', size: 'mediano', label: 'Cachorro Mediano' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'senior', size: 'mediano', label: 'Senior Mediano' }
-      ],
-      packageSizes: [{ size: '3kg', price: 65000, label: '3kg - $65.000' }, { size: '8kg', price: 165000, label: '8kg - $165.000' }, { size: '15kg', price: 295000, label: '15kg - $295.000' }]
-    }
-  ],
-  'Equilibrio': [
-    {
-      id: '8',
-      brand: 'Equilibrio',
-      name: 'Equilibrio Adulto',
-      imageSrc: 'http://img.b2bpic.net/free-photo/handsome-man-holding-french-bulldog-walking-park_176420-55093.jpg?_wi=2',
-      imageAlt: 'Equilibrio Adulto',
-      variants: [
-        { lifeStage: 'cachorro', size: 'pequeño', label: 'Cachorro Pequeño' },
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
-        { lifeStage: 'senior', size: 'pequeño', label: 'Senior Pequeño' }
-      ],
-      packageSizes: [{ size: '2kg', price: 72000, label: '2kg - $72.000' }, { size: '7.5kg', price: 195000, label: '7.5kg - $195.000' }, { size: '15kg', price: 355000, label: '15kg - $355.000' }]
-    }
-  ]
-};
-
-const FEATURED_PRODUCTS = [
+const products: Product[] = [
   {
-    id: '1',
-    imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
-    imageAlt: 'Taste of the Wild High Prairie'
+    id: "appalachian-valley",    name: "Appalachian Valley",    imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",    imageAlt: "Appalachian Valley Dog Food",    lifeStage: "Adulto",    lifeStageLabel: "Fórmula exclusiva para perros adultos",    sizes: [
+      { size: "6.35kg", price: 275000 },
+      { size: "12.7kg", price: 463000 }
+    ]
   },
   {
-    id: '2',
-    imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=2',
-    imageAlt: 'Taste of the Wild Pacific Stream'
+    id: "wetlands",    name: "Wetlands",    imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",    imageAlt: "Wetlands Dog Food",    lifeStage: "Adulto",    lifeStageLabel: "Fórmula exclusiva para perros adultos",    sizes: [
+      { size: "12.7kg", price: 463000 }
+    ]
   },
   {
-    id: '3',
-    imageSrc: 'http://img.b2bpic.net/free-photo/portrait-young-handsome-dogowner-spending-time-with-his-pet-cafe-sitting-indoors-looking_1258-245386.jpg?_wi=2',
-    imageAlt: 'Pro Plan OptiStart'
+    id: "sierra-mountain",    name: "Sierra Mountain",    imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",    imageAlt: "Sierra Mountain Dog Food",    lifeStage: "Adulto",    lifeStageLabel: "Fórmula exclusiva para perros adultos",    sizes: [
+      { size: "12.7kg", price: 463000 }
+    ]
   },
   {
-    id: '4',
-    imageSrc: 'http://img.b2bpic.net/free-photo/two-sisters-with-their-dog-park_1303-11215.jpg?_wi=2',
-    imageAlt: 'Acana Grasslands'
+    id: "southwest-canyon",    name: "Southwest Canyon",    imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",    imageAlt: "Southwest Canyon Dog Food",    lifeStage: "Adulto",    lifeStageLabel: "Fórmula exclusiva para perros adultos",    sizes: [
+      { size: "12.7kg", price: 463000 }
+    ]
+  },
+  {
+    id: "orijen",    name: "Orijen",    imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",    imageAlt: "Orijen Dog Food",    lifeStage: "Mixto",    lifeStageLabel: "Para todas las edades",    sizes: [
+      { size: "11.4kg", price: 450000 }
+    ]
+  },
+  {
+    id: "acana",    name: "Acana",    imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",    imageAlt: "Acana Dog Food",    lifeStage: "Mixto",    lifeStageLabel: "Para todas las edades",    sizes: [
+      { size: "11.4kg", price: 420000 }
+    ]
   }
 ];
 
-interface PriceEntry {
-  lifeStage: 'adulto' | 'cachorro';
-  size: string;
-  price: number;
-}
-
-const TASTE_OF_THE_WILD_PRICES: PriceEntry[] = [
-  { lifeStage: 'adulto', size: '1kg', price: 48300 },
-  { lifeStage: 'adulto', size: '6.35kg', price: 270000 },
-  { lifeStage: 'adulto', size: '12.7kg', price: 453000 },
-  { lifeStage: 'cachorro', size: '1kg', price: 48300 },
-  { lifeStage: 'cachorro', size: '6.35kg', price: 259000 },
-  { lifeStage: 'cachorro', size: '12.7kg', price: 465000 }
-];
-
 export default function ProductsPage() {
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [selectedLifeStage, setSelectedLifeStage] = useState<string>('');
-  const [selectedSize, setSelectedSize] = useState<string>('');
-  const [selectedPackageSize, setSelectedPackageSize] = useState<string>('');
-  const [quantity, setQuantity] = useState(1);
+  const [selectedProduct, setSelectedProduct] = useState<string | null>(null);
+  const [selectedSize, setSelectedSize] = useState<string | null>(null);
+  const [cart, setCart] = useState<{ productId: string; size: string; price: number }[]>([]);
 
-  const handleProductClick = (product: Product) => {
-    setSelectedProduct(product);
-    setSelectedLifeStage(product.variants[0]?.lifeStage || '');
-    setSelectedSize(product.variants[0]?.size || '');
-    setSelectedPackageSize(product.packageSizes[0]?.size || '');
-    setQuantity(1);
-  };
-
-  const handleCloseDetail = () => {
+  const handleAddToCart = (productId: string, size: string, price: number) => {
+    setCart([...cart, { productId, size, price }]);
     setSelectedProduct(null);
-    setSelectedLifeStage('');
-    setSelectedSize('');
-    setSelectedPackageSize('');
-    setQuantity(1);
+    setSelectedSize(null);
   };
 
-  const getPriceForSelection = () => {
-    if (!selectedProduct || !selectedPackageSize) return null;
-    
-    if (selectedProduct.name === 'Taste of the Wild High Prairie' || 
-        selectedProduct.name === 'Taste of the Wild Pacific Stream' ||
-        selectedProduct.name === 'Taste of the Wild Wetlands' ||
-        selectedProduct.name === 'Taste of the Wild Sierra Mountain' ||
-        selectedProduct.name === 'Taste of the Wild Southwest Canyon') {
-      const priceEntry = TASTE_OF_THE_WILD_PRICES.find(
-        p => p.lifeStage === selectedLifeStage && p.size === selectedPackageSize
-      );
-      return priceEntry?.price || null;
-    }
-    
-    if (selectedProduct.name === 'Taste of the Wild Appalachian Valley') {
-      const priceEntry = TASTE_OF_THE_WILD_PRICES.find(
-        p => p.lifeStage === selectedLifeStage && p.size === selectedPackageSize
-      );
-      return priceEntry?.price || null;
-    }
-    
-    const pkg = selectedProduct.packageSizes.find(p => p.size === selectedPackageSize);
-    return pkg?.price || null;
+  const handleRemoveFromCart = (index: number) => {
+    setCart(cart.filter((_, i) => i !== index));
   };
 
-  const handleAddToCart = () => {
-    if (selectedProduct && selectedLifeStage && selectedPackageSize) {
-      const price = getPriceForSelection();
-      const formattedPrice = price ? `$${price.toLocaleString('es-CO')}` : 'Consultar';
-      const message = `Hola, quiero pedir: Producto: ${selectedProduct.name}, Etapa de vida: ${selectedLifeStage}, Tamaño del paquete: ${selectedPackageSize}, Precio: ${formattedPrice}, Cantidad: ${quantity}. Por favor confirmar disponibilidad y entrega en Cartagena.`;
-      const encodedMessage = encodeURIComponent(message);
-      window.open(`https://wa.me/573011471991?text=${encodedMessage}`, '_blank');
-      handleCloseDetail();
-    }
-  };
+  const totalPrice = cart.reduce((sum, item) => sum + item.price, 0);
 
   return (
     <ThemeProvider
@@ -357,6 +85,7 @@ export default function ProductsPage() {
           navItems={[
             { name: "Inicio", id: "/" },
             { name: "Por Qué Nosotros", id: "#authority" },
+            { name: "Marcas", id: "#brands" },
             { name: "Cobertura", id: "#coverage" },
             { name: "Testimonios", id: "#testimonials" },
             { name: "Productos", id: "/products" },
@@ -368,180 +97,144 @@ export default function ProductsPage() {
         />
       </div>
 
-      <div id="hero" data-section="hero" className="pt-20">
-        <HeroBillboardRotatedCarousel
-          title="Catálogo de Alimentos Premium"
-          description="Explora nuestra selección exclusiva de alimentos premium para perros. Cada producto ha sido cuidadosamente seleccionado para garantizar la máxima calidad nutricional."
-          background={{ variant: "plain" }}
-          tag="Productos Destacados"
-          tagIcon={Package}
-          tagAnimation="blur-reveal"
-          buttons={[
-            { text: "Solicitar Asesoría", href: "/" },
-            { text: "Contactar por WhatsApp", href: "https://wa.me/573011471991?text=Hola,%20me%20interesa%20conocer%20más%20sobre%20sus%20productos" }
-          ]}
-          buttonAnimation="blur-reveal"
-          carouselItems={FEATURED_PRODUCTS}
-          autoPlay={true}
-          autoPlayInterval={4000}
-          ariaLabel="Hero section - Featured products carousel"
-        />
-      </div>
+      <div className="min-h-screen bg-gradient-to-b from-white to-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl sm:text-5xl font-extrabold text-[#001a4d] mb-4">Catálogo de Productos</h1>
+            <p className="text-xl text-gray-600">Alimentos premium para la nutrición óptima de tu perro</p>
+          </div>
 
-      <div id="products" data-section="products" className="py-20 px-4">
-        <div className="w-full max-w-7xl mx-auto">
-          {Object.entries(PRODUCTS_BY_BRAND).map(([brand, products]) => (
-            <div key={brand} className="mb-16">
-              <h2 className="text-3xl font-bold mb-8 text-foreground">{brand}</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                {products.map(product => {
-                  const basePrice = product.packageSizes[0]?.price || 0;
-                  return (
-                    <div
-                      key={product.id}
-                      onClick={() => handleProductClick(product)}
-                      className="cursor-pointer group bg-card rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1 flex flex-col"
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+            {products.map((product) => (
+              <div key={product.id} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+                <div className="relative h-64 w-full bg-gray-200">
+                  <Image
+                    src={product.imageSrc}
+                    alt={product.imageAlt}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <div className="p-6">
+                  <h2 className="text-2xl font-bold text-[#001a4d] mb-2">{product.name}</h2>
+                  <p className="text-sm text-gray-600 mb-2">Etapa: {product.lifeStage}</p>
+                  <p className="text-sm text-gray-500 mb-4">{product.lifeStageLabel}</p>
+                  <div className="space-y-2 mb-4">
+                    {product.sizes.map((sizeOption) => (
+                      <div key={`${product.id}-${sizeOption.size}`} className="flex justify-between items-center">
+                        <span className="text-gray-700">{sizeOption.size}</span>
+                        <span className="text-lg font-semibold text-[#001a4d]">${sizeOption.price.toLocaleString('es-CO')}</span>
+                      </div>
+                    ))}
+                  </div>
+                  <button
+                    onClick={() => setSelectedProduct(product.id)}
+                    className="w-full py-2 bg-[#001a4d] text-white rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                  >
+                    Seleccionar
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {selectedProduct && (
+            <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4">
+              <div className="bg-white rounded-lg max-w-md w-full p-6 shadow-2xl">
+                <h3 className="text-2xl font-bold text-[#001a4d] mb-4">
+                  {products.find(p => p.id === selectedProduct)?.name}
+                </h3>
+                <div className="space-y-3 mb-6">
+                  {products.find(p => p.id === selectedProduct)?.sizes.map((size) => (
+                    <button
+                      key={`${selectedProduct}-${size.size}`}
+                      onClick={() => setSelectedSize(size.size)}
+                      className={`w-full p-3 rounded-lg font-semibold transition-colors ${
+                        selectedSize === size.size
+                          ? 'bg-[#001a4d] text-white'
+                          : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
+                      }`}
                     >
-                      <div className="aspect-square overflow-hidden bg-gray-200 flex-shrink-0">
-                        <img
-                          src={product.imageSrc}
-                          alt={product.imageAlt}
-                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        />
+                      {size.size} - ${size.price.toLocaleString('es-CO')}
+                    </button>
+                  ))}
+                </div>
+                {selectedSize && (
+                  <button
+                    onClick={() => {
+                      const size = products
+                        .find(p => p.id === selectedProduct)?.sizes
+                        .find(s => s.size === selectedSize);
+                      if (size) {
+                        handleAddToCart(selectedProduct, selectedSize, size.price);
+                      }
+                    }}
+                    className="w-full py-3 bg-green-600 text-white rounded-lg font-semibold hover:opacity-90 transition-opacity mb-2"
+                  >
+                    Agregar al Carrito
+                  </button>
+                )}
+                <button
+                  onClick={() => {
+                    setSelectedProduct(null);
+                    setSelectedSize(null);
+                  }}
+                  className="w-full py-2 bg-gray-300 text-gray-700 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+                >
+                  Cancelar
+                </button>
+              </div>
+            </div>
+          )}
+
+          {cart.length > 0 && (
+            <div className="bg-white rounded-lg shadow-lg p-6">
+              <h3 className="text-2xl font-bold text-[#001a4d] mb-4">Carrito de Compras</h3>
+              <div className="space-y-3 mb-6">
+                {cart.map((item, index) => {
+                  const product = products.find(p => p.id === item.productId);
+                  return (
+                    <div key={index} className="flex justify-between items-center bg-gray-50 p-3 rounded-lg">
+                      <div>
+                        <p className="font-semibold text-gray-800">{product?.name}</p>
+                        <p className="text-sm text-gray-600">{item.size} - ${item.price.toLocaleString('es-CO')}</p>
                       </div>
-                      <div className="p-4 flex flex-col flex-grow">
-                        <h3 className="font-bold text-lg mb-2 text-foreground line-clamp-2">{product.name}</h3>
-                        <p className="text-primary-cta font-bold text-xl mb-4">desde ${basePrice.toLocaleString('es-CO')}</p>
-                        <button className="px-4 py-2 bg-primary-cta text-primary-cta-text rounded font-semibold text-sm hover:opacity-90 transition-opacity mt-auto">
-                          Ver Detalles
-                        </button>
-                      </div>
+                      <button
+                        onClick={() => handleRemoveFromCart(index)}
+                        className="px-3 py-1 bg-red-500 text-white rounded hover:opacity-90 transition-opacity text-sm"
+                      >
+                        Eliminar
+                      </button>
                     </div>
                   );
                 })}
               </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {selectedProduct && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={handleCloseDetail}>
-          <div className="bg-card rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6" onClick={e => e.stopPropagation()}>
-            <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-foreground">{selectedProduct.name}</h2>
-              <button onClick={handleCloseDetail} className="text-2xl text-foreground/50 hover:text-foreground">×</button>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <div className="aspect-square bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
-                <img
-                  src={selectedProduct.imageSrc}
-                  alt={selectedProduct.imageAlt}
-                  className="w-full h-full object-cover"
-                />
-              </div>
-
-              <div className="space-y-4 flex flex-col">
-                <p className="text-sm text-foreground/70">Marca: <span className="font-semibold text-foreground">{selectedProduct.brand}</span></p>
-                
-                {(selectedProduct.name === 'Taste of the Wild Wetlands' ||
-                  selectedProduct.name === 'Taste of the Wild Sierra Mountain' ||
-                  selectedProduct.name === 'Taste of the Wild Southwest Canyon') && (
-                  <div className="text-xs text-foreground/60 bg-background/50 p-2 rounded">
-                    <p>Fórmula exclusiva para perros adultos</p>
-                  </div>
-                )}
-
-                {(selectedProduct.name === 'Taste of the Wild High Prairie' || 
-                  selectedProduct.name === 'Taste of the Wild Pacific Stream' ||
-                  selectedProduct.name === 'Taste of the Wild Appalachian Valley') && (
-                  <div className="text-xs text-foreground/60 bg-background/50 p-2 rounded">
-                    <p>Nota: El selector de tamaño del perro es solo para referencia. El precio varía según la etapa de vida (Adulto/Cachorro) y el tamaño del paquete.</p>
-                  </div>
-                )}
-
-                <p className="text-3xl font-bold text-primary-cta">{getPriceForSelection() ? `$${getPriceForSelection()?.toLocaleString('es-CO')}` : 'Consultar'}</p>
-
-                <div className="space-y-3 flex-grow">
-                  <div>
-                    <label className="block text-sm font-semibold text-foreground mb-2">Etapa de Vida</label>
-                    <select
-                      value={selectedLifeStage}
-                      onChange={(e) => setSelectedLifeStage(e.target.value)}
-                      className="w-full p-3 border border-accent rounded bg-background text-foreground"
-                    >
-                      {Array.from(new Set(selectedProduct.variants.map(v => v.lifeStage))).map(stage => (
-                        <option key={stage} value={stage}>{stage.charAt(0).toUpperCase() + stage.slice(1)}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Perro <span className="text-xs text-foreground/60">(referencia)</span></label>
-                    <select
-                      value={selectedSize}
-                      onChange={(e) => setSelectedSize(e.target.value)}
-                      className="w-full p-3 border border-accent rounded bg-background text-foreground"
-                    >
-                      {Array.from(new Set(selectedProduct.variants.map(v => v.size))).map(size => (
-                        <option key={size} value={size}>{size.charAt(0).toUpperCase() + size.slice(1)}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Paquete</label>
-                    <select
-                      value={selectedPackageSize}
-                      onChange={(e) => setSelectedPackageSize(e.target.value)}
-                      className="w-full p-3 border border-accent rounded bg-background text-foreground"
-                    >
-                      {selectedProduct.packageSizes.map(pkg => (
-                        <option key={pkg.size} value={pkg.size}>{pkg.label}</option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold text-foreground mb-2">Cantidad</label>
-                    <div className="flex items-center gap-3 border border-accent rounded p-2 w-fit">
-                      <button
-                        onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                        className="px-3 py-1 text-foreground hover:bg-accent/20 rounded"
-                      >
-                        −
-                      </button>
-                      <span className="px-4 py-1 text-foreground font-semibold">{quantity}</span>
-                      <button
-                        onClick={() => setQuantity(quantity + 1)}
-                        className="px-3 py-1 text-foreground hover:bg-accent/20 rounded"
-                      >
-                        +
-                      </button>
-                    </div>
-                  </div>
+              <div className="border-t pt-4 mb-4">
+                <div className="flex justify-between items-center text-xl font-bold text-[#001a4d]">
+                  <span>Total:</span>
+                  <span>${totalPrice.toLocaleString('es-CO')}</span>
                 </div>
-
-                <button
-                  onClick={handleAddToCart}
-                  className="w-full py-3 bg-primary-cta text-primary-cta-text rounded font-bold hover:opacity-90 transition-opacity mt-6"
-                >
-                  Agregar al Carrito
-                </button>
               </div>
+              <button
+                onClick={() => {
+                  const message = `Hola, me gustaría comprar los siguientes productos:\n\n${cart
+                    .map(item => {
+                      const product = products.find(p => p.id === item.productId);
+                      return `- ${product?.name} (${item.size}): $${item.price.toLocaleString('es-CO')}`;
+                    })
+                    .join('\n')}\n\nTotal: $${totalPrice.toLocaleString('es-CO')}`;
+                  window.open(
+                    `https://wa.me/573011471991?text=${encodeURIComponent(message)}`,
+                    '_blank'
+                  );
+                }}
+                className="w-full py-3 bg-green-600 text-white rounded-lg font-semibold hover:opacity-90 transition-opacity"
+              >
+                Confirmar por WhatsApp
+              </button>
             </div>
-          </div>
+          )}
         </div>
-      )}
-
-      <div id="footer" data-section="footer">
-        <FooterLogoReveal
-          logoText="Cartagena Pet Delivery"
-          leftLink={{ text: "Política de Privacidad", href: "/privacy" }}
-          rightLink={{ text: "Términos y Condiciones", href: "/terms" }}
-          ariaLabel="Site footer"
-        />
       </div>
     </ThemeProvider>
   );
