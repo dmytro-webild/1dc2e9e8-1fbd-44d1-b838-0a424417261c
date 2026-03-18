@@ -453,7 +453,7 @@ export default function ProductsPage() {
               </div>
 
               <div className="space-y-4 flex flex-col">
-                <p className="text-sm text-foreground/70">Marca: <span className="font-semibold text-foreground">{selectedProduct.brand}</span></p>
+                <p className="text-xs text-foreground/60">Marca: <span className="font-semibold text-foreground">{selectedProduct.brand}</span></p>
                 
                 {selectedProduct.name === 'Taste of the Wild Appalachian Valley' && (
                   <div className="text-xs text-foreground/60 bg-background/50 p-2 rounded">
@@ -480,7 +480,7 @@ export default function ProductsPage() {
 
                 <div className="space-y-3 flex-grow">
                   <div>
-                    <label className="block text-sm font-semibold text-foreground mb-2">Etapa de Vida</label>
+                    <label className="block text-xs font-semibold text-foreground/60 mb-2">Etapa de Vida</label>
                     <select
                       value={selectedLifeStage}
                       onChange={(e) => setSelectedLifeStage(e.target.value)}
@@ -494,7 +494,7 @@ export default function ProductsPage() {
 
                   {selectedProduct.name === 'Taste of the Wild Appalachian Valley' ? (
                     <div>
-                      <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Perro (referencia)</label>
+                      <label className="block text-xs font-semibold text-foreground/60 mb-2">Tamaño del Perro (referencia)</label>
                       <select
                         value={selectedSize}
                         onChange={(e) => setSelectedSize(e.target.value)}
@@ -509,7 +509,7 @@ export default function ProductsPage() {
                       selectedProduct.name === 'Taste of the Wild Sierra Mountain' ||
                       selectedProduct.name === 'Taste of the Wild Southwest Canyon') ? (
                     <div>
-                      <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Perro (referencia)</label>
+                      <label className="block text-xs font-semibold text-foreground/60 mb-2">Tamaño del Perro (referencia)</label>
                       <select
                         value={selectedSize}
                         onChange={(e) => setSelectedSize(e.target.value)}
@@ -522,7 +522,7 @@ export default function ProductsPage() {
                     </div>
                   ) : (
                     <div>
-                      <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Perro <span className="text-xs text-foreground/60">(referencia)</span></label>
+                      <label className="block text-xs font-semibold text-foreground/60 mb-2">Tamaño del Perro <span className="text-xs text-foreground/60">(referencia)</span></label>
                       <select
                         value={selectedSize}
                         onChange={(e) => setSelectedSize(e.target.value)}
@@ -536,7 +536,7 @@ export default function ProductsPage() {
                   )}
 
                   <div>
-                    <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Paquete</label>
+                    <label className="block text-xs font-semibold text-foreground/60 mb-2">Tamaño del Paquete</label>
                     <select
                       value={selectedPackageSize}
                       onChange={(e) => setSelectedPackageSize(e.target.value)}
@@ -549,7 +549,7 @@ export default function ProductsPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-foreground mb-2">Cantidad</label>
+                    <label className="block text-xs font-semibold text-foreground/60 mb-2">Cantidad</label>
                     <div className="flex items-center gap-3 border border-accent rounded p-2 w-fit">
                       <button
                         onClick={() => setQuantity(Math.max(1, quantity - 1))}
