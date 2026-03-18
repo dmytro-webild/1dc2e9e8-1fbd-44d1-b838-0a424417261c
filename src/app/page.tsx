@@ -44,35 +44,35 @@ export default function LandingPage() {
   const products = [
     {
       id: "high-prairie",      brand: "Taste of the Wild",      name: "High Prairie",      price: "$463.000",      rating: 5,
-      reviewCount: "12+",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",      imageAlt: "Taste of the Wild High Prairie",      weights: ["12.7kg"],
+      reviewCount: "12+",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png?_wi=1",      imageAlt: "Taste of the Wild High Prairie",      weights: ["12.7kg"],
       ageOptions: ["Adulto"],
       lockedWeight: true,
       lockedAge: true
     },
     {
       id: "wetlands",      brand: "Taste of the Wild",      name: "Wetlands",      price: "$463.000",      rating: 5,
-      reviewCount: "12+",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",      imageAlt: "Taste of the Wild Wetlands",      weights: ["12.7kg"],
+      reviewCount: "12+",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png?_wi=2",      imageAlt: "Taste of the Wild Wetlands",      weights: ["12.7kg"],
       ageOptions: ["Adulto"],
       lockedWeight: true,
       lockedAge: true
     },
     {
       id: "sierra-mountain",      brand: "Taste of the Wild",      name: "Sierra Mountain",      price: "$463.000",      rating: 5,
-      reviewCount: "12+",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",      imageAlt: "Taste of the Wild Sierra Mountain",      weights: ["12.7kg"],
+      reviewCount: "12+",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png?_wi=3",      imageAlt: "Taste of the Wild Sierra Mountain",      weights: ["12.7kg"],
       ageOptions: ["Adulto"],
       lockedWeight: true,
       lockedAge: true
     },
     {
       id: "southwest-canyon",      brand: "Taste of the Wild",      name: "Southwest Canyon Jabalí",      price: "$463.000",      rating: 5,
-      reviewCount: "12+",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",      imageAlt: "Taste of the Wild Southwest Canyon Jabalí",      weights: ["12.7kg"],
+      reviewCount: "12+",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png?_wi=4",      imageAlt: "Taste of the Wild Southwest Canyon Jabalí",      weights: ["12.7kg"],
       ageOptions: ["Adulto"],
       lockedWeight: true,
       lockedAge: true
     },
     {
       id: "appalachian-valley",      brand: "Taste of the Wild",      name: "Appalachian Valley",      price: "$463.000",      rating: 5,
-      reviewCount: "12+",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",      imageAlt: "Taste of the Wild Appalachian Valley",      weights: ["12.7kg"],
+      reviewCount: "12+",      imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png?_wi=5",      imageAlt: "Taste of the Wild Appalachian Valley",      weights: ["12.7kg"],
       ageOptions: ["Adulto"],
       lockedWeight: false,
       lockedAge: false
@@ -348,7 +348,7 @@ export default function LandingPage() {
           buttonAnimation="blur-reveal"
           mediaItems={[
             {
-              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",              imageAlt: "Perro comiendo alimento premium"
+              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png?_wi=6",              imageAlt: "Perro comiendo alimento premium"
             },
             {
               imageSrc: "http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=2",              imageAlt: "Dueño de perro satisfecho con nuestro servicio"
