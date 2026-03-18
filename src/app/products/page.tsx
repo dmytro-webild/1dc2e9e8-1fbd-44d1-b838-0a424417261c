@@ -146,6 +146,32 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
         { lifeStage: 'senior', size: 'grande', label: 'Senior Grande' }
       ],
       packageSizes: [{ size: '4kg', price: 85000, label: '4kg - $85.000' }, { size: '10kg', price: 180000, label: '10kg - $180.000' }, { size: '15kg', price: 250000, label: '15kg - $250.000' }]
+    },
+    {
+      id: '1a',
+      brand: 'Royal Canin',
+      name: 'Royal Canin Medium',
+      imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
+      imageAlt: 'Royal Canin Medium',
+      variants: [
+        { lifeStage: 'cachorro', size: 'mediano', label: 'Cachorro Mediano' },
+        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
+        { lifeStage: 'senior', size: 'mediano', label: 'Senior Mediano' }
+      ],
+      packageSizes: [{ size: '3kg', price: 65000, label: '3kg - $65.000' }, { size: '10kg', price: 175000, label: '10kg - $175.000' }, { size: '14kg', price: 240000, label: '14kg - $240.000' }]
+    },
+    {
+      id: '1b',
+      brand: 'Royal Canin',
+      name: 'Royal Canin Mini',
+      imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
+      imageAlt: 'Royal Canin Mini',
+      variants: [
+        { lifeStage: 'cachorro', size: 'pequeño', label: 'Cachorro Pequeño' },
+        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
+        { lifeStage: 'senior', size: 'pequeño', label: 'Senior Pequeño' }
+      ],
+      packageSizes: [{ size: '2kg', price: 55000, label: '2kg - $55.000' }, { size: '8kg', price: 160000, label: '8kg - $160.000' }, { size: '10kg', price: 195000, label: '10kg - $195.000' }]
     }
   ],
   "Hill's Science Diet": [
@@ -280,68 +306,122 @@ const APPALACHIAN_VALLEY_PRICES: PriceEntry[] = [
   { lifeStage: 'adulto', size: '12.7kg', price: 463000 }
 ];
 
+interface SelectedProduct {
+  product: Product | null;
+  lifeStage: string;
+  size: string;
+  packageSize: string;
+  quantity: number;
+}
+
 export default function ProductsPage() {
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  const [selectedLifeStage, setSelectedLifeStage] = useState<string>('');
-  const [selectedSize, setSelectedSize] = useState<string>('');
-  const [selectedPackageSize, setSelectedPackageSize] = useState<string>('');
+  const [selectedProduct, setSelectedProduct] = useState<SelectedProduct>({
+    product: null,
+    lifeStage: '',
+    size: '',
+    packageSize: '',
+    quantity: 1
+  });
   const [quantity, setQuantity] = useState(1);
 
   const handleProductClick = (product: Product) => {
-    setSelectedProduct(product);
-    setSelectedLifeStage(product.variants[0]?.lifeStage || '');
-    setSelectedSize(product.variants[0]?.size || '');
-    setSelectedPackageSize(product.packageSizes[0]?.size || '');
+    setSelectedProduct({
+      product,
+      lifeStage: product.variants[0]?.lifeStage || '',
+      size: product.variants[0]?.size || '',
+      packageSize: product.packageSizes[0]?.size || '',
+      quantity: 1
+    });
     setQuantity(1);
   };
 
   const handleCloseDetail = () => {
-    setSelectedProduct(null);
-    setSelectedLifeStage('');
-    setSelectedSize('');
-    setSelectedPackageSize('');
+    setSelectedProduct({
+      product: null,
+      lifeStage: '',
+      size: '',
+      packageSize: '',
+      quantity: 1
+    });
     setQuantity(1);
   };
 
+  const getAppliedSelectors = () => {
+    if (!selectedProduct.product) {
+      return { appliedSize: '', appliedNote: '' };
+    }
+
+    const product = selectedProduct.product;
+    const name = product.name;
+
+    if (name.includes('Maxi')) {
+      return {
+        appliedSize: 'Grande',
+        appliedNote: 'Diseñado para razas grandes'
+      };
+    }
+
+    if (name.includes('Medium')) {
+      return {
+        appliedSize: 'Mediano',
+        appliedNote: 'Ideal para razas medianas'
+      };
+    }
+
+    if (name.includes('Mini')) {
+      return {
+        appliedSize: 'Pequeño',
+        appliedNote: 'Especial para razas pequeñas'
+      };
+    }
+
+    return { appliedSize: '', appliedNote: '' };
+  };
+
   const getPriceForSelection = () => {
-    if (!selectedProduct || !selectedPackageSize) return null;
+    if (!selectedProduct.product || !selectedProduct.packageSize) return null;
     
-    if (selectedProduct.name === 'Taste of the Wild High Prairie' || 
-        selectedProduct.name === 'Taste of the Wild Pacific Stream') {
+    const product = selectedProduct.product;
+    if (product.name === 'Taste of the Wild High Prairie' || 
+        product.name === 'Taste of the Wild Pacific Stream') {
       const priceEntry = TASTE_OF_THE_WILD_PRICES.find(
-        p => p.lifeStage === selectedLifeStage && p.size === selectedPackageSize
+        p => p.lifeStage === selectedProduct.lifeStage && p.size === selectedProduct.packageSize
       );
       return priceEntry?.price || null;
     }
     
-    if (selectedProduct.name === 'Taste of the Wild Appalachian Valley') {
+    if (product.name === 'Taste of the Wild Appalachian Valley') {
       const priceEntry = APPALACHIAN_VALLEY_PRICES.find(
-        p => p.lifeStage === selectedLifeStage && p.size === selectedPackageSize
+        p => p.lifeStage === selectedProduct.lifeStage && p.size === selectedProduct.packageSize
       );
       return priceEntry?.price || null;
     }
     
-    if (selectedProduct.name === 'Taste of the Wild Wetlands' ||
-        selectedProduct.name === 'Taste of the Wild Sierra Mountain' ||
-        selectedProduct.name === 'Taste of the Wild Southwest Canyon') {
-      const pkg = selectedProduct.packageSizes.find(p => p.size === selectedPackageSize);
+    if (product.name === 'Taste of the Wild Wetlands' ||
+        product.name === 'Taste of the Wild Sierra Mountain' ||
+        product.name === 'Taste of the Wild Southwest Canyon') {
+      const pkg = product.packageSizes.find(p => p.size === selectedProduct.packageSize);
       return pkg?.price || null;
     }
     
-    const pkg = selectedProduct.packageSizes.find(p => p.size === selectedPackageSize);
+    const pkg = product.packageSizes.find(p => p.size === selectedProduct.packageSize);
     return pkg?.price || null;
   };
 
   const handleAddToCart = () => {
-    if (selectedProduct && selectedLifeStage && selectedPackageSize) {
+    if (selectedProduct.product && selectedProduct.lifeStage && selectedProduct.packageSize) {
       const price = getPriceForSelection();
       const formattedPrice = price ? `$${price.toLocaleString('es-CO')}` : 'Consultar';
-      const lifeStageLabel = selectedProduct.name === 'Taste of the Wild Wetlands' ||
-                            selectedProduct.name === 'Taste of the Wild Sierra Mountain' ||
-                            selectedProduct.name === 'Taste of the Wild Southwest Canyon'
+      const appliedSelectors = getAppliedSelectors();
+      const lifeStageLabel = selectedProduct.product.name === 'Taste of the Wild Wetlands' ||
+                            selectedProduct.product.name === 'Taste of the Wild Sierra Mountain' ||
+                            selectedProduct.product.name === 'Taste of the Wild Southwest Canyon'
         ? 'Fórmula exclusiva para perros adultos'
-        : selectedLifeStage.charAt(0).toUpperCase() + selectedLifeStage.slice(1);
-      const message = `Hola, quiero pedir: Producto: ${selectedProduct.name}, Etapa de vida: ${lifeStageLabel}, Tamaño del paquete: ${selectedPackageSize}, Precio: ${formattedPrice}, Cantidad: ${quantity}. Por favor confirmar disponibilidad y entrega en Cartagena.`;
+        : selectedProduct.lifeStage.charAt(0).toUpperCase() + selectedProduct.lifeStage.slice(1);
+      
+      let tamanoDelPerro = appliedSelectors.appliedSize || selectedProduct.size.charAt(0).toUpperCase() + selectedProduct.size.slice(1);
+      let message = `Hola, quiero pedir: Producto: ${selectedProduct.product.name}, Etapa de vida: ${lifeStageLabel}, Tamaño del Perro: ${tamanoDelPerro}, Tamaño del paquete: ${selectedProduct.packageSize}, Precio: ${formattedPrice}, Cantidad: ${quantity}. Por favor confirmar disponibilidad y entrega en Cartagena.`;
+      
       const encodedMessage = encodeURIComponent(message);
       window.open(`https://wa.me/573011471991?text=${encodedMessage}`, '_blank');
       handleCloseDetail();
@@ -435,42 +515,42 @@ export default function ProductsPage() {
         </div>
       </div>
 
-      {selectedProduct && (
+      {selectedProduct.product && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50 p-4" onClick={handleCloseDetail}>
           <div className="bg-card rounded-lg max-w-2xl w-full max-h-[90vh] overflow-y-auto p-6" onClick={e => e.stopPropagation()}>
             <div className="flex justify-between items-center mb-6">
-              <h2 className="text-2xl font-bold text-foreground">{selectedProduct.name}</h2>
+              <h2 className="text-2xl font-bold text-foreground">{selectedProduct.product.name}</h2>
               <button onClick={handleCloseDetail} className="text-2xl text-foreground/50 hover:text-foreground">×</button>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div className="aspect-square bg-gray-200 rounded-lg overflow-hidden flex-shrink-0">
                 <img
-                  src={selectedProduct.imageSrc}
-                  alt={selectedProduct.imageAlt}
+                  src={selectedProduct.product.imageSrc}
+                  alt={selectedProduct.product.imageAlt}
                   className="w-full h-full object-cover"
                 />
               </div>
 
               <div className="space-y-4 flex flex-col">
-                <p className="text-sm text-foreground/70">Marca: <span className="font-semibold text-foreground">{selectedProduct.brand}</span></p>
+                <p className="text-sm text-foreground/70">Marca: <span className="font-semibold text-foreground">{selectedProduct.product.brand}</span></p>
                 
-                {selectedProduct.name === 'Taste of the Wild Appalachian Valley' && (
+                {selectedProduct.product.name === 'Taste of the Wild Appalachian Valley' && (
                   <div className="text-xs text-foreground/60 bg-background/50 p-2 rounded">
                     <p>Fórmula exclusiva para perros adultos, especialmente recomendada para razas pequeñas. El precio varía únicamente según el tamaño del empaque.</p>
                   </div>
                 )}
 
-                {(selectedProduct.name === 'Taste of the Wild Wetlands' ||
-                  selectedProduct.name === 'Taste of the Wild Sierra Mountain' ||
-                  selectedProduct.name === 'Taste of the Wild Southwest Canyon') && (
+                {(selectedProduct.product.name === 'Taste of the Wild Wetlands' ||
+                  selectedProduct.product.name === 'Taste of the Wild Sierra Mountain' ||
+                  selectedProduct.product.name === 'Taste of the Wild Southwest Canyon') && (
                   <div className="text-xs text-foreground/60 bg-background/50 p-2 rounded">
                     <p>Fórmula exclusiva para perros adultos.</p>
                   </div>
                 )}
 
-                {(selectedProduct.name === 'Taste of the Wild High Prairie' || 
-                  selectedProduct.name === 'Taste of the Wild Pacific Stream') && (
+                {(selectedProduct.product.name === 'Taste of the Wild High Prairie' || 
+                  selectedProduct.product.name === 'Taste of the Wild Pacific Stream') && (
                   <div className="text-xs text-foreground/60 bg-background/50 p-2 rounded">
                     <p>Nota: El selector de tamaño del perro es solo para referencia. El precio varía según la etapa de vida (Adulto/Cachorro) y el tamaño del paquete.</p>
                   </div>
@@ -482,67 +562,41 @@ export default function ProductsPage() {
                   <div>
                     <label className="block text-sm font-semibold text-foreground mb-2">Etapa de Vida</label>
                     <select
-                      value={selectedLifeStage}
-                      onChange={(e) => setSelectedLifeStage(e.target.value)}
-                      className="w-full p-3 border border-accent rounded bg-background text-foreground"
+                      value={selectedProduct.lifeStage}
+                      onChange={(e) => setSelectedProduct(prev => ({ ...prev, lifeStage: e.target.value }))}
+                      disabled={selectedProduct.product.name.includes('Maxi') || selectedProduct.product.name.includes('Medium') || selectedProduct.product.name.includes('Mini')}
+                      className="w-full p-3 border border-accent rounded bg-background text-foreground disabled:opacity-50 disabled:cursor-not-allowed"
                     >
-                      {Array.from(new Set(selectedProduct.variants.map(v => v.lifeStage))).map(stage => (
+                      {Array.from(new Set(selectedProduct.product.variants.map(v => v.lifeStage))).map(stage => (
                         <option key={stage} value={stage}>{stage.charAt(0).toUpperCase() + stage.slice(1)}</option>
                       ))}
                     </select>
                   </div>
 
-                  {selectedProduct.name === 'Taste of the Wild Appalachian Valley' ? (
-                    <div>
-                      <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Perro (referencia)</label>
-                      <select
-                        value={selectedSize}
-                        onChange={(e) => setSelectedSize(e.target.value)}
-                        className="w-full p-3 border border-accent rounded bg-background text-foreground"
-                      >
-                        {Array.from(new Set(selectedProduct.variants.map(v => v.size))).map(size => (
-                          <option key={size} value={size}>{selectedProduct.variants.find(v => v.size === size)?.label}</option>
-                        ))}
-                      </select>
-                    </div>
-                  ) : (selectedProduct.name === 'Taste of the Wild Wetlands' ||
-                      selectedProduct.name === 'Taste of the Wild Sierra Mountain' ||
-                      selectedProduct.name === 'Taste of the Wild Southwest Canyon') ? (
-                    <div>
-                      <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Perro (referencia)</label>
-                      <select
-                        value={selectedSize}
-                        onChange={(e) => setSelectedSize(e.target.value)}
-                        className="w-full p-3 border border-accent rounded bg-background text-foreground"
-                      >
-                        {Array.from(new Set(selectedProduct.variants.map(v => v.size))).map(size => (
-                          <option key={size} value={size}>{selectedProduct.variants.find(v => v.size === size)?.label}</option>
-                        ))}
-                      </select>
-                    </div>
-                  ) : (
-                    <div>
-                      <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Perro <span className="text-xs text-foreground/60">(referencia)</span></label>
-                      <select
-                        value={selectedSize}
-                        onChange={(e) => setSelectedSize(e.target.value)}
-                        className="w-full p-3 border border-accent rounded bg-background text-foreground"
-                      >
-                        {Array.from(new Set(selectedProduct.variants.map(v => v.size))).map(size => (
-                          <option key={size} value={size}>{size.charAt(0).toUpperCase() + size.slice(1)}</option>
-                        ))}
-                      </select>
-                    </div>
-                  )}
+                  <div>
+                    <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Perro {selectedProduct.product.name.includes('Appalachian') || selectedProduct.product.name.includes('Wetlands') || selectedProduct.product.name.includes('Sierra') || selectedProduct.product.name.includes('Southwest') ? '(referencia)' : ''}</label>
+                    <select
+                      value={selectedProduct.size}
+                      onChange={(e) => setSelectedProduct(prev => ({ ...prev, size: e.target.value }))}
+                      disabled={selectedProduct.product.name.includes('Maxi') || selectedProduct.product.name.includes('Medium') || selectedProduct.product.name.includes('Mini')}
+                      className="w-full p-3 border border-accent rounded bg-background text-foreground disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      {Array.from(new Set(selectedProduct.product.variants.map(v => v.size))).map(size => (
+                        <option key={size} value={size}>
+                          {selectedProduct.product.variants.find(v => v.size === size)?.label || size.charAt(0).toUpperCase() + size.slice(1)}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
 
                   <div>
                     <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Paquete</label>
                     <select
-                      value={selectedPackageSize}
-                      onChange={(e) => setSelectedPackageSize(e.target.value)}
+                      value={selectedProduct.packageSize}
+                      onChange={(e) => setSelectedProduct(prev => ({ ...prev, packageSize: e.target.value }))}
                       className="w-full p-3 border border-accent rounded bg-background text-foreground"
                     >
-                      {selectedProduct.packageSizes.map(pkg => (
+                      {selectedProduct.product.packageSizes.map(pkg => (
                         <option key={pkg.size} value={pkg.size}>{pkg.label}</option>
                       ))}
                     </select>
