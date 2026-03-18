@@ -17,33 +17,33 @@ interface Product {
 
 const products: Product[] = [
   {
-    id: "appalachian-valley",    name: "Appalachian Valley",    imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",    imageAlt: "Appalachian Valley Dog Food",    lifeStage: "Adulto",    lifeStageLabel: "Fórmula exclusiva para perros adultos",    sizes: [
+    id: "appalachian-valley",    name: "Appalachian Valley",    imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png?_wi=2",    imageAlt: "Appalachian Valley Dog Food",    lifeStage: "Adulto",    lifeStageLabel: "Fórmula exclusiva para perros adultos",    sizes: [
       { size: "6.35kg", price: 275000 },
       { size: "12.7kg", price: 463000 }
     ]
   },
   {
-    id: "wetlands",    name: "Wetlands",    imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",    imageAlt: "Wetlands Dog Food",    lifeStage: "Adulto",    lifeStageLabel: "Fórmula exclusiva para perros adultos",    sizes: [
+    id: "wetlands",    name: "Wetlands",    imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png?_wi=3",    imageAlt: "Wetlands Dog Food",    lifeStage: "Adulto",    lifeStageLabel: "Fórmula exclusiva para perros adultos",    sizes: [
       { size: "12.7kg", price: 463000 }
     ]
   },
   {
-    id: "sierra-mountain",    name: "Sierra Mountain",    imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",    imageAlt: "Sierra Mountain Dog Food",    lifeStage: "Adulto",    lifeStageLabel: "Fórmula exclusiva para perros adultos",    sizes: [
+    id: "sierra-mountain",    name: "Sierra Mountain",    imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png?_wi=4",    imageAlt: "Sierra Mountain Dog Food",    lifeStage: "Adulto",    lifeStageLabel: "Fórmula exclusiva para perros adultos",    sizes: [
       { size: "12.7kg", price: 463000 }
     ]
   },
   {
-    id: "southwest-canyon",    name: "Southwest Canyon",    imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",    imageAlt: "Southwest Canyon Dog Food",    lifeStage: "Adulto",    lifeStageLabel: "Fórmula exclusiva para perros adultos",    sizes: [
+    id: "southwest-canyon",    name: "Southwest Canyon",    imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png?_wi=5",    imageAlt: "Southwest Canyon Dog Food",    lifeStage: "Adulto",    lifeStageLabel: "Fórmula exclusiva para perros adultos",    sizes: [
       { size: "12.7kg", price: 463000 }
     ]
   },
   {
-    id: "orijen",    name: "Orijen",    imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",    imageAlt: "Orijen Dog Food",    lifeStage: "Mixto",    lifeStageLabel: "Para todas las edades",    sizes: [
+    id: "orijen",    name: "Orijen",    imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png?_wi=6",    imageAlt: "Orijen Dog Food",    lifeStage: "Mixto",    lifeStageLabel: "Para todas las edades",    sizes: [
       { size: "11.4kg", price: 450000 }
     ]
   },
   {
-    id: "acana",    name: "Acana",    imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",    imageAlt: "Acana Dog Food",    lifeStage: "Mixto",    lifeStageLabel: "Para todas las edades",    sizes: [
+    id: "acana",    name: "Acana",    imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png?_wi=7",    imageAlt: "Acana Dog Food",    lifeStage: "Mixto",    lifeStageLabel: "Para todas las edades",    sizes: [
       { size: "11.4kg", price: 420000 }
     ]
   }
