@@ -21,18 +21,6 @@ interface ModalFormData {
   comentario: string;
 }
 
-interface ProductPrice {
-  [key: string]: string;
-}
-
-const PRODUCT_PRICES: ProductPrice = {
-  'Taste of the Wild High Prairie': '$45.99',
-  'Taste of the Wild Wetlands': '$48.99',
-  'Taste of the Wild Pacific Stream': '$48.99',
-  'Taste of the Wild High Prairie Puppy': '$52.99',
-  'Taste of the Wild Ancient Grains': '$46.99',
-};
-
 export default function LandingPage() {
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -206,7 +194,8 @@ export default function LandingPage() {
       <div id="hero" data-section="hero">
         <HeroSplitDualMedia
           title="Alimento Premium para perros con entrega en Cartagena"
-          description="Marcas reconocidas por su calidad nutricional.\nEntregas directas en la zona norte de Cartagena."
+          description="Marcas reconocidas por su calidad nutricional.
+Entregas directas en la zona norte de Cartagena."
           tag="Especialistas en Nutrición Premium"
           tagIcon={Sparkles}
           tagAnimation="blur-reveal"
@@ -218,7 +207,7 @@ export default function LandingPage() {
           buttonAnimation="blur-reveal"
           mediaItems={[
             {
-              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png?_wi=1",              imageAlt: "Perro comiendo alimento premium"
+              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773614668188-3te1fin1.png",              imageAlt: "Perro comiendo alimento premium"
             },
             {
               imageSrc: "http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=2",              imageAlt: "Dueño de perro satisfecho con nuestro servicio"
@@ -234,7 +223,8 @@ export default function LandingPage() {
       <div id="brands" data-section="brands">
         <SocialProofOne
           title="Marcas que Respaldan una Buena Alimentación  "
-          description="Seleccionamos marcas reconocidas por su calidad nutricional\ny formulaciones confiables para el bienestar de tu perro."
+          description="Seleccionamos marcas reconocidas por su calidad nutricional
+y formulaciones confiables para el bienestar de tu perro."
           tag="Nutrición Premium"
           textboxLayout="default"
           useInvertedBackground={false}
