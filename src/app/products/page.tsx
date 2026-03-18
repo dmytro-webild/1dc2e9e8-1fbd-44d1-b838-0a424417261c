@@ -78,15 +78,9 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
       imageAlt: 'Taste of the Wild Appalachian Valley',
       variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' },
-        { lifeStage: 'cachorro', size: 'pequeño', label: 'Cachorro Pequeño' },
-        { lifeStage: 'cachorro', size: 'mediano', label: 'Cachorro Mediano' },
-        { lifeStage: 'cachorro', size: 'grande', label: 'Cachorro Grande' }
+        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' }
       ],
       packageSizes: [
-        { size: '1kg', price: 48300, label: '1kg' },
         { size: '6.35kg', price: 275000, label: '6.35kg' },
         { size: '12.7kg', price: 463000, label: '12.7kg' }
       ]
@@ -98,9 +92,7 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
       imageAlt: 'Taste of the Wild Wetlands',
       variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' }
+        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' }
       ],
       packageSizes: [
         { size: '12.7kg', price: 463000, label: '12.7kg' }
@@ -113,9 +105,7 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
       imageAlt: 'Taste of the Wild Sierra Mountain',
       variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' }
+        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' }
       ],
       packageSizes: [
         { size: '12.7kg', price: 463000, label: '12.7kg' }
@@ -128,9 +118,7 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
       imageAlt: 'Taste of the Wild Southwest Canyon',
       variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' }
+        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' }
       ],
       packageSizes: [
         { size: '12.7kg', price: 463000, label: '12.7kg' }
@@ -280,12 +268,8 @@ const TASTE_OF_THE_WILD_PRICES: PriceEntry[] = [
 ];
 
 const APPALACHIAN_VALLEY_PRICES: PriceEntry[] = [
-  { lifeStage: 'adulto', size: '1kg', price: 48300 },
   { lifeStage: 'adulto', size: '6.35kg', price: 275000 },
-  { lifeStage: 'adulto', size: '12.7kg', price: 463000 },
-  { lifeStage: 'cachorro', size: '1kg', price: 48300 },
-  { lifeStage: 'cachorro', size: '6.35kg', price: 275000 },
-  { lifeStage: 'cachorro', size: '12.7kg', price: 463000 }
+  { lifeStage: 'adulto', size: '12.7kg', price: 463000 }
 ];
 
 export default function ProductsPage() {
@@ -315,10 +299,7 @@ export default function ProductsPage() {
     if (!selectedProduct || !selectedPackageSize) return null;
     
     if (selectedProduct.name === 'Taste of the Wild High Prairie' || 
-        selectedProduct.name === 'Taste of the Wild Pacific Stream' ||
-        selectedProduct.name === 'Taste of the Wild Wetlands' ||
-        selectedProduct.name === 'Taste of the Wild Sierra Mountain' ||
-        selectedProduct.name === 'Taste of the Wild Southwest Canyon') {
+        selectedProduct.name === 'Taste of the Wild Pacific Stream') {
       const priceEntry = TASTE_OF_THE_WILD_PRICES.find(
         p => p.lifeStage === selectedLifeStage && p.size === selectedPackageSize
       );
@@ -330,6 +311,13 @@ export default function ProductsPage() {
         p => p.lifeStage === selectedLifeStage && p.size === selectedPackageSize
       );
       return priceEntry?.price || null;
+    }
+    
+    if (selectedProduct.name === 'Taste of the Wild Wetlands' ||
+        selectedProduct.name === 'Taste of the Wild Sierra Mountain' ||
+        selectedProduct.name === 'Taste of the Wild Southwest Canyon') {
+      const pkg = selectedProduct.packageSizes.find(p => p.size === selectedPackageSize);
+      return pkg?.price || null;
     }
     
     const pkg = selectedProduct.packageSizes.find(p => p.size === selectedPackageSize);
@@ -459,17 +447,22 @@ export default function ProductsPage() {
               <div className="space-y-4 flex flex-col">
                 <p className="text-sm text-foreground/70">Marca: <span className="font-semibold text-foreground">{selectedProduct.brand}</span></p>
                 
+                {selectedProduct.name === 'Taste of the Wild Appalachian Valley' && (
+                  <div className="text-xs text-foreground/60 bg-background/50 p-2 rounded">
+                    <p>Fórmula exclusiva para perros adultos, especialmente recomendada para razas pequeñas. El precio varía únicamente según el tamaño del empaque.</p>
+                  </div>
+                )}
+
                 {(selectedProduct.name === 'Taste of the Wild Wetlands' ||
                   selectedProduct.name === 'Taste of the Wild Sierra Mountain' ||
                   selectedProduct.name === 'Taste of the Wild Southwest Canyon') && (
                   <div className="text-xs text-foreground/60 bg-background/50 p-2 rounded">
-                    <p>Fórmula exclusiva para perros adultos</p>
+                    <p>Fórmula exclusiva para perros adultos.</p>
                   </div>
                 )}
 
                 {(selectedProduct.name === 'Taste of the Wild High Prairie' || 
-                  selectedProduct.name === 'Taste of the Wild Pacific Stream' ||
-                  selectedProduct.name === 'Taste of the Wild Appalachian Valley') && (
+                  selectedProduct.name === 'Taste of the Wild Pacific Stream') && (
                   <div className="text-xs text-foreground/60 bg-background/50 p-2 rounded">
                     <p>Nota: El selector de tamaño del perro es solo para referencia. El precio varía según la etapa de vida (Adulto/Cachorro) y el tamaño del paquete.</p>
                   </div>
@@ -491,18 +484,42 @@ export default function ProductsPage() {
                     </select>
                   </div>
 
-                  <div>
-                    <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Perro <span className="text-xs text-foreground/60">(referencia)</span></label>
-                    <select
-                      value={selectedSize}
-                      onChange={(e) => setSelectedSize(e.target.value)}
-                      className="w-full p-3 border border-accent rounded bg-background text-foreground"
-                    >
-                      {Array.from(new Set(selectedProduct.variants.map(v => v.size))).map(size => (
-                        <option key={size} value={size}>{size.charAt(0).toUpperCase() + size.slice(1)}</option>
-                      ))}
-                    </select>
-                  </div>
+                  {selectedProduct.name === 'Taste of the Wild Appalachian Valley' ? (
+                    <div>
+                      <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Perro (recomendado para razas pequeñas)</label>
+                      <select
+                        disabled
+                        className="w-full p-3 border border-accent rounded bg-background text-foreground opacity-50"
+                      >
+                        <option>Razas pequeñas</option>
+                      </select>
+                    </div>
+                  ) : (selectedProduct.name === 'Taste of the Wild Wetlands' ||
+                      selectedProduct.name === 'Taste of the Wild Sierra Mountain' ||
+                      selectedProduct.name === 'Taste of the Wild Southwest Canyon') ? (
+                    <div>
+                      <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Perro <span className="text-xs text-foreground/60">(referencia)</span></label>
+                      <select
+                        disabled
+                        className="w-full p-3 border border-accent rounded bg-background text-foreground opacity-50"
+                      >
+                        <option>Adultos</option>
+                      </select>
+                    </div>
+                  ) : (
+                    <div>
+                      <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Perro <span className="text-xs text-foreground/60">(referencia)</span></label>
+                      <select
+                        value={selectedSize}
+                        onChange={(e) => setSelectedSize(e.target.value)}
+                        className="w-full p-3 border border-accent rounded bg-background text-foreground"
+                      >
+                        {Array.from(new Set(selectedProduct.variants.map(v => v.size))).map(size => (
+                          <option key={size} value={size}>{size.charAt(0).toUpperCase() + size.slice(1)}</option>
+                        ))}
+                      </select>
+                    </div>
+                  )}
 
                   <div>
                     <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Paquete</label>
