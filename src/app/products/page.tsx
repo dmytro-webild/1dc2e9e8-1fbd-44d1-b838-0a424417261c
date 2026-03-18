@@ -35,7 +35,7 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       id: '5b',
       brand: 'Taste of the Wild',
       name: 'Taste of the Wild Pacific Stream',
-      imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
+      imageSrc: 'https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773815793307-0vnh51mf.jpg',
       imageAlt: 'Taste of the Wild Pacific Stream',
       variants: [
         { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
