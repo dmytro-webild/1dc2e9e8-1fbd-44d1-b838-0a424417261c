@@ -398,7 +398,15 @@ export default function ProductsPage() {
   const handleProductClick = (product: Product) => {
     setSelectedProduct(product);
     setSelectedLifeStage(product.variants[0]?.lifeStage || '');
-    setSelectedSize(product.variants[0]?.size || '');
+    
+    // For Royal Canin, lock size based on product line
+    if (product.brand === 'Royal Canin') {
+      const lockedSize = ROYAL_CANIN_SIZE_MAPPING[product.name];
+      setSelectedSize(lockedSize || product.variants[0]?.size || '');
+    } else {
+      setSelectedSize(product.variants[0]?.size || '');
+    }
+    
     setSelectedPackageSize(product.packageSizes[0]?.size || '');
     setQuantity(1);
   };
@@ -457,6 +465,7 @@ export default function ProductsPage() {
   };
 
   const isRoyalCanin = selectedProduct?.brand === 'Royal Canin';
+  const isRoyalCaninLocked = isRoyalCanin && selectedProduct?.name !== undefined;
 
   const getLowestPrice = (product: Product) => {
     return Math.min(...product.packageSizes.map(pkg => pkg.price));
@@ -604,7 +613,8 @@ export default function ProductsPage() {
                     <select
                       value={selectedLifeStage}
                       onChange={(e) => setSelectedLifeStage(e.target.value)}
-                      className="w-full p-3 border border-accent rounded bg-background text-foreground"
+                      disabled={isRoyalCaninLocked}
+                      className="w-full p-3 border border-accent rounded bg-background text-foreground disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {Array.from(new Set(selectedProduct.variants.map(v => v.lifeStage))).map(stage => (
                         <option key={stage} value={stage}>{stage.charAt(0).toUpperCase() + stage.slice(1)}</option>
@@ -613,11 +623,12 @@ export default function ProductsPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Perro</label>
+                    <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Perro {isRoyalCaninLocked && <span className="text-xs text-foreground/60">(bloqueado)</span>}</label>
                     <select
                       value={selectedSize}
-                      onChange={(e) => setSelectedSize(e.target.value)}
-                      className="w-full p-3 border border-accent rounded bg-background text-foreground"
+                      onChange={(e) => !isRoyalCaninLocked && setSelectedSize(e.target.value)}
+                      disabled={isRoyalCaninLocked}
+                      className="w-full p-3 border border-accent rounded bg-background text-foreground disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {Array.from(new Set(selectedProduct.variants.map(v => v.size))).map(size => {
                         const variant = selectedProduct.variants.find(v => v.size === size);
