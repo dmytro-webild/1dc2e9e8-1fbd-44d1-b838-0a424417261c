@@ -9,7 +9,7 @@ import { useState } from 'react';
 
 interface ProductVariant {
   lifeStage: 'cachorro' | 'adulto' | 'senior';
-  size: 'pequeño' | 'mediano' | 'grande';
+  size: 'xSmall' | 'small' | 'medium' | 'large' | 'giant';
   label: string;
 }
 
@@ -27,6 +27,7 @@ interface Product {
   imageAlt: string;
   variants: ProductVariant[];
   packageSizes: PackageOption[];
+  note?: string;
 }
 
 const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
@@ -38,12 +39,12 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       imageSrc: 'https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773815793307-0vnh51mf.jpg',
       imageAlt: 'Taste of the Wild Pacific Stream',
       variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' },
-        { lifeStage: 'cachorro', size: 'pequeño', label: 'Cachorro Pequeño' },
-        { lifeStage: 'cachorro', size: 'mediano', label: 'Cachorro Mediano' },
-        { lifeStage: 'cachorro', size: 'grande', label: 'Cachorro Grande' }
+        { lifeStage: 'adulto', size: 'small', label: 'Adulto Pequeño' },
+        { lifeStage: 'adulto', size: 'medium', label: 'Adulto Mediano' },
+        { lifeStage: 'adulto', size: 'large', label: 'Adulto Grande' },
+        { lifeStage: 'cachorro', size: 'small', label: 'Cachorro Pequeño' },
+        { lifeStage: 'cachorro', size: 'medium', label: 'Cachorro Mediano' },
+        { lifeStage: 'cachorro', size: 'large', label: 'Cachorro Grande' }
       ],
       packageSizes: [
         { size: '1kg', price: 48300, label: '1kg' },
@@ -58,12 +59,12 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       imageSrc: 'https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773816029064-r9hgdfjm.jpg?_wi=1',
       imageAlt: 'Taste of the Wild High Prairie',
       variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' },
-        { lifeStage: 'cachorro', size: 'pequeño', label: 'Cachorro Pequeño' },
-        { lifeStage: 'cachorro', size: 'mediano', label: 'Cachorro Mediano' },
-        { lifeStage: 'cachorro', size: 'grande', label: 'Cachorro Grande' }
+        { lifeStage: 'adulto', size: 'small', label: 'Adulto Pequeño' },
+        { lifeStage: 'adulto', size: 'medium', label: 'Adulto Mediano' },
+        { lifeStage: 'adulto', size: 'large', label: 'Adulto Grande' },
+        { lifeStage: 'cachorro', size: 'small', label: 'Cachorro Pequeño' },
+        { lifeStage: 'cachorro', size: 'medium', label: 'Cachorro Mediano' },
+        { lifeStage: 'cachorro', size: 'large', label: 'Cachorro Grande' }
       ],
       packageSizes: [
         { size: '1kg', price: 48300, label: '1kg' },
@@ -78,9 +79,9 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       imageSrc: 'https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773816639808-ssk86efs.jpg?_wi=1',
       imageAlt: 'Taste of the Wild Appalachian Valley',
       variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Pequeño (Recomendado)' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' }
+        { lifeStage: 'adulto', size: 'small', label: 'Pequeño (Recomendado)' },
+        { lifeStage: 'adulto', size: 'medium', label: 'Adulto Mediano' },
+        { lifeStage: 'adulto', size: 'large', label: 'Adulto Grande' }
       ],
       packageSizes: [
         { size: '6.35kg', price: 275000, label: '6.35kg' },
@@ -94,9 +95,9 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
       imageAlt: 'Taste of the Wild Wetlands',
       variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Pequeño' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Grande' }
+        { lifeStage: 'adulto', size: 'small', label: 'Pequeño' },
+        { lifeStage: 'adulto', size: 'medium', label: 'Mediano' },
+        { lifeStage: 'adulto', size: 'large', label: 'Grande' }
       ],
       packageSizes: [
         { size: '12.7kg', price: 463000, label: '12.7kg' }
@@ -109,9 +110,9 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
       imageAlt: 'Taste of the Wild Sierra Mountain',
       variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Pequeño' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Grande' }
+        { lifeStage: 'adulto', size: 'small', label: 'Pequeño' },
+        { lifeStage: 'adulto', size: 'medium', label: 'Mediano' },
+        { lifeStage: 'adulto', size: 'large', label: 'Grande' }
       ],
       packageSizes: [
         { size: '12.7kg', price: 463000, label: '12.7kg' }
@@ -124,9 +125,9 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
       imageAlt: 'Taste of the Wild Southwest Canyon',
       variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Pequeño' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Grande' }
+        { lifeStage: 'adulto', size: 'small', label: 'Pequeño' },
+        { lifeStage: 'adulto', size: 'medium', label: 'Mediano' },
+        { lifeStage: 'adulto', size: 'large', label: 'Grande' }
       ],
       packageSizes: [
         { size: '12.7kg', price: 463000, label: '12.7kg' }
@@ -135,17 +136,38 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
   ],
   'Royal Canin': [
     {
-      id: '1',
+      id: '1xs',
       brand: 'Royal Canin',
-      name: 'Royal Canin Mini',
+      name: 'Royal Canin X-Small',
       imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
-      imageAlt: 'Royal Canin Mini',
+      imageAlt: 'Royal Canin X-Small',
+      note: 'Especial para razas extra pequeñas',
       variants: [
-        { lifeStage: 'cachorro', size: 'pequeño', label: 'Cachorro Pequeño' },
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
-        { lifeStage: 'senior', size: 'pequeño', label: 'Senior Pequeño' }
+        { lifeStage: 'cachorro', size: 'xSmall', label: 'Cachorro X-Small' },
+        { lifeStage: 'adulto', size: 'xSmall', label: 'Adulto X-Small' },
+        { lifeStage: 'senior', size: 'xSmall', label: 'Senior X-Small' }
       ],
-      packageSizes: [{ size: '2kg', price: 65000, label: '2kg - $65.000' }, { size: '8kg', price: 150000, label: '8kg - $150.000' }]
+      packageSizes: [
+        { size: '1.5kg', price: 55000, label: '1.5kg' },
+        { size: '3kg', price: 95000, label: '3kg' }
+      ]
+    },
+    {
+      id: '1s',
+      brand: 'Royal Canin',
+      name: 'Royal Canin Small',
+      imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
+      imageAlt: 'Royal Canin Small',
+      note: 'Especial para razas pequeñas',
+      variants: [
+        { lifeStage: 'cachorro', size: 'small', label: 'Cachorro Small' },
+        { lifeStage: 'adulto', size: 'small', label: 'Adulto Small' },
+        { lifeStage: 'senior', size: 'small', label: 'Senior Small' }
+      ],
+      packageSizes: [
+        { size: '2kg', price: 65000, label: '2kg' },
+        { size: '8kg', price: 150000, label: '8kg' }
+      ]
     },
     {
       id: '1m',
@@ -153,25 +175,52 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       name: 'Royal Canin Medium',
       imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
       imageAlt: 'Royal Canin Medium',
+      note: 'Ideal para razas medianas',
       variants: [
-        { lifeStage: 'cachorro', size: 'mediano', label: 'Cachorro Mediano' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'senior', size: 'mediano', label: 'Senior Mediano' }
+        { lifeStage: 'cachorro', size: 'medium', label: 'Cachorro Medium' },
+        { lifeStage: 'adulto', size: 'medium', label: 'Adulto Medium' },
+        { lifeStage: 'senior', size: 'medium', label: 'Senior Medium' }
       ],
-      packageSizes: [{ size: '4kg', price: 90000, label: '4kg - $90.000' }, { size: '10kg', price: 200000, label: '10kg - $200.000' }]
+      packageSizes: [
+        { size: '4kg', price: 90000, label: '4kg' },
+        { size: '10kg', price: 200000, label: '10kg' }
+      ]
     },
     {
-      id: '1',
+      id: '1l',
       brand: 'Royal Canin',
-      name: 'Royal Canin Maxi',
+      name: 'Royal Canin Large',
       imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
-      imageAlt: 'Royal Canin Maxi',
+      imageAlt: 'Royal Canin Large',
+      note: 'Diseñado para razas grandes',
       variants: [
-        { lifeStage: 'cachorro', size: 'grande', label: 'Cachorro Grande' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' },
-        { lifeStage: 'senior', size: 'grande', label: 'Senior Grande' }
+        { lifeStage: 'cachorro', size: 'large', label: 'Cachorro Large' },
+        { lifeStage: 'adulto', size: 'large', label: 'Adulto Large' },
+        { lifeStage: 'senior', size: 'large', label: 'Senior Large' }
       ],
-      packageSizes: [{ size: '4kg', price: 85000, label: '4kg - $85.000' }, { size: '10kg', price: 180000, label: '10kg - $180.000' }, { size: '15kg', price: 250000, label: '15kg - $250.000' }]
+      packageSizes: [
+        { size: '4kg', price: 85000, label: '4kg' },
+        { size: '10kg', price: 180000, label: '10kg' },
+        { size: '15kg', price: 250000, label: '15kg' }
+      ]
+    },
+    {
+      id: '1g',
+      brand: 'Royal Canin',
+      name: 'Royal Canin Giant',
+      imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=1',
+      imageAlt: 'Royal Canin Giant',
+      note: 'Para perros de razas gigantes',
+      variants: [
+        { lifeStage: 'cachorro', size: 'giant', label: 'Cachorro Giant' },
+        { lifeStage: 'adulto', size: 'giant', label: 'Adulto Giant' },
+        { lifeStage: 'senior', size: 'giant', label: 'Senior Giant' }
+      ],
+      packageSizes: [
+        { size: '4kg', price: 88000, label: '4kg' },
+        { size: '12kg', price: 220000, label: '12kg' },
+        { size: '17kg', price: 290000, label: '17kg' }
+      ]
     }
   ],
   "Hill's Science Diet": [
@@ -179,11 +228,15 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       id: '2',
       brand: "Hill's Science Diet",      name: "Hill's Adult Sensitive Stomach",      imageSrc: 'http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=2',
       imageAlt: "Hill's Adult Sensitive Stomach",      variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' }
+        { lifeStage: 'adulto', size: 'small', label: 'Adulto Pequeño' },
+        { lifeStage: 'adulto', size: 'medium', label: 'Adulto Mediano' },
+        { lifeStage: 'adulto', size: 'large', label: 'Adulto Grande' }
       ],
-      packageSizes: [{ size: '3.5kg', price: 75000, label: '3.5kg - $75.000' }, { size: '7.5kg', price: 145000, label: '7.5kg - $145.000' }, { size: '12kg', price: 220000, label: '12kg - $220.000' }]
+      packageSizes: [
+        { size: '3.5kg', price: 75000, label: '3.5kg' },
+        { size: '7.5kg', price: 145000, label: '7.5kg' },
+        { size: '12kg', price: 220000, label: '12kg' }
+      ]
     }
   ],
   'Pro Plan': [
@@ -194,11 +247,15 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       imageSrc: 'http://img.b2bpic.net/free-photo/portrait-young-handsome-dogowner-spending-time-with-his-pet-cafe-sitting-indoors-looking_1258-245386.jpg?_wi=2',
       imageAlt: 'Pro Plan OptiStart',
       variants: [
-        { lifeStage: 'cachorro', size: 'pequeño', label: 'Cachorro Pequeño' },
-        { lifeStage: 'cachorro', size: 'mediano', label: 'Cachorro Mediano' },
-        { lifeStage: 'cachorro', size: 'grande', label: 'Cachorro Grande' }
+        { lifeStage: 'cachorro', size: 'small', label: 'Cachorro Pequeño' },
+        { lifeStage: 'cachorro', size: 'medium', label: 'Cachorro Mediano' },
+        { lifeStage: 'cachorro', size: 'large', label: 'Cachorro Grande' }
       ],
-      packageSizes: [{ size: '3kg', price: 70000, label: '3kg - $70.000' }, { size: '6kg', price: 135000, label: '6kg - $135.000' }, { size: '12kg', price: 250000, label: '12kg - $250.000' }]
+      packageSizes: [
+        { size: '3kg', price: 70000, label: '3kg' },
+        { size: '6kg', price: 135000, label: '6kg' },
+        { size: '12kg', price: 250000, label: '12kg' }
+      ]
     }
   ],
   'Acana': [
@@ -209,11 +266,15 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       imageSrc: 'http://img.b2bpic.net/free-photo/two-sisters-with-their-dog-park_1303-11215.jpg?_wi=2',
       imageAlt: 'Acana Grasslands',
       variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' }
+        { lifeStage: 'adulto', size: 'small', label: 'Adulto Pequeño' },
+        { lifeStage: 'adulto', size: 'medium', label: 'Adulto Mediano' },
+        { lifeStage: 'adulto', size: 'large', label: 'Adulto Grande' }
       ],
-      packageSizes: [{ size: '2kg', price: 95000, label: '2kg - $95.000' }, { size: '6kg', price: 265000, label: '6kg - $265.000' }, { size: '11.4kg', price: 475000, label: '11.4kg - $475.000' }]
+      packageSizes: [
+        { size: '2kg', price: 95000, label: '2kg' },
+        { size: '6kg', price: 265000, label: '6kg' },
+        { size: '11.4kg', price: 475000, label: '11.4kg' }
+      ]
     }
   ],
   'Orijen': [
@@ -224,11 +285,15 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       imageSrc: 'http://img.b2bpic.net/free-photo/portrait-young-handsome-dogowner-spending-time-with-his-pet-cafe-sitting-indoors-looking_1258-245386.jpg?_wi=1',
       imageAlt: 'Orijen Original',
       variants: [
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'adulto', size: 'grande', label: 'Adulto Grande' }
+        { lifeStage: 'adulto', size: 'small', label: 'Adulto Pequeño' },
+        { lifeStage: 'adulto', size: 'medium', label: 'Adulto Mediano' },
+        { lifeStage: 'adulto', size: 'large', label: 'Adulto Grande' }
       ],
-      packageSizes: [{ size: '1.8kg', price: 110000, label: '1.8kg - $110.000' }, { size: '5.4kg', price: 305000, label: '5.4kg - $305.000' }, { size: '11.3kg', price: 595000, label: '11.3kg - $595.000' }]
+      packageSizes: [
+        { size: '1.8kg', price: 110000, label: '1.8kg' },
+        { size: '5.4kg', price: 305000, label: '5.4kg' },
+        { size: '11.3kg', price: 595000, label: '11.3kg' }
+      ]
     }
   ],
   'Monello': [
@@ -239,11 +304,15 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       imageSrc: 'http://img.b2bpic.net/free-photo/two-sisters-with-their-dog-park_1303-11215.jpg?_wi=1',
       imageAlt: 'Monello Premium',
       variants: [
-        { lifeStage: 'cachorro', size: 'mediano', label: 'Cachorro Mediano' },
-        { lifeStage: 'adulto', size: 'mediano', label: 'Adulto Mediano' },
-        { lifeStage: 'senior', size: 'mediano', label: 'Senior Mediano' }
+        { lifeStage: 'cachorro', size: 'medium', label: 'Cachorro Mediano' },
+        { lifeStage: 'adulto', size: 'medium', label: 'Adulto Mediano' },
+        { lifeStage: 'senior', size: 'medium', label: 'Senior Mediano' }
       ],
-      packageSizes: [{ size: '3kg', price: 65000, label: '3kg - $65.000' }, { size: '8kg', price: 165000, label: '8kg - $165.000' }, { size: '15kg', price: 295000, label: '15kg - $295.000' }]
+      packageSizes: [
+        { size: '3kg', price: 65000, label: '3kg' },
+        { size: '8kg', price: 165000, label: '8kg' },
+        { size: '15kg', price: 295000, label: '15kg' }
+      ]
     }
   ],
   'Equilibrio': [
@@ -254,11 +323,15 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
       imageSrc: 'http://img.b2bpic.net/free-photo/handsome-man-holding-french-bulldog-walking-park_176420-55093.jpg?_wi=2',
       imageAlt: 'Equilibrio Adulto',
       variants: [
-        { lifeStage: 'cachorro', size: 'pequeño', label: 'Cachorro Pequeño' },
-        { lifeStage: 'adulto', size: 'pequeño', label: 'Adulto Pequeño' },
-        { lifeStage: 'senior', size: 'pequeño', label: 'Senior Pequeño' }
+        { lifeStage: 'cachorro', size: 'small', label: 'Cachorro Pequeño' },
+        { lifeStage: 'adulto', size: 'small', label: 'Adulto Pequeño' },
+        { lifeStage: 'senior', size: 'small', label: 'Senior Pequeño' }
       ],
-      packageSizes: [{ size: '2kg', price: 72000, label: '2kg - $72.000' }, { size: '7.5kg', price: 195000, label: '7.5kg - $195.000' }, { size: '15kg', price: 355000, label: '15kg - $355.000' }]
+      packageSizes: [
+        { size: '2kg', price: 72000, label: '2kg' },
+        { size: '7.5kg', price: 195000, label: '7.5kg' },
+        { size: '15kg', price: 355000, label: '15kg' }
+      ]
     }
   ]
 };
@@ -306,16 +379,12 @@ const APPALACHIAN_VALLEY_PRICES: PriceEntry[] = [
   { lifeStage: 'adulto', size: '12.7kg', price: 463000 }
 ];
 
-const ROYAL_CANIN_SIZE_MAPPING: { [key: string]: 'pequeño' | 'mediano' | 'grande' } = {
-  'Royal Canin Mini': 'pequeño',
-  'Royal Canin Medium': 'mediano',
-  'Royal Canin Maxi': 'grande'
-};
-
-const ROYAL_CANIN_NOTES: { [key: string]: string } = {
-  'Royal Canin Mini': 'Especial para razas pequeñas',
-  'Royal Canin Medium': 'Ideal para razas medianas',
-  'Royal Canin Maxi': 'Diseñado para razas grandes'
+const ROYAL_CANIN_SIZE_MAPPING: { [key: string]: 'xSmall' | 'small' | 'medium' | 'large' | 'giant' } = {
+  'Royal Canin X-Small': 'xSmall',
+  'Royal Canin Small': 'small',
+  'Royal Canin Medium': 'medium',
+  'Royal Canin Large': 'large',
+  'Royal Canin Giant': 'giant'
 };
 
 export default function ProductsPage() {
@@ -376,6 +445,11 @@ export default function ProductsPage() {
     
     const pkg = selectedProduct.packageSizes.find(p => p.size === selectedPackageSize);
     return pkg?.price || null;
+  };
+
+  const getMinPrice = (product: Product) => {
+    if (product.packageSizes.length === 0) return 0;
+    return Math.min(...product.packageSizes.map(p => p.price));
   };
 
   const handleAddToCart = () => {
@@ -454,7 +528,7 @@ export default function ProductsPage() {
               <h2 className="text-3xl font-bold mb-8 text-foreground">{brand}</h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {products.map(product => {
-                  const basePrice = product.packageSizes[0]?.price || 0;
+                  const basePrice = getMinPrice(product);
                   return (
                     <div
                       key={product.id}
@@ -504,9 +578,9 @@ export default function ProductsPage() {
               <div className="space-y-4 flex flex-col">
                 <p className="text-sm text-foreground/70">Marca: <span className="font-semibold text-foreground">{selectedProduct.brand}</span></p>
                 
-                {isRoyalCaninLocked && (
+                {isRoyalCaninLocked && selectedProduct.note && (
                   <div className="text-xs text-foreground/60 bg-background/50 p-2 rounded">
-                    <p><strong>{ROYAL_CANIN_NOTES[selectedProduct.name] || 'Fórmula especializada'}</strong></p>
+                    <p><strong>{selectedProduct.note}</strong></p>
                   </div>
                 )}
 
@@ -539,8 +613,7 @@ export default function ProductsPage() {
                     <select
                       value={selectedLifeStage}
                       onChange={(e) => setSelectedLifeStage(e.target.value)}
-                      disabled={isRoyalCaninLocked}
-                      className="w-full p-3 border border-accent rounded bg-background text-foreground disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full p-3 border border-accent rounded bg-background text-foreground"
                     >
                       {Array.from(new Set(selectedProduct.variants.map(v => v.lifeStage))).map(stage => (
                         <option key={stage} value={stage}>{stage.charAt(0).toUpperCase() + stage.slice(1)}</option>
@@ -564,7 +637,14 @@ export default function ProductsPage() {
                             selectedProduct.name === 'Taste of the Wild Southwest Canyon') {
                           return <option key={size} value={size}>{variant?.label}</option>;
                         }
-                        return <option key={size} value={size}>{size.charAt(0).toUpperCase() + size.slice(1)}</option>;
+                        const sizeLabels: { [key: string]: string } = {
+                          'xSmall': 'X-Small',
+                          'small': 'Pequeño',
+                          'medium': 'Mediano',
+                          'large': 'Grande',
+                          'giant': 'Gigante'
+                        };
+                        return <option key={size} value={size}>{sizeLabels[size] || size}</option>;
                       })}
                     </select>
                   </div>
@@ -577,7 +657,7 @@ export default function ProductsPage() {
                       className="w-full p-3 border border-accent rounded bg-background text-foreground"
                     >
                       {selectedProduct.packageSizes.map(pkg => (
-                        <option key={pkg.size} value={pkg.size}>{pkg.label}</option>
+                        <option key={pkg.size} value={pkg.size}>{pkg.size}</option>
                       ))}
                     </select>
                   </div>
