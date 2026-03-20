@@ -148,7 +148,7 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
         { lifeStage: 'senior', size: 'pequeño', label: 'Senior' }
       ],
       packageSizes: [
-        { size: '1.5kg', price: 55000, label: '1.5kg' },
+        { size: '1.5kg', price: 83300, label: '1.5kg' },
         { size: '3kg', price: 95000, label: '3kg' }
       ]
     },
@@ -165,7 +165,7 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
         { lifeStage: 'senior', size: 'pequeño', label: 'Senior' }
       ],
       packageSizes: [
-        { size: '2kg', price: 65000, label: '2kg' },
+        { size: '2kg', price: 55800, label: '2kg' },
         { size: '8kg', price: 180000, label: '8kg' }
       ]
     },
@@ -182,7 +182,7 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
         { lifeStage: 'senior', size: 'mediano', label: 'Senior' }
       ],
       packageSizes: [
-        { size: '4kg', price: 90000, label: '4kg' },
+        { size: '4kg', price: 59700, label: '4kg' },
         { size: '10kg', price: 200000, label: '10kg' }
       ]
     },
@@ -199,7 +199,7 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
         { lifeStage: 'senior', size: 'grande', label: 'Senior' }
       ],
       packageSizes: [
-        { size: '4kg', price: 85000, label: '4kg' },
+        { size: '4kg', price: 59700, label: '4kg' },
         { size: '10kg', price: 180000, label: '10kg' },
         { size: '15kg', price: 250000, label: '15kg' }
       ]
@@ -217,7 +217,7 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
         { lifeStage: 'senior', size: 'gigante', label: 'Senior' }
       ],
       packageSizes: [
-        { size: '4kg', price: 85000, label: '4kg' },
+        { size: '4kg', price: 525000, label: '4kg' },
         { size: '10kg', price: 180000, label: '10kg' },
         { size: '15kg', price: 250000, label: '15kg' },
         { size: '20kg', price: 320000, label: '20kg' }
@@ -613,8 +613,7 @@ export default function ProductsPage() {
                     <select
                       value={selectedLifeStage}
                       onChange={(e) => setSelectedLifeStage(e.target.value)}
-                      disabled={isRoyalCaninLocked}
-                      className="w-full p-3 border border-accent rounded bg-background text-foreground disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="w-full p-3 border border-accent rounded bg-background text-foreground"
                     >
                       {Array.from(new Set(selectedProduct.variants.map(v => v.lifeStage))).map(stage => (
                         <option key={stage} value={stage}>{stage.charAt(0).toUpperCase() + stage.slice(1)}</option>
@@ -623,12 +622,11 @@ export default function ProductsPage() {
                   </div>
 
                   <div>
-                    <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Perro {isRoyalCaninLocked && <span className="text-xs text-foreground/60">(bloqueado)</span>}</label>
+                    <label className="block text-sm font-semibold text-foreground mb-2">Tamaño del Perro</label>
                     <select
                       value={selectedSize}
-                      onChange={(e) => !isRoyalCaninLocked && setSelectedSize(e.target.value)}
-                      disabled={isRoyalCaninLocked}
-                      className="w-full p-3 border border-accent rounded bg-background text-foreground disabled:opacity-50 disabled:cursor-not-allowed"
+                      onChange={(e) => setSelectedSize(e.target.value)}
+                      className="w-full p-3 border border-accent rounded bg-background text-foreground"
                     >
                       {Array.from(new Set(selectedProduct.variants.map(v => v.size))).map(size => {
                         const variant = selectedProduct.variants.find(v => v.size === size);
