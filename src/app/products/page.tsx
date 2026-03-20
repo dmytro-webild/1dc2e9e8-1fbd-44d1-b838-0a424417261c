@@ -217,10 +217,8 @@ const PRODUCTS_BY_BRAND: { [brand: string]: Product[] } = {
         { lifeStage: 'senior', size: 'gigante', label: 'Senior' }
       ],
       packageSizes: [
-        { size: '4kg', price: 525000, label: '4kg' },
-        { size: '10kg', price: 180000, label: '10kg' },
-        { size: '15kg', price: 250000, label: '15kg' },
-        { size: '20kg', price: 320000, label: '20kg' }
+        { size: '15kg', price: 250000, label: '15kg (Adulto)' },
+        { size: '15kg', price: 250000, label: '15kg (Cachorro)' }
       ]
     }
   ],
@@ -626,7 +624,8 @@ export default function ProductsPage() {
                     <select
                       value={selectedSize}
                       onChange={(e) => setSelectedSize(e.target.value)}
-                      className="w-full p-3 border border-accent rounded bg-background text-foreground"
+                      disabled={isRoyalCaninLocked}
+                      className="w-full p-3 border border-accent rounded bg-background text-foreground disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {Array.from(new Set(selectedProduct.variants.map(v => v.size))).map(size => {
                         const variant = selectedProduct.variants.find(v => v.size === size);
