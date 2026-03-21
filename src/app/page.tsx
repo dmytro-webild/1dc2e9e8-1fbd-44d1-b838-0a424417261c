@@ -294,6 +294,7 @@ y formulaciones confiables para el bienestar de tu perro."
               title: "Seguimiento Continuo",              description: "Monitoreamos el progreso de tu perro y ajustamos recomendaciones según sea necesario.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png",              imageAlt: "Seguimiento continuo"
             }
           ]}
+          gridVariant="uniform-all-items-equal"
           animationType="blur-reveal"
           textboxLayout="default"
           useInvertedBackground={false}
