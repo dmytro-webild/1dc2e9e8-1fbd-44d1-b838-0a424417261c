@@ -6,6 +6,7 @@ import HeroSplitDualMedia from '@/components/sections/hero/HeroSplitDualMedia';
 import AboutMetric from '@/components/sections/about/AboutMetric';
 import SocialProofOne from '@/components/sections/socialProof/SocialProofOne';
 import FeatureCardTwelve from '@/components/sections/feature/FeatureCardTwelve';
+import FeatureCardOne from '@/components/sections/feature/FeatureCardOne';
 import TestimonialCardTen from '@/components/sections/testimonial/TestimonialCardTen';
 import ContactCTA from '@/components/sections/contact/ContactCTA';
 import FooterLogoReveal from '@/components/sections/footer/FooterLogoReveal';
@@ -272,6 +273,31 @@ y formulaciones confiables para el bienestar de tu perro."
           textboxLayout="default"
           useInvertedBackground={false}
           ariaLabel="Coverage zones - Cartagena north zone delivery"
+        />
+      </div>
+
+      <div id="features" data-section="features">
+        <FeatureCardOne
+          title="Especialistas en Nutrición Premium"
+          description="Acceso exclusivo a marcas de alimento premium seleccionadas especialmente para la salud de tu perro."
+          features={[
+            {
+              id: "feature-1",              icon: Award,              title: "Selección Experta",              description: "Cada marca es cuidadosamente elegida por su calidad nutricional y beneficios probados."
+            },
+            {
+              id: "feature-2",              icon: Users,              title: "Asesoría Personalizada",              description: "Recomendaciones adaptadas a las necesidades específicas de tu perro."
+            },
+            {
+              id: "feature-3",              icon: Clock,              title: "Entrega Rápida",              description: "Recibe tu pedido en la puerta de tu hogar en tiempo récord."
+            },
+            {
+              id: "feature-4",              icon: CheckCircle,              title: "Garantía de Calidad",              description: "Todos nuestros productos cumplen con los más altos estándares de seguridad."
+            }
+          ]}
+          animationType="blur-reveal"
+          textboxLayout="default"
+          useInvertedBackground={false}
+          ariaLabel="Feature card - Premium nutrition specialists"
         />
       </div>
 
