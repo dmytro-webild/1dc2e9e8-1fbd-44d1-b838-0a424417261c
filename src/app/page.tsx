@@ -282,19 +282,19 @@ y formulaciones confiables para el bienestar de tu perro."
           description="Descubre los beneficios de confiar en Cartagena Pet Delivery para la nutrición de tu perro."
           features={[
             {
-              id: "1",              icon: CheckCircle,
+              icon: CheckCircle,
               title: "Especialistas en Nutrición",              description: "Nuestro equipo selecciona solo marcas premium con las mejores formulaciones nutricionales."
             },
             {
-              id: "2",              icon: Users,
+              icon: Users,
               title: "Asesoría Personalizada",              description: "Recibis recomendaciones ajustadas a las necesidades específicas de tu perro."
             },
             {
-              id: "3",              icon: Award,
+              icon: Award,
               title: "Entregas Rápidas",              description: "Entrega en la zona norte de Cartagena con servicio profesional y confiable."
             },
             {
-              id: "4",              icon: Clock,
+              icon: Clock,
               title: "Seguimiento Continuo",              description: "Monitoreamos el progreso de tu perro y ajustamos recomendaciones según sea necesario."
             }
           ]}
