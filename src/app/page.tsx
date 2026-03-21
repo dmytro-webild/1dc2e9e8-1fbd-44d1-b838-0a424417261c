@@ -3,16 +3,14 @@
 import { ThemeProvider } from "@/providers/themeProvider/ThemeProvider";
 import NavbarLayoutFloatingOverlay from '@/components/navbar/NavbarLayoutFloatingOverlay/NavbarLayoutFloatingOverlay';
 import HeroSplitDualMedia from '@/components/sections/hero/HeroSplitDualMedia';
-import AboutMetric from '@/components/sections/about/AboutMetric';
 import SocialProofOne from '@/components/sections/socialProof/SocialProofOne';
-import FeatureCardTwelve from '@/components/sections/feature/FeatureCardTwelve';
+import AboutMetric from '@/components/sections/about/AboutMetric';
 import FeatureCardOne from '@/components/sections/feature/FeatureCardOne';
 import TestimonialCardTen from '@/components/sections/testimonial/TestimonialCardTen';
 import ContactCTA from '@/components/sections/contact/ContactCTA';
 import FooterLogoReveal from '@/components/sections/footer/FooterLogoReveal';
-import { Award, Users, Clock, CheckCircle, Sparkles, MessageSquare, Dog } from 'lucide-react';
+import { Award, Users, Clock, CheckCircle, Sparkles, MessageSquare } from 'lucide-react';
 import { useState } from 'react';
-import Image from 'next/image';
 
 interface ModalFormData {
   nombre: string;
@@ -179,9 +177,9 @@ export default function LandingPage() {
           brandName="Cartagena Pet Delivery"
           navItems={[
             { name: "Inicio", id: "hero" },
-            { name: "Por Qué Nosotros", id: "authority" },
             { name: "Marcas", id: "brands" },
             { name: "Cobertura", id: "coverage" },
+            { name: "Especialistas", id: "authority" },
             { name: "Testimonios", id: "testimonials" },
             { name: "Productos", id: "/products" },
             { name: "Contacto", id: "form" }
@@ -223,7 +221,7 @@ Entregas directas en la zona norte de Cartagena."
 
       <div id="brands" data-section="brands">
         <SocialProofOne
-          title="Marcas que Respaldan una Buena Alimentación  "
+          title="Marcas que Respaldan una Buena Alimentación"
           description="Seleccionamos marcas reconocidas por su calidad nutricional
 y formulaciones confiables para el bienestar de tu perro."
           tag="Nutrición Premium"
@@ -236,69 +234,44 @@ y formulaciones confiables para el bienestar de tu perro."
         />
       </div>
 
-      <div id="authority" data-section="authority">
-        <AboutMetric
-          title="Especialistas en Nutrición Premium para Perros - Confía en Nuestra Experiencia"
-          metrics={[
-            { icon: Award, label: "Marcas Premium Disponibles", value: "8+" },
-            { icon: Users, label: "Familias que confían en nosotros", value: "120+" },
-            { icon: Clock, label: "Atención diaria ", value: "7am–9pm" },
-            { icon: CheckCircle, label: "Seguimiento Personalizado", value: "Siempre " }
-          ]}
-          metricsAnimation="blur-reveal"
-          useInvertedBackground={false}
-          ariaLabel="About metrics section - Cartagena Pet Delivery specialization"
-        />
-      </div>
-
       <div id="coverage" data-section="coverage">
-        <FeatureCardTwelve
-          title="Eliminar esta seccion "
-          description="Atendemos la zona norte de Cartagena con entregas rápidas y atención personalizada."
-          features={[
-            {
-              id: "crespo",              label: "Crespo",              title: "Entregas expresas en Crespo",              items: ["Entrega mismo día", "Asesoría a domicilio", "Seguimiento de alimentación"]
-            },
-            {
-              id: "bocagrande",              label: "Bocagrande",              title: "Cobertura completa en Bocagrande",              items: ["Entregas 7 días a la semana", "Horario flexible", "Atención personalizada"]
-            },
-            {
-              id: "manga",              label: "Manga",              title: "Servicio personalizado en Manga",              items: ["Entregas garantizadas", "Consultoría nutricional", "Programas de lealtad"]
-            },
-            {
-              id: "otras-zonas",              label: "Más Zonas",              title: "También cubrimos el Anillo Vial, Serena del Mar y zonas cercanas",              items: ["Cobertura ampla", "Entregas coordinadas", "Servicio premium"]
-            }
-          ]}
-          animationType="blur-reveal"
-          textboxLayout="default"
-          useInvertedBackground={false}
-          ariaLabel="Coverage zones - Cartagena north zone delivery"
-        />
-      </div>
-
-      <div id="features" data-section="features">
         <FeatureCardOne
-          title="Cobertura en la Zona Norte de Cartagena "
+          title="Cobertura en la Zona Norte de Cartagena con Fotografías"
           description="Atendemos la zona norte de Cartagena con entregas rápidas y atención personalizada."
           features={[
             {
-              title: "Crespo ",              description: "● Entrega el mismo día ●Atención rápida",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1774127894701-it850mys.jpg",              imageAlt: "Especialistas en nutrición"
+              title: "Crespo",              description: "● Entrega el mismo día ● Atención rápida",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1774127894701-it850mys.jpg",              imageAlt: "Cobertura en Crespo"
             },
             {
-              title: "Bocagrande ",              description: "● Cobertura completa en Bocagrande ",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1774125129536-1ra3kcaz.jpg",              imageAlt: "Asesoría personalizada"
+              title: "Bocagrande",              description: "● Cobertura completa en Bocagrande",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1774125129536-1ra3kcaz.jpg",              imageAlt: "Cobertura en Bocagrande"
             },
             {
-              title: "Manga ",              description: "Entrega en la zona norte de Cartagena con servicio profesional y confiable.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1774128982922-wh8eqvmy.jpg",              imageAlt: "Entregas rápidas"
+              title: "Manga",              description: "Entrega en la zona norte de Cartagena con servicio profesional y confiable.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1774128982922-wh8eqvmy.jpg",              imageAlt: "Cobertura en Manga"
             },
             {
-              title: "Más Zonas ",              description: "Monitoreamos el progreso de tu perro y ajustamos recomendaciones según sea necesario.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1774129940116-b7nzbc1q.jpg",              imageAlt: "Seguimiento continuo"
+              title: "Más Zonas",              description: "Monitoreamos el progreso de tu perro y ajustamos recomendaciones según sea necesario.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1774129940116-b7nzbc1q.jpg",              imageAlt: "Más zonas de cobertura"
             }
           ]}
           gridVariant="uniform-all-items-equal"
           animationType="blur-reveal"
           textboxLayout="default"
           useInvertedBackground={false}
-          ariaLabel="Feature section - Why choose us"
+          ariaLabel="Feature section - Coverage zones with photographs"
+        />
+      </div>
+
+      <div id="authority" data-section="authority">
+        <AboutMetric
+          title="Especialistas en Nutrición Premium para Perros - Confía en Nuestra Experiencia"
+          metrics={[
+            { icon: Award, label: "Marcas Premium Disponibles", value: "8+" },
+            { icon: Users, label: "Familias que confían en nosotros", value: "120+" },
+            { icon: Clock, label: "Atención diaria", value: "7am–9pm" },
+            { icon: CheckCircle, label: "Seguimiento Personalizado", value: "Siempre" }
+          ]}
+          metricsAnimation="blur-reveal"
+          useInvertedBackground={false}
+          ariaLabel="About metrics section - Cartagena Pet Delivery specialization"
         />
       </div>
 
