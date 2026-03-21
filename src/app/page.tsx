@@ -236,7 +236,7 @@ y formulaciones confiables para el bienestar de tu perro."
 
       <div id="coverage" data-section="coverage">
         <FeatureCardOne
-          title="Cobertura en la Zona Norte de Cartagena con Fotografías"
+          title="Cobertura en la Zona Norte de Cartagena"
           description="Atendemos la zona norte de Cartagena con entregas rápidas y atención personalizada."
           features={[
             {
