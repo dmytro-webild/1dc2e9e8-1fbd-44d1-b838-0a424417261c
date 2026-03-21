@@ -253,7 +253,7 @@ y formulaciones confiables para el bienestar de tu perro."
 
       <div id="coverage" data-section="coverage">
         <FeatureCardTwelve
-          title="Cobertura en la Zona Norte de Cartagena"
+          title="Eliminar esta seccion "
           description="Atendemos la zona norte de Cartagena con entregas rápidas y atención personalizada."
           features={[
             {
