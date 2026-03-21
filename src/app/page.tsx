@@ -208,7 +208,7 @@ Entregas directas en la zona norte de Cartagena."
           buttonAnimation="blur-reveal"
           mediaItems={[
             {
-              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png",              imageAlt: "Perro comiendo alimento premium"
+              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png?_wi=1",              imageAlt: "Perro comiendo alimento premium"
             },
             {
               imageSrc: "http://img.b2bpic.net/free-photo/hungry-white-brown-dog-with-big-ears-brown-eyes-ready-eat-bowl-full-food_181624-59012.jpg?_wi=2",              imageAlt: "Dueño de perro satisfecho con nuestro servicio"
@@ -282,16 +282,16 @@ y formulaciones confiables para el bienestar de tu perro."
           description="Descubre los beneficios de confiar en Cartagena Pet Delivery para la nutrición de tu perro."
           features={[
             {
-              title: "Especialistas en Nutrición",              description: "Nuestro equipo selecciona solo marcas premium con las mejores formulaciones nutricionales.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png",              imageAlt: "Especialistas en nutrición"
+              title: "Especialistas en Nutrición",              description: "Nuestro equipo selecciona solo marcas premium con las mejores formulaciones nutricionales.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png?_wi=2",              imageAlt: "Especialistas en nutrición"
             },
             {
-              title: "Asesoría Personalizada",              description: "Recibis recomendaciones ajustadas a las necesidades específicas de tu perro.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png",              imageAlt: "Asesoría personalizada"
+              title: "Asesoría Personalizada",              description: "Recibis recomendaciones ajustadas a las necesidades específicas de tu perro.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png?_wi=3",              imageAlt: "Asesoría personalizada"
             },
             {
-              title: "Entregas Rápidas",              description: "Entrega en la zona norte de Cartagena con servicio profesional y confiable.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png",              imageAlt: "Entregas rápidas"
+              title: "Entregas Rápidas",              description: "Entrega en la zona norte de Cartagena con servicio profesional y confiable.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png?_wi=4",              imageAlt: "Entregas rápidas"
             },
             {
-              title: "Seguimiento Continuo",              description: "Monitoreamos el progreso de tu perro y ajustamos recomendaciones según sea necesario.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png",              imageAlt: "Seguimiento continuo"
+              title: "Seguimiento Continuo",              description: "Monitoreamos el progreso de tu perro y ajustamos recomendaciones según sea necesario.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png?_wi=5",              imageAlt: "Seguimiento continuo"
             }
           ]}
           gridVariant="uniform-all-items-equal"
