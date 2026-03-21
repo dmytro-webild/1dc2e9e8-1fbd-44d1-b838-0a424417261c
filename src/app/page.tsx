@@ -282,20 +282,16 @@ y formulaciones confiables para el bienestar de tu perro."
           description="Descubre los beneficios de confiar en Cartagena Pet Delivery para la nutrición de tu perro."
           features={[
             {
-              icon: CheckCircle,
-              title: "Especialistas en Nutrición",              description: "Nuestro equipo selecciona solo marcas premium con las mejores formulaciones nutricionales."
+              title: "Especialistas en Nutrición",              description: "Nuestro equipo selecciona solo marcas premium con las mejores formulaciones nutricionales.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png",              imageAlt: "Especialistas en nutrición"
             },
             {
-              icon: Users,
-              title: "Asesoría Personalizada",              description: "Recibis recomendaciones ajustadas a las necesidades específicas de tu perro."
+              title: "Asesoría Personalizada",              description: "Recibis recomendaciones ajustadas a las necesidades específicas de tu perro.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png",              imageAlt: "Asesoría personalizada"
             },
             {
-              icon: Award,
-              title: "Entregas Rápidas",              description: "Entrega en la zona norte de Cartagena con servicio profesional y confiable."
+              title: "Entregas Rápidas",              description: "Entrega en la zona norte de Cartagena con servicio profesional y confiable.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png",              imageAlt: "Entregas rápidas"
             },
             {
-              icon: Clock,
-              title: "Seguimiento Continuo",              description: "Monitoreamos el progreso de tu perro y ajustamos recomendaciones según sea necesario."
+              title: "Seguimiento Continuo",              description: "Monitoreamos el progreso de tu perro y ajustamos recomendaciones según sea necesario.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png",              imageAlt: "Seguimiento continuo"
             }
           ]}
           animationType="blur-reveal"
