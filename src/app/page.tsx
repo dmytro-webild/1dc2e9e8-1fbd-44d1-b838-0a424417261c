@@ -285,7 +285,7 @@ y formulaciones confiables para el bienestar de tu perro."
               title: "Crespo ",              description: "Nuestro equipo selecciona solo marcas premium con las mejores formulaciones nutricionales.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png?_wi=2",              imageAlt: "Especialistas en nutrición"
             },
             {
-              title: "Bocagrande ",              description: "Recibis recomendaciones ajustadas a las necesidades específicas de tu perro.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png?_wi=3",              imageAlt: "Asesoría personalizada"
+              title: "Bocagrande ",              description: "Recibis recomendaciones ajustadas a las necesidades específicas de tu perro.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1774125129536-1ra3kcaz.jpg",              imageAlt: "Asesoría personalizada"
             },
             {
               title: "Manga ",              description: "Entrega en la zona norte de Cartagena con servicio profesional y confiable.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png?_wi=4",              imageAlt: "Entregas rápidas"
