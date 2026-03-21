@@ -282,16 +282,16 @@ y formulaciones confiables para el bienestar de tu perro."
           description="Acceso exclusivo a marcas de alimento premium seleccionadas especialmente para la salud de tu perro."
           features={[
             {
-              id: "feature-1",              icon: Award,              title: "Selección Experta",              description: "Cada marca es cuidadosamente elegida por su calidad nutricional y beneficios probados."
+              icon: Award,              title: "Selección Experta",              description: "Cada marca es cuidadosamente elegida por su calidad nutricional y beneficios probados."
             },
             {
-              id: "feature-2",              icon: Users,              title: "Asesoría Personalizada",              description: "Recomendaciones adaptadas a las necesidades específicas de tu perro."
+              icon: Users,              title: "Asesoría Personalizada",              description: "Recomendaciones adaptadas a las necesidades específicas de tu perro."
             },
             {
-              id: "feature-3",              icon: Clock,              title: "Entrega Rápida",              description: "Recibe tu pedido en la puerta de tu hogar en tiempo récord."
+              icon: Clock,              title: "Entrega Rápida",              description: "Recibe tu pedido en la puerta de tu hogar en tiempo récord."
             },
             {
-              id: "feature-4",              icon: CheckCircle,              title: "Garantía de Calidad",              description: "Todos nuestros productos cumplen con los más altos estándares de seguridad."
+              icon: CheckCircle,              title: "Garantía de Calidad",              description: "Todos nuestros productos cumplen con los más altos estándares de seguridad."
             }
           ]}
           animationType="blur-reveal"
