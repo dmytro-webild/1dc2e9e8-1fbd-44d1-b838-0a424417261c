@@ -288,7 +288,7 @@ y formulaciones confiables para el bienestar de tu perro."
               title: "Bocagrande ",              description: "● Cobertura completa en Bocagrande ",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1774125129536-1ra3kcaz.jpg",              imageAlt: "Asesoría personalizada"
             },
             {
-              title: "Manga ",              description: "Entrega en la zona norte de Cartagena con servicio profesional y confiable.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png?_wi=4",              imageAlt: "Entregas rápidas"
+              title: "Manga ",              description: "Entrega en la zona norte de Cartagena con servicio profesional y confiable.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1774128982922-wh8eqvmy.jpg",              imageAlt: "Entregas rápidas"
             },
             {
               title: "Más Zonas ",              description: "Monitoreamos el progreso de tu perro y ajustamos recomendaciones según sea necesario.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png?_wi=5",              imageAlt: "Seguimiento continuo"
