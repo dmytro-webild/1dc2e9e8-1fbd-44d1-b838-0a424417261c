@@ -278,26 +278,30 @@ y formulaciones confiables para el bienestar de tu perro."
 
       <div id="features" data-section="features">
         <FeatureCardOne
-          title="Especialistas en Nutrición Premium"
-          description="Acceso exclusivo a marcas de alimento premium seleccionadas especialmente para la salud de tu perro."
+          title="Por Qué Elegirnos"
+          description="Descubre los beneficios de confiar en Cartagena Pet Delivery para la nutrición de tu perro."
           features={[
             {
-              icon: Award,              title: "Selección Experta",              description: "Cada marca es cuidadosamente elegida por su calidad nutricional y beneficios probados."
+              id: "1",              icon: CheckCircle,
+              title: "Especialistas en Nutrición",              description: "Nuestro equipo selecciona solo marcas premium con las mejores formulaciones nutricionales."
             },
             {
-              icon: Users,              title: "Asesoría Personalizada",              description: "Recomendaciones adaptadas a las necesidades específicas de tu perro."
+              id: "2",              icon: Users,
+              title: "Asesoría Personalizada",              description: "Recibis recomendaciones ajustadas a las necesidades específicas de tu perro."
             },
             {
-              icon: Clock,              title: "Entrega Rápida",              description: "Recibe tu pedido en la puerta de tu hogar en tiempo récord."
+              id: "3",              icon: Award,
+              title: "Entregas Rápidas",              description: "Entrega en la zona norte de Cartagena con servicio profesional y confiable."
             },
             {
-              icon: CheckCircle,              title: "Garantía de Calidad",              description: "Todos nuestros productos cumplen con los más altos estándares de seguridad."
+              id: "4",              icon: Clock,
+              title: "Seguimiento Continuo",              description: "Monitoreamos el progreso de tu perro y ajustamos recomendaciones según sea necesario."
             }
           ]}
           animationType="blur-reveal"
           textboxLayout="default"
           useInvertedBackground={false}
-          ariaLabel="Feature card - Premium nutrition specialists"
+          ariaLabel="Feature section - Why choose us"
         />
       </div>
 
