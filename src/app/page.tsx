@@ -278,8 +278,8 @@ y formulaciones confiables para el bienestar de tu perro."
 
       <div id="features" data-section="features">
         <FeatureCardOne
-          title="Por Qué Elegirnos"
-          description="Descubre los beneficios de confiar en Cartagena Pet Delivery para la nutrición de tu perro."
+          title="Cobertura en la Zona Norte de Cartagena "
+          description="Atendemos la zona norte de Cartagena con entregas rápidas y atención personalizada."
           features={[
             {
               title: "Especialistas en Nutrición",              description: "Nuestro equipo selecciona solo marcas premium con las mejores formulaciones nutricionales.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png?_wi=2",              imageAlt: "Especialistas en nutrición"
