@@ -249,7 +249,7 @@ y formulaciones confiables para el bienestar de tu perro."
               title: "Manga",              description: "● Atención personalizada ● Entrega confiable ",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1774128982922-wh8eqvmy.jpg",              imageAlt: "Cobertura en Manga"
             },
             {
-              title: "Más Zonas",              description: "● Monitoreamos el progreso de tu perro y ajustamos recomendaciones según sea necesario.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1774129940116-b7nzbc1q.jpg",              imageAlt: "Más zonas de cobertura"
+              title: "Más Zonas",              description: "● También cubrimos el Anillo Vial y zonas cercanas",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1774129940116-b7nzbc1q.jpg",              imageAlt: "Más zonas de cobertura"
             }
           ]}
           gridVariant="uniform-all-items-equal"
