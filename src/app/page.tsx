@@ -282,7 +282,7 @@ y formulaciones confiables para el bienestar de tu perro."
           description="Atendemos la zona norte de Cartagena con entregas rápidas y atención personalizada."
           features={[
             {
-              title: "Crespo ",              description: "Nuestro equipo selecciona solo marcas premium con las mejores formulacion",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png?_wi=2",              imageAlt: "Especialistas en nutrición"
+              title: "Crespo ",              description: "Entrega el mismo díaAtención rápida ",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png?_wi=2",              imageAlt: "Especialistas en nutrición"
             },
             {
               title: "Bocagrande ",              description: "Recibis recomendaciones ajustadas a las necesidades específicas de tu perro.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1774125129536-1ra3kcaz.jpg",              imageAlt: "Asesoría personalizada"
