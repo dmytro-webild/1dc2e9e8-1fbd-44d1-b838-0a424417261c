@@ -291,7 +291,7 @@ y formulaciones confiables para el bienestar de tu perro."
               title: "Manga ",              description: "Entrega en la zona norte de Cartagena con servicio profesional y confiable.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1774128982922-wh8eqvmy.jpg",              imageAlt: "Entregas rápidas"
             },
             {
-              title: "Más Zonas ",              description: "Monitoreamos el progreso de tu perro y ajustamos recomendaciones según sea necesario.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1773846631381-5n56dkic.png?_wi=5",              imageAlt: "Seguimiento continuo"
+              title: "Más Zonas ",              description: "Monitoreamos el progreso de tu perro y ajustamos recomendaciones según sea necesario.",              imageSrc: "https://webuild-dev.s3.eu-north-1.amazonaws.com/users/user_3AUA3fVGRKIlnUpW45aNJlxvf7N/uploaded-1774129940116-b7nzbc1q.jpg",              imageAlt: "Seguimiento continuo"
             }
           ]}
           gridVariant="uniform-all-items-equal"
