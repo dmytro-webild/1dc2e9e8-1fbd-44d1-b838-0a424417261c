@@ -227,7 +227,7 @@ y formulaciones confiables para el bienestar de tu perro."
           tag="Nutrición Premium"
           textboxLayout="default"
           useInvertedBackground={false}
-          names={["Orijen", "Acana", "Taste of the Wild", "Hill's Science Diet", "Pro Plan", "Equilibrio", "Bonnat"]}
+          names={["Orijen", "Acana", "Taste of the Wild", "Hill's Science Diet", "Pro Plan", "Equilibrio", "Bonnat", "Royal Canin"]}
           speed={40}
           showCard={true}
           ariaLabel="Social proof - Premium brands section"
