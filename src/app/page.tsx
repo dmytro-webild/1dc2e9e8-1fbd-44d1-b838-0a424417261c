@@ -265,7 +265,7 @@ y formulaciones confiables para el bienestar de tu perro."
           title="Especialistas en Nutrición Premium para Perros - Confía en Nuestra Experiencia"
           metrics={[
             { icon: Award, label: "Marcas Premium Disponibles", value: "8+" },
-            { icon: Users, label: "Familias que confían en nosotros", value: "120+" },
+            { icon: Users, label: "Familias que confían en nosotros", value: "55+" },
             { icon: Clock, label: "Atención diaria", value: "7am–9pm" },
             { icon: CheckCircle, label: "Seguimiento Personalizado", value: "Siempre" }
           ]}
