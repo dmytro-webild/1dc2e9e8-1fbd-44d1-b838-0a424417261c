@@ -234,41 +234,6 @@ y formulaciones confiables para el bienestar de tu perro."
         />
       </div>
 
-      <div id="brands-carousel" data-section="brands-carousel" style={{ backgroundColor: '#f5f5f9', paddingTop: '1px', borderBottom: '1px solid #e0e0e0' }}>
-        <div className="flex flex-col items-center justify-center py-12 px-4">
-          <div className="w-full max-w-7xl">
-            <div className="flex justify-center mb-2">
-              <span className="text-xs font-semibold text-primary-cta uppercase tracking-wider">Nutricion Premium</span>
-            </div>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-3 text-foreground">Marcas Ejemplo que Respaldan</h2>
-            <p className="text-center text-foreground/70 mb-10 text-sm md:text-base">Seleccionamos marcas reconocidas por su calidad nutricional y formulaciones confiables</p>
-            
-            <div className="overflow-x-auto hide-scrollbar">
-              <div className="flex gap-8 justify-center items-center py-6 px-4 min-w-max md:min-w-full md:justify-center">
-                {['Hill\'s Pro Plan', 'Equilibrio', 'Bonnat', 'Orijen', 'Acana', 'Taste of the Wild', 'Royal Canin'].map((brand, index) => (
-                  <div key={index} className="flex-shrink-0 h-12 md:h-16 flex items-center justify-center px-4">
-                    <div className="text-center">
-                      <div className="h-10 md:h-14 flex items-center justify-center bg-background/50 rounded px-3 py-2 whitespace-nowrap">
-                        <span className="text-xs md:text-sm font-semibold text-foreground">{brand}</span>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-        <style jsx>{`
-          .hide-scrollbar {
-            -ms-overflow-style: none;
-            scrollbar-width: none;
-          }
-          .hide-scrollbar::-webkit-scrollbar {
-            display: none;
-          }
-        `}</style>
-      </div>
-
       <div id="coverage" data-section="coverage" style={{ backgroundColor: '#ffffff', paddingTop: '1px', borderBottom: '1px solid #e0e0e0' }}>
         <FeatureCardOne
           title="Cobertura en la Zona Norte de Cartagena"
