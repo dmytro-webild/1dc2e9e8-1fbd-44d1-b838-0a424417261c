@@ -190,7 +190,7 @@ export default function LandingPage() {
         />
       </div>
 
-      <div id="hero" data-section="hero">
+      <div id="hero" data-section="hero" style={{ backgroundColor: '#ffffff' }}>
         <HeroSplitDualMedia
           title="Alimento Premium para perros con entrega en Cartagena"
           description="Marcas reconocidas por su calidad nutricional.
@@ -219,7 +219,7 @@ Entregas directas en la zona norte de Cartagena."
         />
       </div>
 
-      <div id="brands" data-section="brands">
+      <div id="brands" data-section="brands" style={{ backgroundColor: '#f5f5f9' }}>
         <SocialProofOne
           title="Marcas que Respaldan una Buena Alimentación"
           description="Seleccionamos marcas reconocidas por su calidad nutricional
@@ -234,7 +234,7 @@ y formulaciones confiables para el bienestar de tu perro."
         />
       </div>
 
-      <div id="coverage" data-section="coverage">
+      <div id="coverage" data-section="coverage" style={{ backgroundColor: '#ffffff' }}>
         <FeatureCardOne
           title="Cobertura en la Zona Norte de Cartagena"
           description="Atendemos la zona norte de Cartagena con entregas rápidas y atención personalizada."
@@ -260,7 +260,7 @@ y formulaciones confiables para el bienestar de tu perro."
         />
       </div>
 
-      <div id="authority" data-section="authority">
+      <div id="authority" data-section="authority" style={{ backgroundColor: '#f5f5f9' }}>
         <AboutMetric
           title="Especialistas en Nutrición Premium para Perros - Confía en Nuestra Experiencia"
           metrics={[
@@ -275,7 +275,7 @@ y formulaciones confiables para el bienestar de tu perro."
         />
       </div>
 
-      <div id="testimonials" data-section="testimonials">
+      <div id="testimonials" data-section="testimonials" style={{ backgroundColor: '#ffffff' }}>
         <TestimonialCardTen
           title="Lo que Dicen Nuestros Clientes Premium"
           description="Dueños de perros en la zona norte de Cartagena confían en nuestra especialización y calidad."
@@ -299,7 +299,7 @@ y formulaciones confiables para el bienestar de tu perro."
         />
       </div>
 
-      <div id="form" data-section="form">
+      <div id="form" data-section="form" style={{ backgroundColor: '#f5f5f9' }}>
         <ContactCTA
           tag="Solicitud Especializada"
           tagIcon={MessageSquare}
